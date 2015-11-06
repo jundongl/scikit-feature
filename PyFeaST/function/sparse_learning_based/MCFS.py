@@ -1,7 +1,7 @@
 import scipy
 import numpy as np
 from sklearn import linear_model
-from FS_package.utility.construct_W import construct_W
+from PyFeaST.utility.construct_W import construct_W
 
 
 def mcfs(X, n_selected_features, **kwargs):

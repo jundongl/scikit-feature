@@ -1,5 +1,5 @@
 import numpy as np
-from FS_package.utility.mutual_information import su_calculation
+from PyFeaST.utility.mutual_information import su_calculation
 
 
 def fcbf(X, y, **kwargs):

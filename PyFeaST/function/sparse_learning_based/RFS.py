@@ -1,8 +1,8 @@
 import math
 import numpy as np
 from numpy import linalg as LA
-from FS_package.utility.sparse_learning import generate_diagonal_matrix
-from FS_package.utility.sparse_learning import calculate_l21_norm
+from PyFeaST.utility.sparse_learning import generate_diagonal_matrix
+from PyFeaST.utility.sparse_learning import calculate_l21_norm
 
 
 def erfs(X, Y, **kwargs):

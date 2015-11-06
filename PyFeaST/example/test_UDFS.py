@@ -1,7 +1,7 @@
 import scipy.io
-from FS_package.function.sparse_learning_based import UDFS
-from FS_package.utility.unsupervised_evaluation import evaluation
-from FS_package.utility.sparse_learning import feature_ranking
+from PyFeaST.function.sparse_learning_based import UDFS
+from PyFeaST.utility.unsupervised_evaluation import evaluation
+from PyFeaST.utility.sparse_learning import feature_ranking
 
 
 def main():

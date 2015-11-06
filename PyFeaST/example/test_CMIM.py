@@ -3,7 +3,7 @@ import scipy.io
 from sklearn.metrics import accuracy_score
 from sklearn import cross_validation
 from sklearn.svm import SVC
-from FS_package.function.information_theoretic_based import CMIM
+from PyFeaST.function.information_theoretic_based import CMIM
 
 
 def main():

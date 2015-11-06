@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.sparse import *
-from FS_package.utility.construct_W import construct_W
+from PyFeaST.utility.construct_W import construct_W
 
 
 def lap_score(X, **kwargs):

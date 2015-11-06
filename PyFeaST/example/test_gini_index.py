@@ -1,8 +1,7 @@
 import scipy.io
-from sklearn import cross_validation
 from sklearn import svm
 from sklearn.metrics import accuracy_score
-from FS_package.function.statistics_based import gini_index
+from PyFeaST.function.statistics_based import gini_index
 from sklearn import cross_validation
 
 

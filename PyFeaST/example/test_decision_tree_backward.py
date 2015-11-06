@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 from sklearn.cross_validation import KFold
-from FS_package.function.wrapper import decision_tree_backward
+from PyFeaST.function.wrapper import decision_tree_backward
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 

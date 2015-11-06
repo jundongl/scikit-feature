@@ -1,8 +1,7 @@
 import numpy as np
-import sys
 
 
-def softthreshold(A,b):
+def soft_threshold(A,b):
     """
     This function implement the soft-threshold operator
     Input:
@@ -75,6 +74,7 @@ def goscar(X, y, **kwargs):
         rho = kwargs['rho']
 
     n_samples, n_features = X.shape
+
     # construct T from E
     ind1 = edge_list[:, 0]
     ind2 = edge_list[:, 1]
@@ -108,29 +108,27 @@ def goscar(X, y, **kwargs):
         print iter
         # update w
         b = np.dot(X.T, y) - mu - np.dot(T.T, v) + rho*np.dot(T.T,p) + rho*q
-        print b.shape
-        #w_hat = np.linalg.solve(R.T, b)
-        #w = np.linalg.solve(R, w_hat)
         w_hat = np.dot(Rtinv, b)
         w = np.dot(Rinv, w_hat)
 
         # update q
-        q = softthreshold(w + 1/rho*mu, lambda1/rho)
+        q = soft_threshold(w + 1/rho*mu, lambda1/rho)
         # update p
 
-        p = softthreshold(np.dot(T, w)+1/rho*v, lambda2/rho)
+        p = soft_threshold(np.dot(T, w)+1/rho*v, lambda2/rho)
         # update mu, v
-        mu = mu + rho*(w - q)
-        v = v + rho*(np.dot(T, w) - p)
+        mu += rho*(w - q)
+        v += rho*(np.dot(T, w) - p)
+
         # calculate objective function
         obj[iter] = calculate_obj(X, y, w, lambda1, lambda2, T)
         if verbose:
             print 'obj at iter ' + str(iter) + ': ' + str(obj[iter])
-        iter = iter + 1
+        iter += 1
     return w, obj, q
 
 
-def featureRanking(w):
+def feature_ranking(w):
     T = w.abs()
     idx = np.argsort(T, 0)
     return idx[::-1]

@@ -2,8 +2,8 @@ import scipy.io
 from sklearn import svm
 from sklearn import cross_validation
 from sklearn.metrics import accuracy_score
-from FS_package.utility.sparse_learning import *
-from FS_package.function.sparse_learning_based import ls_l21_proximal
+from PyFeaST.utility.sparse_learning import *
+from PyFeaST.function.sparse_learning_based import ls_l21_proximal
 
 
 def main():

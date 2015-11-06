@@ -1,8 +1,8 @@
 import scipy.io
-from FS_package.function.sparse_learning_based import NDFS
-from FS_package.utility import construct_W
-from FS_package.utility.sparse_learning import feature_ranking
-from FS_package.utility.unsupervised_evaluation import evaluation
+from PyFeaST.function.sparse_learning_based import NDFS
+from PyFeaST.utility import construct_W
+from PyFeaST.utility.sparse_learning import feature_ranking
+from PyFeaST.utility.unsupervised_evaluation import evaluation
 
 
 def main():

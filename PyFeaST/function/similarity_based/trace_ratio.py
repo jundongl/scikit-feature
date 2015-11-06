@@ -1,5 +1,5 @@
 import numpy as np
-from FS_package.utility.construct_W import construct_W
+from PyFeaST.utility.construct_W import construct_W
 
 
 def trace_ratio(X, y, n_selected_features, **kwargs):

@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.sparse import rand
-from FS_package.function.structure import tree_fs
+from PyFeaST.function.structure import tree_fs
 
 
 def main():

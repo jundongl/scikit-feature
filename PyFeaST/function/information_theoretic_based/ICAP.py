@@ -1,4 +1,4 @@
-from FS_package.utility.entropy_estimators import *
+from PyFeaST.utility.entropy_estimators import *
 
 
 def icap(X, y, **kwargs):

@@ -1,7 +1,7 @@
 import scipy.io
-from FS_package.function.sparse_learning_based import MCFS
-from FS_package.utility import construct_W
-from FS_package.utility import unsupervised_evaluation
+from PyFeaST.function.sparse_learning_based import MCFS
+from PyFeaST.utility import construct_W
+from PyFeaST.utility import unsupervised_evaluation
 
 
 def main():

@@ -2,7 +2,7 @@ import numpy as np
 import sys
 import math
 import sklearn.cluster
-from FS_package.utility.construct_W import construct_W
+from PyFeaST.utility.construct_W import construct_W
 
 
 def ndfs(X, **kwargs):

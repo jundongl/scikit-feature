@@ -1,5 +1,5 @@
 import scipy.io
-from FS_package.function.statistics_based import chi_square
+from PyFeaST.function.statistics_based import chi_square
 
 
 def main():

@@ -1,5 +1,5 @@
 import numpy as np
-from FS_package.utility import cond_indep_G2
+from PyFeaST.utility import cond_indep_G2
 
 
 def subset_list(s_size):

@@ -3,7 +3,7 @@ from sklearn import preprocessing
 from sklearn import cross_validation
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-from FS_package.function.similarity_based import reliefF
+from PyFeaST.function.similarity_based import reliefF
 
 
 def main():

@@ -1,6 +1,6 @@
 import math
 import numpy as np
-from FS_package.utility.sparse_learning import tree_lasso_projection, tree_norm
+from PyFeaST.utility.sparse_learning import tree_lasso_projection, tree_norm
 
 
 def tree_fs(X, y, z, idx, **kwargs):

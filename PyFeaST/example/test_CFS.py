@@ -3,7 +3,7 @@ import csv
 from sklearn import svm
 from sklearn import cross_validation
 from sklearn.metrics import accuracy_score
-from FS_package.function.statistics_based import CFS
+from PyFeaST.function.statistics_based import CFS
 
 
 def main():

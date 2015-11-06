@@ -1,6 +1,6 @@
 import numpy as np
 import csv
-from FS_package.function.statistics_based import f_score
+from PyFeaST.function.statistics_based import f_score
 
 
 def main():
