@@ -94,9 +94,9 @@ def reliefF(X, y, **kwargs):
             near_hit_term = np.array(abs(self_fea-X[ele, :]))+np.array(near_hit_term)
 
         near_miss_term = dict()
-        for (label, list) in near_miss.items():
+        for (label, miss_list) in near_miss.items():
             near_miss_term[label] = np.zeros(n_features)
-            for ele in list:
+            for ele in miss_list:
                 near_miss_term[label] = np.array(abs(self_fea-X[ele, :]))+np.array(near_miss_term[label])
             score += near_miss_term[label]/(k*p_dict[label])
         score -= near_hit_term/k
