@@ -9,7 +9,6 @@ def tree_fs(X, y, z, idx, **kwargs):
     min_{w} ||Xw-Y||_2^2 + z\sum_{i}\sum_{j} h_{j}^{i}|||w_{G_{j}^{i}}|| where h_{j}^{i} is the weight for the j-th group
     from the i-th level (the root node is in level 0)
 
-
     Input
     -----
     X: {numpy array}, shape (n_samples, n_features)
