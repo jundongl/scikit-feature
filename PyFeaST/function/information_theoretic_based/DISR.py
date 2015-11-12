@@ -69,7 +69,7 @@ def disr(X, y, **kwargs):
             if i not in F:
                 f = X[:, i]
                 t1 = midd(f_select, y) + cmidd(f, y, f_select)
-                t2 = entropyd(f) + conditional_entropy(f_select, f) + (conditional_entropy(y, f_select) - ee.cmidd(y, f, f_select))
+                t2 = entropyd(f) + conditional_entropy(f_select, f) + (conditional_entropy(y, f_select) - cmidd(y, f, f_select))
                 sum[i] += np.true_divide(t1, t2)
                 # record the largest j_disr and the corresponding feature index
                 if sum[i] > j_disr:
