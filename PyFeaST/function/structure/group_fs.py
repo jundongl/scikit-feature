@@ -6,14 +6,14 @@ from PyFeaST.utility.sparse_learning import tree_lasso_projection, tree_norm
 def group_fs(X, y, z1, z2, idx, **kwargs):
     """
     This function implements supervised sparse group feature selection with least square loss, i.e.,
-    min_{w} ||Xw-Y||_2^2 + z_1||x||_1 + z_2*sum_j w_j||w_{G_{j}}||
+    min_{w} ||Xw-y||_2^2 + z_1||w||_1 + z_2*sum_{i} h_{i}||w_{G_{i}}|| where h_i is the weight for the i-th group
 
     Input
     -----
     X: {numpy array}, shape (n_samples, n_features)
         input data
-    Y: {numpy array}, shape (n_samples, n_classes)
-        input class labels, each row is a one-hot-coding class label
+    y: {numpy array}, shape (n_samples,)
+        input class labels or regression target
     z1: {float}
         regularization parameter of L1 norm for each element
     z2: {float}

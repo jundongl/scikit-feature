@@ -6,15 +6,16 @@ from PyFeaST.utility.sparse_learning import tree_lasso_projection, tree_norm
 def tree_fs(X, y, z, idx, **kwargs):
     """
     This function implements tree structured group lasso regularization with least square loss, i.e.,
-    min_{w} ||Xw-Y||_2^2 + z_1||x||_1 + z_2*sum_j w_j||w_{G_{j}}||
+    min_{w} ||Xw-Y||_2^2 + z\sum_{i}\sum_{j} h_{j}^{i}|||w_{G_{j}^{i}}|| where h_{j}^{i} is the weight for the j-th group
+    from the i-th level (the root node is in level 0)
 
 
     Input
     -----
     X: {numpy array}, shape (n_samples, n_features)
         input data
-    Y: {numpy array}, shape (n_samples, n_classes)
-        input class labels, each row is a one-hot-coding class label
+    y: {numpy array}, shape (n_samples,)
+        input class labels or regression target
     z: {float}
         regularization parameter of L2 norm for the non-overlapping group
     idx: {numpy array}, shape (3, n_nodes)
