@@ -53,7 +53,7 @@ def erfs(X, Y, **kwargs):
     for iter_step in range(max_iter):
         # update U as U = D^{-1} A^T (A D^-1 A^T)^-1 Y
         D_inv = LA.inv(D)
-        temp = LA.inv(np.dot(np.dot(A, D_inv), A.T))  # (A D^-1 A^T)^-1
+        temp = LA.pinv(np.dot(np.dot(A, D_inv), A.T))  # (A D^-1 A^T)^-1
         U = np.dot(np.dot(np.dot(D_inv, A.T), temp), Y)
         # update D as D_ii = 1 / 2 / ||U(i,:)||
         D = generate_diagonal_matrix(U)
