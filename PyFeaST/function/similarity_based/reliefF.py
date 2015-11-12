@@ -34,7 +34,7 @@ def reliefF(X, y, **kwargs):
     n_samples, n_features = X.shape
 
     # calculate pairwise distances between instances
-    distance = pairwise_distances(X)
+    distance = pairwise_distances(X, metric='manhattan')
 
     score = np.zeros(n_features)
 
