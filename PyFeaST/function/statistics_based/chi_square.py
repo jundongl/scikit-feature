@@ -4,7 +4,7 @@ from sklearn.feature_selection import chi2
 
 def chi_square(X, y):
     """
-    This function implements the anova f_value feature selection (existing method for classification in scikit-learn)
+    This function implements the chi-square feature selection (existing method for classification in scikit-learn)
 
     Input
     -----
