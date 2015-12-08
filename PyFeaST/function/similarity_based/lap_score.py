@@ -9,7 +9,7 @@ def lap_score(X, **kwargs):
     1. Construct the affinity matrix W if it is not specified
     2. For the r-th feature, we define fr = X(:,r), D = diag(W*ones), ones = [1,...,1]', L = D - W
     3. Let fr_hat = fr - (fr'*D*ones)*ones/(ones'*D*ones)
-    4. Laplacian score for the r-th feature is Lr = (fr_hat'*L*fr_hat)/*(fr_hat'*D*fr_hat)
+    4. Laplacian score for the r-th feature is score = (fr_hat'*L*fr_hat)/(fr_hat'*D*fr_hat)
 
     Input
     -----

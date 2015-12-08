@@ -2,7 +2,6 @@ import numpy as np
 import sklearn.utils.linear_assignment_ as la
 from sklearn.metrics import accuracy_score
 from sklearn.metrics.cluster import normalized_mutual_info_score
-from sklearn.metrics.cluster import adjusted_rand_score
 from sklearn.cluster import KMeans
 
 
@@ -52,8 +51,6 @@ def evaluation(X_selected, n_clusters, y):
 
     Output
     ------
-    ari: {float}
-        Adjusted Rand Index
     nmi: {float}
         Normalized Mutual Information
     acc: {float}
@@ -66,9 +63,6 @@ def evaluation(X_selected, n_clusters, y):
     k_means.fit(X_selected)
     y_predict = k_means.labels_
 
-    # calculate ARI
-    ari = adjusted_rand_score(y, y_predict)
-
     # calculate NMI
     nmi = normalized_mutual_info_score(y, y_predict)
 
@@ -77,4 +71,4 @@ def evaluation(X_selected, n_clusters, y):
     y_permuted_predict = best_map(y, y_predict)
     acc = accuracy_score(y, y_permuted_predict)
 
-    return ari, nmi, acc
+    return nmi, acc

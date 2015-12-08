@@ -9,7 +9,7 @@ def fisher_score(X, y):
     1. Construct the affinity matrix W in fisher score way
     2. For the r-th feature, we define fr = X(:,r), D = diag(W*ones), ones = [1,...,1]', L = D - W
     3. Let fr_hat = fr - (fr'*D*ones)*ones/(ones'*D*ones)
-    4. Fisher score for the r-th feature is Lr = (fr_hat'*L*fr_hat)/*(fr_hat'*D*fr_hat)
+    4. Fisher score for the r-th feature is score = (fr_hat'*D*fr_hat)/(fr_hat'*L*fr_hat)-1
 
     Input
     -----
@@ -22,6 +22,11 @@ def fisher_score(X, y):
     ------
     score: {numpy array}, shape (n_features,)
         fisher score for each feature
+
+    Reference
+    ---------
+    He, Xiaofei et al. "Laplacian Score for Feature Selection." NIPS 2005.
+    Duda, Richard et al. "Pattern classification." John Wiley & Sons, 2012.
     """
 
     # Construct weight matrix W in a fisherScore way
