@@ -1,43 +1,46 @@
-import numpy as np
 import scipy.io
 from sklearn.metrics import accuracy_score
 from sklearn import cross_validation
-from sklearn.svm import SVC
-from PyFeaST.function.information_theoretic_based import CMIM
+from sklearn import svm
+from PyFeaST.function.information_theoretical_based import CMIM
 
 
 def main():
-    print 'CMIM'
-    filename = ['../data/arcene.mat', '../data/gisette.mat', '../data/madelon.mat']
-    for f_num in range(len(filename)):
-        print filename[f_num]
-        mat = scipy.io.loadmat(filename[f_num])
-        X = mat['X']    # data
-        y = mat['Y']    # label
-        y = y[:, 0]
-        X = X.astype(float)
-        n_sample, n_features = X.shape
-        # split data
-        ss = cross_validation.KFold(n_sample, n_folds=10, shuffle=True)
-        # choose SVM as the classifier
-        clf = SVC()
-        num_fea = np.linspace(5, 300, 60)
-        correct = np.zeros(len(num_fea))
-        for train, test in ss:
-            # select features
-            F = CMIM.cmim(X[train], y[train], n_selected_features=300)
-            for n in range(len(num_fea)):
-                fea_idx = F[0:num_fea[n]]
-                features = X[:, fea_idx]
-                clf.fit(features[train], y[train])
-                y_predict = clf.predict(features[test])
-                acc = accuracy_score(y[test], y_predict)
-                correct[n] += acc
-        correct.astype(float)
-        correct /= 10
-        for i in range(len(num_fea)):
-            print num_fea[i], correct[i]
+    # load data
+    mat = scipy.io.loadmat('../data/colon.mat')
+    X = mat['X']    # data
+    X = X.astype(float)
+    y = mat['Y']    # label
+    y = y[:, 0]
+    n_samples, n_features = X.shape    # number of samples and number of features
 
+    # split data into 10 folds
+    ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
+
+    # perform evaluation on classification task
+    num_fea = 10    # number of selected features
+    clf = svm.LinearSVC()    # linear SVM
+
+    correct = 0
+    for train, test in ss:
+        # obtain the index of each feature on the training set
+        idx = CMIM.cmim(X[train], y[train], n_selected_features=num_fea)
+
+        # obtain the dataset on the selected features
+        features = X[:, idx[0:num_fea]]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(features[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(features[test])
+
+        # obtain the classification accuracy on the test data
+        acc = accuracy_score(y[test], y_predict)
+        correct = correct + acc
+
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()
