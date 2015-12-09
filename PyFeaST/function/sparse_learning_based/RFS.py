@@ -5,7 +5,7 @@ from PyFeaST.utility.sparse_learning import generate_diagonal_matrix
 from PyFeaST.utility.sparse_learning import calculate_l21_norm
 
 
-def erfs(X, Y, **kwargs):
+def rfs(X, Y, **kwargs):
     """
     This function implementS efficient and robust feature selection via joint l21-norms minimization
     min_W||X^T W - Y||_2,1 + gamma||W||_2,1

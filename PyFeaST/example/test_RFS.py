@@ -7,34 +7,46 @@ from PyFeaST.utility.sparse_learning import construct_label_matrix, feature_rank
 
 
 def main():
-    # load MATLAB data
+    # load data
     mat = scipy.io.loadmat('../data/COIL20.mat')
     X = mat['X']    # data
+    X = X.astype(float)
     y = mat['Y']    # label
     y = y[:, 0]
-    n_samples, n_features = X.shape
-    X = X.astype(float)
     Y = construct_label_matrix(y)
+    n_samples, n_features = X.shape
 
-    # split data
-    cv = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
+    # split data into 10 folds
+    ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
 
-    # evaluation
-    n_selected_features = 100
-    clf = svm.LinearSVC()
+    # perform evaluation on classification task
+    num_fea = 100    # number of selected features
+    clf = svm.LinearSVC()    # linear SVM
+
     correct = 0
+    for train, test in ss:
+        # obtain the feature weight matrix
+        W = RFS.rfs(X[train, :], Y[train, :], gamma=0.1, verbose=False)
 
-    for train, test in cv:
-        W = RFS.erfs(X[train, :], Y[train, :], gamma=0.1, verbose=True)
+        # sort the feature scores in an ascending order according to the feature scores
         idx = feature_ranking(W)
-        X_selected = X[:, idx[0:n_selected_features]]
-        clf.fit(X_selected[train, :], y[train])
-        y_predict = clf.predict(X_selected[test, :])
+
+        # obtain the dataset on the selected features
+        selected_features = X[:, idx[0:num_fea]]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(selected_features[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(selected_features[test])
+
+        # obtain the classification accuracy on the test data
         acc = accuracy_score(y[test], y_predict)
         print acc
         correct = correct + acc
-    print 'ACC', float(correct)/10
 
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()
