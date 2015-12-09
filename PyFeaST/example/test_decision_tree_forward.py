@@ -1,46 +1,45 @@
-import csv
-import numpy as np
+import scipy.io
 from sklearn.cross_validation import KFold
 from PyFeaST.function.wrapper import decision_tree_forward
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn import svm
 from sklearn.metrics import accuracy_score
 
 
 def main():
-    # obtain the number of features in the dataset
-    with open('../data/test_lung_s3.csv', 'rb') as f:
-        reader = csv.reader(f, delimiter=',')
-        for row in reader:
-            num_columns = len(row)
-            break
-
     # load data
-    mat = np.loadtxt('../data/test_lung_s3.csv', delimiter=',', skiprows=1, usecols=range(0, num_columns))
-    X = mat[:, 1:num_columns]  # data
-    y = mat[:, 0]  # label
+    mat = scipy.io.loadmat('../data/COIL20.mat')
+    X = mat['X']    # data
     X = X.astype(float)
-    y = y.astype(float)
-    n_samples, n_features = X.shape
+    y = mat['Y']    # label
+    y = y[:, 0]
+    n_samples, n_features = X.shape    # number of samples and number of features
 
-    # using 10 fold cross validation
-    cv = KFold(n_samples, n_folds=10, shuffle=True)
+    # split data into 10 folds
+    ss = KFold(n_samples, n_folds=10, shuffle=True)
 
-    # evaluation
-    n_features = 10
-    neigh = KNeighborsClassifier(n_neighbors=1)
-    acc = 0
+    # perform evaluation on classification task
+    clf = svm.LinearSVC()    # linear SVM
 
-    for train, test in cv:
+    correct = 0
+    for train, test in ss:
+        # obtain the idx of selected features from the training set
         idx = decision_tree_forward.decision_tree_forward(X[train], y[train], n_features)
-        print idx
-        X_selected = X[:, idx]
-        neigh.fit(X_selected[train], y[train])
-        y_predict = neigh.predict(X_selected[test])
-        acc_tmp = accuracy_score(y[test], y_predict)
-        print acc_tmp
-        acc += acc_tmp
-    print 'ACC', float(acc)/10
 
+        # obtain the dataset on the selected features
+        X_selected = X[:, idx]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(X_selected[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(X_selected[test])
+
+        # obtain the classification accuracy on the test data
+        acc = accuracy_score(y[test], y_predict)
+        correct = correct + acc
+
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()
