@@ -6,32 +6,41 @@ from PyFeaST.function.similarity_based import trace_ratio
 
 
 def main():
-    # load matlab data
-    mat = scipy.io.loadmat('../data/ORL.mat')
-    X = mat['X']  # data
-    y = mat['Y']  # label
-    y = y[:, 0]
+    # load data
+    mat = scipy.io.loadmat('../data/COIL20.mat')
+    X = mat['X']    # data
     X = X.astype(float)
-    n_samples, n_features = X.shape
+    y = mat['Y']    # label
+    y = y[:, 0]
+    n_samples, n_features = X.shape    # number of samples and number of features
 
-    # split data
+    # split data into 10 folds
     ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
 
-    # evaluation
-    num_fea = 100
-    clf = svm.SVC(kernel='linear')
+    # perform evaluation on classification task
+    num_fea = 100    # number of selected features
+    clf = svm.LinearSVC()    # linear SVM
+
     correct = 0
-
     for train, test in ss:
+        # obtain the index of selected features
         idx, feature_score, subset_score = trace_ratio.trace_ratio(X[train], y[train], num_fea, style='fisher')
-        selected_features = X[:, idx[0:num_fea]]
-        clf.fit(selected_features[train], y[train])
-        y_predict = clf.predict(selected_features[test])
-        acc = accuracy_score(y[test], y_predict)
-        print acc
-        correct = correct + acc
-    print 'ACC', float(correct)/10
 
+        # obtain the dataset on the selected features
+        selected_features = X[:, idx[0:num_fea]]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(selected_features[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(selected_features[test])
+
+        # obtain the classification accuracy on the test data
+        acc = accuracy_score(y[test], y_predict)
+        correct = correct + acc
+
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()

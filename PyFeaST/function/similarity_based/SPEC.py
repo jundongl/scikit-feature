@@ -7,7 +7,7 @@ from numpy import linalg as LA
 
 def spec(X, **kwargs):
     """
-    This function implementS the SPEC feature selection
+    This function implements the SPEC feature selection
 
     Input
     -----
@@ -34,7 +34,7 @@ def spec(X, **kwargs):
     if 'style' not in kwargs:
         kwargs['style'] = 0
     if 'W' not in kwargs:
-        kwargs['W'] = rbf_kernel(X)
+        kwargs['W'] = rbf_kernel(X, gamma=1)
 
     style = kwargs['style']
     W = kwargs['W']
@@ -61,7 +61,9 @@ def spec(X, **kwargs):
     L_hat = (np.matlib.repmat(d1, 1, n_samples)) * np.array(L) * np.matlib.repmat(np.transpose(d1), n_samples, 1)
 
     # calculate and construct spectral information
-    U, s, V = np.linalg.svd(L_hat)
+    s, U = np.linalg.eigh(L_hat)
+    s = np.flipud(s)
+    U = np.fliplr(U)
 
     # begin to select features
     w_fea = np.ones(n_features)*1000

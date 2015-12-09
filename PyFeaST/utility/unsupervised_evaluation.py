@@ -67,7 +67,6 @@ def evaluation(X_selected, n_clusters, y):
     nmi = normalized_mutual_info_score(y, y_predict)
 
     # calculate ACC
-
     y_permuted_predict = best_map(y, y_predict)
     acc = accuracy_score(y, y_permuted_predict)
 

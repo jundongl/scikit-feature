@@ -6,7 +6,7 @@ from PyFeaST.function.similarity_based import fisher_score
 
 
 def main():
-    # load the data
+    # load data
     mat = scipy.io.loadmat('../data/COIL20.mat')
     X = mat['X']    # data
     X = X.astype(float)

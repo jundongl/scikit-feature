@@ -17,6 +17,7 @@ def reliefF(X, y, **kwargs):
         parameters of reliefF:
         k: {int}
             choices for the number of neighbors (default k = 5)
+
     Output
     ------
     score: {numpy array}, shape (n_features,)
@@ -24,6 +25,7 @@ def reliefF(X, y, **kwargs):
 
     Reference
     ---------
+    Robnik-Sikonja, Marko et al. "Theoretical and empirical analysis of relieff and rrelieff." Machine Learning 2003.
     Zhao, Zheng et al. "On Similarity Preserving Feature Selection." TKDE 2013.
     """
 
