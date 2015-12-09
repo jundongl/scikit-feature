@@ -128,7 +128,6 @@ def graph_fs(X, y, **kwargs):
         iter += 1
     return w, obj, q
 
-
 def feature_ranking(w):
     T = w.abs()
     idx = np.argsort(T, 0)

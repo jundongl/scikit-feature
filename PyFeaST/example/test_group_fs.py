@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.sparse import rand
-from PyFeaST.function.structure import tree_fs
+from PyFeaST.function.structure import group_fs
 
 
 def main():
@@ -19,17 +19,16 @@ def main():
     y = np.dot(X, w_orin) + 0.01 * noise
     y = y[:, 0]
 
+    z1 = 0.1    # specify the regularization parameter of L1 norm
+    z2 = 0.1    # specify the regularization parameter of L2 norm for the non-overlapping group
 
-    z = 0.01  # specify the regularization parameter of regularization parameter of L2 norm for the non-overlapping group
-
-    # specify the tree structure among features
-    idx = np.array([[-1, -1, 1], [1, 20, np.sqrt(20)], [21, 40, np.sqrt(20)], [41, 50, np.sqrt(10)],
-                    [51, 70, np.sqrt(20)], [71, 100, np.sqrt(30)], [1, 50, np.sqrt(50)], [51, 100, np.sqrt(50)]]).T
+    # specify the group structure among features
+    idx = np.array([[1, 20, np.sqrt(20)], [21, 40, np.sqrt(20)], [41, 50, np.sqrt(10)],
+                    [51, 70, np.sqrt(20)], [71, 100, np.sqrt(30)]]).T
     idx = idx.astype(int)
 
     # perform feature selection and obtain the feature weight of all the features
-    w, obj, value_gamma = tree_fs.tree_fs(X, y, z, idx, verbose=True)
-
+    w, obj, value_gamma = group_fs.group_fs(X, y, z1, z2, idx, verbose=True)
 
 if __name__ == '__main__':
     main()
