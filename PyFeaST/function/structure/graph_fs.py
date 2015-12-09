@@ -18,9 +18,9 @@ def calculate_obj(X, y, w, lambda1, lambda2, T):
     return 1/2 * (np.linalg.norm(y- np.dot(X, w), 'fro'))**2 + lambda1*np.abs(w).sum() + lambda2*np.abs(np.dot(T, w)).sum()
 
 
-def goscar(X, y, **kwargs):
+def graph_fs(X, y, **kwargs):
     """
-    This function implement the GOSCAR algorithm
+    This function implement the graph structural feature selection algorithm GOSCAR
 
     Objective Function
         min_{w} 1/2 ||X*w - y||_F^2 + lambda1 ||w||_1 + lambda2 \sum_{(i,j) \in E} max{|w_i|, |w|_j}
@@ -47,6 +47,7 @@ def goscar(X, y, **kwargs):
         w: the weights of the features
         obj: the value of the objective function in each iteration
     """
+
     if 'lambda1' not in kwargs:
         lambda1 = 0.8
     else:
