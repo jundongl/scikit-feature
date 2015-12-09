@@ -26,10 +26,10 @@ def main():
     correct = 0
     for train, test in ss:
         # obtain the feature weight matrix
-        W, obj, value_gamma = ls_l21.proximal_gradient_descent(X[train], Y[train], 0.1, verbose=False)
+        Weight, obj, value_gamma = ls_l21.proximal_gradient_descent(X[train], Y[train], 0.1, verbose=False)
 
         # sort the feature scores in an ascending order according to the feature scores
-        idx = feature_ranking(W)
+        idx = feature_ranking(Weight)
 
         # obtain the dataset on the selected features
         selected_features = X[:, idx[0:num_fea]]
