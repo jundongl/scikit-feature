@@ -1,28 +1,49 @@
-import numpy as np
-import csv
-from PyFeaST.function.statistics_based import f_score
+import scipy.io
+from sklearn.metrics import accuracy_score
+from sklearn import cross_validation
+from sklearn import svm
+from PyFeaST.function.statistical_based import f_score
 
 
 def main():
-    # get number of features
-    with open('../data/test_lung_s3.csv', 'rb') as f:
-        reader = csv.reader(f, delimiter=',')
-        for row in reader:
-            num_columns = len(row)
-            break
-
     # load data
-    mat = np.loadtxt('../data/test_lung_s3.csv', delimiter=',', skiprows=1, usecols=range(0, num_columns))
-    X = mat[:, 1:num_columns]  # data
+    mat = scipy.io.loadmat('../data/colon.mat')
+    X = mat['X']    # data
     X = X.astype(float)
-    y = mat[:, 0]  # label
+    y = mat['Y']    # label
+    y = y[:, 0]
+    n_samples, n_features = X.shape    # number of samples and number of features
 
-    # feature selection
-    num_fea = 5
-    F = f_score.f_score(X, y)
-    idx = f_score.feature_ranking(F)
-    print idx[0:5]
+    # split data into 10 folds
+    ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
 
+    # perform evaluation on classification task
+    num_fea = 100    # number of selected features
+    clf = svm.LinearSVC()    # linear SVM
+
+    correct = 0
+    for train, test in ss:
+        # obtain the f-score of each feature
+        score = f_score.f_score(X, y)
+
+        # rank features in descending order according to score
+        idx = f_score.feature_ranking(score)
+
+        # obtain the dataset on the selected features
+        selected_features = X[:, idx[0:num_fea]]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(selected_features[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(selected_features[test])
+
+        # obtain the classification accuracy on the test data
+        acc = accuracy_score(y[test], y_predict)
+        correct = correct + acc
+
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()

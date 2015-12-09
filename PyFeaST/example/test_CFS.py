@@ -1,43 +1,46 @@
-import numpy as np
-import csv
+import scipy.io
 from sklearn import svm
 from sklearn import cross_validation
 from sklearn.metrics import accuracy_score
-from PyFeaST.function.statistics_based import CFS
+from PyFeaST.function.statistical_based import CFS
 
 
 def main():
-    # num_columns is number of columns in file
-    with open('../data/test_lung_s3.csv', 'rb') as f:
-        reader = csv.reader(f, delimiter=',')
-        for row in reader:
-            num_columns = len(row)
-            break
-
     # load data
-    mat = np.loadtxt('../data/test_lung_s3.csv', delimiter=',', skiprows=1, usecols=range(0, 101))
-    X = mat[:, 1:num_columns]  # data
+    mat = scipy.io.loadmat('../data/colon.mat')
+    X = mat['X']    # data
     X = X.astype(float)
-    y = mat[:, 0]  # label
-    n_samples, n_features = X.shape
+    y = mat['Y']    # label
+    y = y[:, 0]
+    n_samples, n_features = X.shape    # number of samples and number of features
 
-    # evalaution
-    num_fea = 20
-    ss = cross_validation.ShuffleSplit(n_samples, n_iter=5, test_size=0.2)
-    clf = svm.LinearSVC()
-    mean_acc = 0
+    # split data into 10 folds
+    ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
 
+    # perform evaluation on classification task
+    num_fea = 100    # number of selected features
+    clf = svm.LinearSVC()    # linear SVM
+
+    correct = 0
     for train, test in ss:
+        # obtain the index of selected features on training set
         idx = CFS.cfs(X[train], y[train])
-        selected_features = X[:, idx[0:num_fea]]
-        clf.fit(selected_features[train], y[train])
-        y_predict = clf.predict(selected_features[test])
-        acc = accuracy_score(y[test], y_predict)
-        print acc
-        mean_acc = mean_acc + acc
-    mean_acc /= 5
-    print mean_acc
 
+        # obtain the dataset on the selected features
+        selected_features = X[:, idx[0:num_fea]]
+
+        # train a classification model with the selected features on the training dataset
+        clf.fit(selected_features[train], y[train])
+
+        # predict the class labels of test data
+        y_predict = clf.predict(selected_features[test])
+
+        # obtain the classification accuracy on the test data
+        acc = accuracy_score(y[test], y_predict)
+        correct = correct + acc
+
+    # output the average classification accuracy over all 10 folds
+    print 'Accuracy:', float(correct)/10
 
 if __name__ == '__main__':
     main()

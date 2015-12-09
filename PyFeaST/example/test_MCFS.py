@@ -16,9 +16,8 @@ def main():
     kwargs = {"metric": "euclidean", "neighborMode": "knn", "weightMode": "heatKernel", "k": 5, 't': 1}
     W = construct_W.construct_W(X, **kwargs)
 
-    # perform evaluation on clustering task
-    num_fea = 100    # number of selected features
-    num_cluster = 20    # number of clusters, it is usually set as the number of classes in the ground truth
+    num_fea = 100    # specify the number of selected features
+    num_cluster = 20    # specify the number of clusters, it is usually set as the number of classes in the ground truth
 
     # obtain the feature weight matrix
     Weight = MCFS.mcfs(X, n_selected_features=num_fea, W=W, n_clusters=20)

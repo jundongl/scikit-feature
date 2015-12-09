@@ -7,7 +7,7 @@ from PyFeaST.function.information_theoretical_based import MIFS
 
 def main():
     # load data
-    mat = scipy.io.loadmat('../data/colon.mat')
+    mat = scipy.io.loadmat('../data/BASEHOCK.mat')
     X = mat['X']    # data
     X = X.astype(float)
     y = mat['Y']    # label
@@ -37,6 +37,7 @@ def main():
 
         # obtain the classification accuracy on the test data
         acc = accuracy_score(y[test], y_predict)
+        print acc
         correct = correct + acc
 
     # output the average classification accuracy over all 10 folds

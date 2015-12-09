@@ -16,7 +16,7 @@ def chi_square(X, y):
     Output
     ------
     F: {numpy array}, shape (n_features,)
-    f-score for each feature
+        chi-square score for each feature
     """
     F, pval = chi2(X, y)
     return F
