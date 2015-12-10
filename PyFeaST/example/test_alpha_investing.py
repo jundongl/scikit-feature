@@ -1,8 +1,8 @@
 import scipy.io
 from sklearn import cross_validation
-from sklearn import svm
 from sklearn.metrics import accuracy_score
-from PyFeaST.function.similarity_based import fisher_score
+from PyFeaST.function.streaming import alpha_investing
+from sklearn import svm
 
 
 def main():
@@ -12,25 +12,22 @@ def main():
     X = X.astype(float)
     y = mat['Y']    # label
     y = y[:, 0]
+    y = y.astype(float)
     n_samples, n_features = X.shape    # number of samples and number of features
 
     # split data into 10 folds
     ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
 
     # perform evaluation on classification task
-    num_fea = 100    # number of selected features
     clf = svm.LinearSVC()    # linear SVM
 
     correct = 0
     for train, test in ss:
-        # obtain the score of each feature on the training set
-        score = fisher_score.fisher_score(X[train], y[train])
-
-        # rank features in descending order according to score
-        idx = fisher_score.feature_ranking(score)
+        # obtain the index of selected features
+        idx = alpha_investing.alpha_investing(X[train], y[train], 0.05, 0.05)
 
         # obtain the dataset on the selected features
-        selected_features = X[:, idx[0:num_fea]]
+        selected_features = X[:, idx]
 
         # train a classification model with the selected features on the training dataset
         clf.fit(selected_features[train], y[train])
@@ -47,4 +44,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
