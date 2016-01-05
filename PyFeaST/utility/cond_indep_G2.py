@@ -7,7 +7,7 @@ def chi_squared_prob(x2, v):
     This function computes the chi-squared probability.
     It returns P(X2|v), the probability of observing a chi-squared value <= X2 with v degrees of freedom
     """
-    return special.gammainc(v/2, float(x2)/2)
+    return special.gammainc(float(v)/2, float(x2)/2)
 
 
 def cond_indep_G2(X, a, b, s):
@@ -17,13 +17,13 @@ def cond_indep_G2(X, a, b, s):
     Input
     -----
     X: {numpy array}, shape (n_samples, n_features)
-        input data, guaranteed to be a discrete data matrix
+        input data, guaranteed to be a discrete data matrix whose element is non negative integer
     a: {int}
         index of variable a in the input X
     b: {int}
-        index of variable y in Data matrix
+        index of variable y in the input X
     s: {numpy array}, shape (n_features,)
-        indexes of variables in set s
+        set of indexes of variables in the input X
 
     Output
     ------
@@ -51,15 +51,11 @@ def cond_indep_G2(X, a, b, s):
         tmp[0] = 1
         tmp[1:] = np.cumprod(s_max[0:len(s_max)-1])
         qs = 1 + np.dot(s_max-1, tmp)
-        n_ijk = np.zeros((col_max[a], col_max[a], qs))
-        t_ijk = np.zeros((col_max[b], col_max[b], qs))
+        n_ijk = np.zeros((col_max[a], col_max[b], qs))
+        t_ijk = np.zeros((col_max[a], col_max[b], qs))
         df = np.prod(np.array([col_max[i] for i in np.array([a, b])])-1)*qs
 
-    if n_samples < 10*df:
-        # not enough data to perform the test
-        G2 = -1
-        ci = 0
-    elif len(s) == 0:
+    if len(s) == 0:
         for i in range(col_max[a]):
             for j in range(col_max[b]):
                 col = X[:, 0]
@@ -70,23 +66,31 @@ def cond_indep_G2(X, a, b, s):
             for i in range(len(col_sum_nij)):
                 if col_sum_nij[i] != 0:
                     temp_nij = np.append(temp_nij, n_ij[:, i])
-            temp_nij = temp_nij.reshape((len(temp_nij)/len(n_ij[:, 0], len(n_ij[:, 0]))))
+            temp_nij = temp_nij.reshape((len(temp_nij)/len(n_ij[:, 0]), len(n_ij[:, 0])))
             n_ij = np.transpose(temp_nij)
         row = np.sum(n_ij, axis=1)
         col = np.sum(n_ij, axis=0)
         for i in range(len(row)):
             for j in range(len(col)):
                 t_ij[i, j] = float(row[i] * col[j])/n_samples
-        tmp = np.zeros((col_max[a], col_max[b]))
-        for i in range(col_max[a]):
-            for j in range(col_max[b]):
+        col_sum_tij = np.sum(t_ij, axis=0)
+        if len(col_sum_tij[col_sum_tij == 0]) != 0:
+            temp_tij = np.array([])
+            for i in range(len(col_sum_tij)):
+                if col_sum_tij[i] != 0:
+                    temp_tij = np.append(temp_tij, t_ij[:, i])
+            temp_tij = temp_tij.reshape((len(temp_tij)/len(t_ij[:, 0]), len(t_ij[:, 0])))
+            t_ij = np.transpose(temp_tij)
+        n_row_nij, n_col_nij = n_ij.shape
+        tmp = np.zeros((n_row_nij, n_col_nij))
+        for i in range(n_row_nij):
+            for j in range(n_col_nij):
                 if t_ij[i, j] == 0:
                     tmp[i, j] = float('Inf')
                 else:
                     tmp[i, j] = n_ij[i, j] / t_ij[i, j]
         tmp[(tmp == float('Inf')) | (tmp == 0)] = 1
         tmp = 2 * n_ij * np.log(tmp)
-
         G2 = np.sum(tmp)
         alpha2 = 1 - chi_squared_prob(G2, df)
         ci = (alpha2 >= alpha)
@@ -105,8 +109,8 @@ def cond_indep_G2(X, a, b, s):
             if n2[k] == 0:
                 t_ijk[:, :, k] = 0
             else:
-                for i in range(col_max[a]):
-                    for j in range(col_max[b]):
+                for i in range(int(col_max[a])):
+                    for j in range(int(col_max[b])):
                         if n2[k] == 0:
                             t_ijk[i, j, k] = float('Inf')
                         else:
@@ -120,5 +124,4 @@ def cond_indep_G2(X, a, b, s):
         G2 = np.sum(tmp)
         alpha2 = 1 - chi_squared_prob(G2, df)
         ci = (alpha2 >= alpha)
-
-    return int(ci), G2
+    return int(ci)
