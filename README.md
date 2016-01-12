@@ -1,2 +1,2 @@
-# PyFeaST
-Feature Selection Package in Python (DMML Lab@ASU)
+# scikit-feast
+feature selection package built on scikit-learn (DMML Lab@ASU)
