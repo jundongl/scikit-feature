@@ -1,5 +1,5 @@
 ===============================
-sciki-feast
+scikit-feast
 ===============================
 Feature selection repository built on scikit-learn (DMML Lab@ASU). 
 
