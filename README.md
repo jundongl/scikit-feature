@@ -5,10 +5,10 @@ Feature selection repository built on scikit-learn (DMML Lab@ASU).
 
 The feature selection repository is designed to collect some widely used feature selection algorithms that have been developed in the feature selection research to serve as a platform for facilitating their application, comparison and joint study. The feature selection repository also effectively assists researchers to achieve more reliable evaluation in the process of developing new feature selection algorithms. We develop the open source feature selection repository scikit-feast by one of the most popular programming language python. It contains more than 40 popular feature selection algorithms, including most traditional feature selection algorithms and some structural and streaming feature selection algorithms. It is built upon one widely used machine learning package scikit-learn and two scientific computing packages Numpy and Scipy.
 
-Installing scikit-feast
-------
-Prerequisites:
-------
+##Installing scikit-feast
+
+###Prerequisites:
+
 Python 2.7
 
 NumPy
@@ -17,8 +17,7 @@ SciPy
 
 Scikit-learn
 
-Steps:
-------
+###Steps:
 After you download scikit-feast-1.0.0.zip, unpack the archive. Additionally, the scikit-feast root directory will contain a setup script setup.py and a file named README.txt.
 
 For Linux, under the scikit-feast root directory building and installing the module distribution is a simple matter of running one command from a terminal：
@@ -29,12 +28,12 @@ setup.py install
 
 If all these things are true, then you already know how to build and install the modules you have just downloaded
 
-Project website
-------
+##Project website
+
 Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/scikit-feast/
 
-Citing
-------
+##Citing
+
 If you find scikit-feast feature selection reposoitory useful in your research, please consider citing the following paper::
 
     @article{Li-etal16,
@@ -45,8 +44,8 @@ If you find scikit-feast feature selection reposoitory useful in your research, 
        url= {http://featureselection.asu.edu/scikit-feast},
     }
     
-Contact
-------
+##Contact
+
 Jundong Li
 
 E-mail: jundong.li@asu.edu
