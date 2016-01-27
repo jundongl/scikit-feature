@@ -28,6 +28,8 @@ For Windows, this command should be run from a command prompt window (Start->Acc
 setup.py install
 
 If all these things are true, then you already know how to build and install the modules you have just downloaded
+
+Project website
 ------
 Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/scikit-feast/
 
