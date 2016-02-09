@@ -20,11 +20,11 @@ After you download scikit-feast-1.0.0.zip from the project website (http://featu
 
 For Linux, under the scikit-feast root directory, you can build and install the module by the following command from a terminal:
 
-python setup.py install
+    python setup.py install
 
 For Windows, you can also run the command prompt window (Start->Accessories) under the scikit-feast root directory:
 
-setup.py install
+    setup.py install
 
 ##Project website
 Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/scikit-feast/
