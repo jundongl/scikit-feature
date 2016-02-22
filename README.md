@@ -20,7 +20,7 @@ Scikit-learn
 ###Steps:
 After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/scikit-feature/), unzip the file. Then the scikit-feast root directory will contain a setup script setup.py and a file named README.txt.
 
-For Linux, under the scikit-feature root directory, you can build and install the module by the following command from a terminal:
+For Linux, under the scikit-feature root directory, you can build and install the module by the following command:
 
     python setup.py install
 
