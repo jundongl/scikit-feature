@@ -7,7 +7,7 @@ scikit-feature is an open-Source feature selection repository in Python develope
 
 It serves as a platform for facilitating feature selection application, research and comparative study. It is designed to share widely used feature selection algorithms developed in the feature selection research, and offer convenience for researchers and practitioners to perform empirical evaluation in their developing new feature selection algorithms.
 
-##Installing scikit-feast
+##Installing scikit-feature
 ###Prerequisites:
 Python 2.7
 
@@ -18,7 +18,7 @@ SciPy
 Scikit-learn
 
 ###Steps:
-After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/scikit-feature/), unzip the file. Then the scikit-feast root directory will contain a setup script setup.py and a file named README.txt.
+After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/scikit-feature/), unzip the file. Then the scikit-feature root directory will contain a setup script setup.py and a file named README.txt.
 
 For Linux, under the scikit-feature root directory, you can build and install the module by the following command:
 
@@ -33,7 +33,7 @@ Instructions of using this package can be found in our project webpage at http:/
 
 ##Citing
 
-If you find scikit-feast feature selection reposoitory useful in your research, please consider citing the following paper::
+If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
     @article{Li-etal16,
        title= {Feature Selection: A Data Perspective},
