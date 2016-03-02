@@ -1,7 +1,7 @@
 ===============================
 scikit-feature
 ===============================
-Feature selection repository built on scikit-learn (DMML Lab@ASU). 
+Feature selection repository scikit-feature in Python (DMML Lab@ASU). 
 
 scikit-feature is an open-source feature selection repository in Python developed at Arizona State University. It is built upon one widely used machine learning package scikit-learn and two scientific computing packages Numpy and Scipy. Scikit-feature contains more than 40 popular feature selection algorithms, including traditional feature selection algorithms and some structural and streaming feature selection algorithms. 
 
@@ -40,7 +40,7 @@ If you find scikit-feature feature selection reposoitory useful in your research
        author= {J. Li and K. Cheng and S. Wang and F. Morstatter and R. Trevino and J. Tang and H. Liu},
        organization= {Arizona State University},
        year= {2016},
-       url= {http://featureselection.asu.edu/scikit-feature},
+       url= {http://featureselection.asu.edu},
     }
     
 ##Contact
