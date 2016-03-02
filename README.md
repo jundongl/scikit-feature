@@ -40,7 +40,7 @@ If you find scikit-feature feature selection reposoitory useful in your research
        author= {J. Li and K. Cheng and S. Wang and F. Morstatter and R. Trevino and J. Tang and H. Liu},
        organization= {Arizona State University},
        year= {2016},
-       url= {http://featureselection.asu.edu},
+       url= {http://featureselection.asu.edu/},
     }
     
 ##Contact
