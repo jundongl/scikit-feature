@@ -29,7 +29,7 @@ For Windows, you can also run the command prompt window (Start->Accessories) und
     setup.py install
 
 ##Project website
-Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/scikit-feature/
+Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu
 
 ##Citation
 
