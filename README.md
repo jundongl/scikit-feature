@@ -18,7 +18,7 @@ SciPy
 Scikit-learn
 
 ###Steps:
-After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/), unzip the file.
+After you download scikit-feature-1.0.1.zip from the project website (http://featureselection.asu.edu/), unzip the file.
 
 For Linux users, you can install the package by the following command:
 
