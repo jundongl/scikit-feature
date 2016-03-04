@@ -31,7 +31,7 @@ For Windows, you can also run the command prompt window (Start->Accessories) und
 ##Project website
 Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/scikit-feature/
 
-##Citing
+##Citation
 
 If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
