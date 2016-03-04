@@ -25,7 +25,7 @@ def data_discretization(X, n_bins):
 
     # discretize X
     n_samples, n_features = X.shape
-    X_discretized = np.zeros(n_samples, n_features)
+    X_discretized = np.zeros((n_samples, n_features))
     bins = np.linspace(0, 1, n_bins)
     for i in range(n_features):
         X_discretized[:, i] = np.digitize(X_normalized[:, i], bins)
