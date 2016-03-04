@@ -18,13 +18,13 @@ SciPy
 Scikit-learn
 
 ###Steps:
-After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/), unzip the file. Then the scikit-feature root directory will contain a setup script setup.py and a file named README.txt.
+After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/), unzip the file.
 
-For Linux, under the scikit-feature root directory, you can build and install the module by the following command:
+For Linux users, you can install the package by the following command:
 
     python setup.py install
 
-For Windows, you can also run the command prompt window (Start->Accessories) under the scikit-feature root directory:
+For Windows users, you can also install the package by the following command:
 
     setup.py install
 
