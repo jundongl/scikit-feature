@@ -29,7 +29,7 @@ For Windows users, you can also install the package by the following command:
     setup.py install
 
 ##Project website
-Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu
+Instructions of using this package can be found in our project webpage at http://featureselection.asu.edu/
 
 ##Citation
 
