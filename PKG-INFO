@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: skfeature
+Version: 1.0.0
+Summary: Feature Selection Repository in Python (DMML Lab@ASU)
+Home-page: https://github.com/jundongl/scikit-feature
+Author: Jundong Li, Kewei Cheng, Suhang Wang
+Author-email: jundong.li@asu.edu, kcheng18@asu.edu, suhang.wang@asu.edu
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: Feature Selection Repository
+Platform: UNKNOWN
