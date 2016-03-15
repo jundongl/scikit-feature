@@ -18,13 +18,13 @@ def cife(X, y, **kwargs):
     Output
     ------
     F: {numpy array}, shape (n_features,)
-        index of selected features, F[1] is the most important feature
+        index of selected features, F[0] is the most important feature
 
     Reference
     ---------
     Brown, Gavin et al. "Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection." JMLR 2012.
     """
-
+    
     if 'n_selected_features' in kwargs.keys():
         n_selected_features = kwargs['n_selected_features']
         F = LCSI.lcsi(X, y, beta=1, gamma=1, n_selected_features=n_selected_features)

@@ -19,7 +19,7 @@ def icap(X, y, **kwargs):
     Output
     ------
     F: {numpy array}, shape (n_features,)
-        index of selected features, F(1) is the most important feature
+        index of selected features, F[0] is the most important feature
     """
     n_samples, n_features = X.shape
     # index of selected features, initialized to be empty

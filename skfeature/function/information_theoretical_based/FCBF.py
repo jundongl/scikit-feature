@@ -19,7 +19,7 @@ def fcbf(X, y, **kwargs):
     Output
     ------
     F: {numpy array}, shape (n_features,)
-        index of selected features, F[1] is the most important feature
+        index of selected features, F[0] is the most important feature
 
     Reference
     ---------
