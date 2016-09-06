@@ -35,12 +35,11 @@ Instructions of using this repository can be found in our project webpage at htt
 
 If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
-    @article{Li-etal16,
-       title= {Feature Selection: A Data Perspective},
-       author= {J. Li and K. Cheng and S. Wang and F. Morstatter and R. Trevino and J. Tang and H. Liu},
-       organization= {Arizona State University},
-       year= {2016},
-       url= {http://featureselection.asu.edu/},
+    @article{li2016feature,
+        title={Feature Selection: A Data Perspective},
+        author={Li, Jundong and Cheng, Kewei and Wang, Suhang and Morstatter, Fred and Trevino, Robert P and Tang, Jiliang and Liu, Huan},
+        journal={arXiv preprint arXiv:1601.07996},
+        year={2016}
     }
     
 ##Contact
