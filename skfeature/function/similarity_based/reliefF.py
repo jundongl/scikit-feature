@@ -1,5 +1,4 @@
 import numpy as np
-from random import randrange
 from sklearn.metrics.pairwise import pairwise_distances
 
 
@@ -41,8 +40,7 @@ def reliefF(X, y, **kwargs):
     score = np.zeros(n_features)
 
     # the number of sampled instances is equal to the number of total instances
-    for iter in range(n_samples):
-        idx = randrange(0, n_samples, 1)
+    for idx in range(n_samples):
         near_hit = []
         near_miss = dict()
 
