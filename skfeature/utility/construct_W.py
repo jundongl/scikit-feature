@@ -57,36 +57,36 @@ def construct_W(X, **kwargs):
     """
 
     # default metric is 'cosine'
-    if 'metric' not in kwargs.keys():
+    if 'metric' not in list(kwargs.keys()):
         kwargs['metric'] = 'cosine'
 
     # default neighbor mode is 'knn' and default neighbor size is 5
-    if 'neighbor_mode' not in kwargs.keys():
+    if 'neighbor_mode' not in list(kwargs.keys()):
         kwargs['neighbor_mode'] = 'knn'
-    if kwargs['neighbor_mode'] == 'knn' and 'k' not in kwargs.keys():
+    if kwargs['neighbor_mode'] == 'knn' and 'k' not in list(kwargs.keys()):
         kwargs['k'] = 5
-    if kwargs['neighbor_mode'] == 'supervised' and 'k' not in kwargs.keys():
+    if kwargs['neighbor_mode'] == 'supervised' and 'k' not in list(kwargs.keys()):
         kwargs['k'] = 5
-    if kwargs['neighbor_mode'] == 'supervised' and 'y' not in kwargs.keys():
+    if kwargs['neighbor_mode'] == 'supervised' and 'y' not in list(kwargs.keys()):
         print ('Warning: label is required in the supervised neighborMode!!!')
         exit(0)
 
     # default weight mode is 'binary', default t in heat kernel mode is 1
-    if 'weight_mode' not in kwargs.keys():
+    if 'weight_mode' not in list(kwargs.keys()):
         kwargs['weight_mode'] = 'binary'
     if kwargs['weight_mode'] == 'heat_kernel':
         if kwargs['metric'] != 'euclidean':
             kwargs['metric'] = 'euclidean'
-        if 't' not in kwargs.keys():
+        if 't' not in list(kwargs.keys()):
             kwargs['t'] = 1
     elif kwargs['weight_mode'] == 'cosine':
         if kwargs['metric'] != 'cosine':
             kwargs['metric'] = 'cosine'
 
     # default fisher_score and reliefF mode are 'false'
-    if 'fisher_score' not in kwargs.keys():
+    if 'fisher_score' not in list(kwargs.keys()):
         kwargs['fisher_score'] = False
-    if 'reliefF' not in kwargs.keys():
+    if 'reliefF' not in list(kwargs.keys()):
         kwargs['reliefF'] = False
 
     n_samples, n_features = np.shape(X)

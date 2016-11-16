@@ -30,7 +30,7 @@ def lap_score(X, **kwargs):
     """
 
     # if 'W' is not specified, use the default W
-    if 'W' not in kwargs.keys():
+    if 'W' not in list(kwargs.keys()):
         W = construct_W(X)
     # construct the affinity matrix W
     W = kwargs['W']
