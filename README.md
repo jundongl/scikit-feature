@@ -1,4 +1,3 @@
-===============================
 scikit-feature
 ===============================
 Feature selection repository scikit-feature in Python (DMML Lab@ASU). 
