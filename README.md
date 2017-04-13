@@ -7,8 +7,8 @@ scikit-feature is an open-source feature selection repository in Python develope
 
 It serves as a platform for facilitating feature selection application, research and comparative study. It is designed to share widely used feature selection algorithms developed in the feature selection research, and offer convenience for researchers and practitioners to perform empirical evaluation in developing new feature selection algorithms.
 
-##Installing scikit-feature
-###Prerequisites:
+## Installing scikit-feature
+### Prerequisites:
 Python 2.7
 
 NumPy
@@ -17,7 +17,7 @@ SciPy
 
 Scikit-learn
 
-###Steps:
+### Steps:
 After you download scikit-feature-1.0.0.zip from the project website (http://featureselection.asu.edu/), unzip the file.
 
 For Linux users, you can install the repository by the following command:
@@ -28,10 +28,10 @@ For Windows users, you can also install the repository by the following command:
 
     setup.py install
 
-##Project website
+## Project website
 Instructions of using this repository can be found in our project webpage at http://featureselection.asu.edu/
 
-##Citation
+## Citation
 
 If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
@@ -42,7 +42,7 @@ If you find scikit-feature feature selection reposoitory useful in your research
        year={2016}
     }
     
-##Contact
+## Contact
 Jundong Li
 E-mail: jundong.li@asu.edu
 
