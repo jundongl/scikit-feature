@@ -26,8 +26,8 @@ def main():
         acc_total += acc
 
     # output the average NMI and average ACC
-    print 'NMI:', float(nmi_total)/20
-    print 'ACC:', float(acc_total)/20
+    print('NMI:', float(nmi_total)/20)
+    print('ACC:', float(acc_total)/20)
 
 if __name__ == '__main__':
     main()

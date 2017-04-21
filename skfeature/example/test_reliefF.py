@@ -43,7 +43,7 @@ def main():
         correct = correct + acc
 
     # output the average classification accuracy over all 10 folds
-    print 'Accuracy:', float(correct)/10
+    print('Accuracy:', float(correct)/10)
 
 if __name__ == '__main__':
     main()

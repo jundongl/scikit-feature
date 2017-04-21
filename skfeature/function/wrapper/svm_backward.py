@@ -30,7 +30,7 @@ def svm_backward(X, y, n_selected_features):
     clf = SVC()
 
     # selected feature set, initialized to contain all features
-    F = range(n_features)
+    F = list(range(n_features))
     count = n_features
 
     while count > n_selected_features:

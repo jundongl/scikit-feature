@@ -32,7 +32,7 @@ def cmim(X, y, **kwargs):
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
 
-    if 'n_selected_features' in kwargs.keys():
+    if 'n_selected_features' in list(kwargs.keys()):
         n_selected_features = kwargs['n_selected_features']
         is_n_selected_features_specified = True
 

@@ -1,4 +1,4 @@
-import entropy_estimators as ee
+from . import entropy_estimators as ee
 
 
 def information_gain(f1, f2):
