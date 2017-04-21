@@ -68,7 +68,7 @@ def construct_W(X, **kwargs):
     if kwargs['neighbor_mode'] == 'supervised' and 'k' not in kwargs.keys():
         kwargs['k'] = 5
     if kwargs['neighbor_mode'] == 'supervised' and 'y' not in kwargs.keys():
-        print ('Warning: label is required in the supervised neighborMode!!!')
+        print(('Warning: label is required in the supervised neighborMode!!!'))
         exit(0)
 
     # default weight mode is 'binary', default t in heat kernel mode is 1
