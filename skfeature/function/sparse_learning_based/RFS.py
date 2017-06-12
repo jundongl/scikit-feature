@@ -61,7 +61,7 @@ def rfs(X, Y, **kwargs):
         obj[iter_step] = calculate_obj(X, Y, U[0:n_features, :], gamma)
 
         if verbose:
-            print 'obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step])
+            print(('obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step])))
         if iter_step >= 1 and math.fabs(obj[iter_step] - obj[iter_step-1]) < 1e-3:
             break
 

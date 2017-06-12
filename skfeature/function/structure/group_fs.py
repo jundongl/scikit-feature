@@ -134,8 +134,8 @@ def group_fs(X, y, z1, z2, idx, **kwargs):
         obj[iter_step] = np.inner(Xwy, Xwy)/2 + tree_norm_val
 
         if verbose:
-            print 'obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step])
-
+            print('obj at iter {}: {}'.format(str(iter_step+1), str(obj[iter_step])))
+        
         if flag is True:
             break
 
