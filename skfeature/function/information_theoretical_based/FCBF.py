@@ -27,7 +27,7 @@ def fcbf(X, y, **kwargs):
     """
 
     n_samples, n_features = X.shape
-    if 'delta' in kwargs.keys():
+    if 'delta' in list(kwargs.keys()):
         delta = kwargs['delta']
     else:
         # the default value of delta is 0

@@ -60,7 +60,7 @@ def ndfs(X, **kwargs):
         beta = kwargs['beta']
     if 'F0' not in kwargs:
         if 'n_clusters' not in kwargs:
-            print >>sys.stderr, "either F0 or n_clusters should be provided"
+            print("either F0 or n_clusters should be provided", file=sys.stderr)
         else:
             # initialize F
             n_clusters = kwargs['n_clusters']
@@ -105,7 +105,7 @@ def ndfs(X, **kwargs):
         # calculate objective function
         obj[iter_step] = np.trace(np.dot(np.dot(F.transpose(), M), F)) + gamma/4*np.linalg.norm(np.dot(F.transpose(), F)-np.identity(n_clusters), 'fro')
         if verbose:
-            print 'obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step])
+            print('obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step]))
 
         if iter_step >= 1 and math.fabs(obj[iter_step] - obj[iter_step-1]) < 1e-3:
             break
