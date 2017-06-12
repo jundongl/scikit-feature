@@ -96,7 +96,7 @@ def trace_ratio(X, y, n_selected_features, **kwargs):
         old_k = k
         k = np.sum(s_between[idx])/np.sum(s_within[idx])
         if verbose:
-            print('obj at iter ' + str(count+1) + ': ' + str(k))
+            print(('obj at iter ' + str(count+1) + ': ' + str(k)))
         count += 1
         if abs(k - old_k) < 1e-3:
             break

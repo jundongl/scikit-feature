@@ -151,7 +151,7 @@ def micd(x, y, k=3, base=2, warning=True):
             mi -= word_dict[yval]*entropy(xgiveny, k, base)
         else:
             if warning:
-                print "Warning, after conditioning, on y={} insufficient data. Assuming maximal entropy in this case.".format(yval)
+                print("Warning, after conditioning, on y={} insufficient data. Assuming maximal entropy in this case.".format(yval))
             mi -= word_dict[yval]*overallentropy
     return mi  # units already applied
 
