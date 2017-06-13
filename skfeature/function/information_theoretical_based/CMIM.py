@@ -1,7 +1,7 @@
 from skfeature.utility.entropy_estimators import *
+from skfeature.utility.util import reverse_argsort
 
-
-def cmim(X, y, **kwargs):
+def cmim(X, y, mode="rank", **kwargs):
     """
     This function implements the CMIM feature selection.
     The scoring criteria is calculated based on the formula j_cmim=I(f;y)-max_j(I(fj;f)-I(fj;f|y))
@@ -32,7 +32,7 @@ def cmim(X, y, **kwargs):
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
 
-    if 'n_selected_features' in kwargs.keys():
+    if 'n_selected_features' in list(kwargs.keys()):
         n_selected_features = kwargs['n_selected_features']
         is_n_selected_features_specified = True
 
@@ -80,5 +80,7 @@ def cmim(X, y, **kwargs):
                     idx = i
         F.append(idx)
         f_select = X[:, idx]
-
-    return np.array(F)
+    if mode=="index":
+        return np.array(F)
+    else:
+        return reverse_argsort(F)

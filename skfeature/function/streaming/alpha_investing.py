@@ -1,5 +1,8 @@
 import numpy as np
 from sklearn import linear_model
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.feature_selection.base import SelectorMixin
+from skfeature.utility.util import reverse_argsort
 
 
 def alpha_investing(X, y, w0, dw):
@@ -57,3 +60,25 @@ def alpha_investing(X, y, w0, dw):
             w -= alpha
     return np.array(F)
 
+class AlphaInvesting(BaseEstimator, TransformerMixin):
+    """
+    Implmenetation of alpha-investing that is compatible with sklearn pipelines.
+
+    Reference
+    ---------
+    Zhou, Jing et al. "Streaming Feature Selection using Alpha-investing." KDD 2006.
+    """
+    def __init__(self, w0, dw):
+        self.w0 = w0
+        self.dw = dw
+        self.F = [] # selected features
+    
+    def fit(self, X, y=None):
+        self.F = alpha_investing(X[:], y[:], self.w0, self.dw)
+        return self
+    
+    def transform(self, X):
+        return X[:, self.F]
+    
+    
+    

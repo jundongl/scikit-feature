@@ -36,7 +36,7 @@ def trace_ratio(X, y, n_selected_features, **kwargs):
     """
 
     # if 'style' is not specified, use the fisher score way to built two affinity matrix
-    if 'style' not in kwargs.keys():
+    if 'style' not in list(kwargs.keys()):
         kwargs['style'] = 'fisher'
     # get the way to build affinity matrix, 'fisher' or 'laplacian'
     style = kwargs['style']
@@ -96,7 +96,7 @@ def trace_ratio(X, y, n_selected_features, **kwargs):
         old_k = k
         k = np.sum(s_between[idx])/np.sum(s_within[idx])
         if verbose:
-            print 'obj at iter ' + str(count+1) + ': ' + str(k)
+            print(('obj at iter ' + str(count+1) + ': ' + str(k)))
         count += 1
         if abs(k - old_k) < 1e-3:
             break

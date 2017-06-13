@@ -135,7 +135,7 @@ def tree_fs(X, y, z, idx, **kwargs):
         obj[iter_step] = np.inner(Xwy, Xwy)/2 + z*tree_norm_val
 
         if verbose:
-            print 'obj at iter ' + str(iter_step+1) + ': ' + str(obj[iter_step])
+            print('obj at iter {}: {}'.format(str(iter_step+1), str(obj[iter_step])))
 
         if flag is True:
             break

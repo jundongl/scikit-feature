@@ -1,6 +1,7 @@
 import numpy as np
 from skfeature.utility.mutual_information import su_calculation
-
+from scipy.stats import rankdata
+from skfeature.utility.util import reverse_argsort
 
 def merit_calculation(X, y):
     """
@@ -37,7 +38,7 @@ def merit_calculation(X, y):
     return merits
 
 
-def cfs(X, y):
+def cfs(X, y, mode="rank"):
     """
     This function uses a correlation based heuristic to evaluate the worth of features which is called CFS
 
@@ -82,5 +83,9 @@ def cfs(X, y):
                     if M[len(M)-3] <= M[len(M)-4]:
                         if M[len(M)-4] <= M[len(M)-5]:
                             break
-    return np.array(F)
+    
+    if mode == "index":
+        return np.array(F)
+    else:
+        return reverse_argsort(F, X.shape[1])
 

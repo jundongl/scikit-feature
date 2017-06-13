@@ -1,7 +1,7 @@
-import LCSI
+from . import LCSI
+from skfeature.utility.util import reverse_argsort
 
-
-def cife(X, y, **kwargs):
+def cife(X, y, mode="rank", **kwargs):
     """
     This function implements the CIFE feature selection
 
@@ -25,9 +25,13 @@ def cife(X, y, **kwargs):
     Brown, Gavin et al. "Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection." JMLR 2012.
     """
     
-    if 'n_selected_features' in kwargs.keys():
+    if 'n_selected_features' in list(kwargs.keys()):
         n_selected_features = kwargs['n_selected_features']
-        F = LCSI.lcsi(X, y, beta=1, gamma=1, n_selected_features=n_selected_features)
+        F = LCSI.lcsi(X[:], y, beta=1, gamma=1, n_selected_features=n_selected_features)
     else:
-        F = LCSI.lcsi(X, y, beta=1, gamma=1)
-    return F
+        F = LCSI.lcsi(X[:], y, beta=1, gamma=1)
+    
+    if mode=="index":
+        return F
+    else:
+        return reverse_argsort(F)
