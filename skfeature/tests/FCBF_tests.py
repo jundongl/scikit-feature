@@ -8,7 +8,6 @@ from sklearn.model_selection import cross_val_score
 from sklearn.feature_selection import SelectKBest
 from sklearn.pipeline import Pipeline
 
-
 def test_FCBF():
     # load data
     mat = scipy.io.loadmat('./data/colon.mat')
@@ -31,7 +30,6 @@ def test_FCBF():
     
     results = cross_val_score(model, X, y, cv=kfold)
     print(results.mean())
-    assert_true(results.mean() > 0.5)
+    assert_true(results.mean() > 0.6)
 
-if __name__ == '__main__':
-    main()
+
