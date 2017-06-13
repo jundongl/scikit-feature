@@ -1,6 +1,5 @@
 from nose.tools import *
 import scipy.io
-from sklearn.metrics import accuracy_score
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from skfeature.function.statistical_based import CFS
