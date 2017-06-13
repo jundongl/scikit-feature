@@ -100,7 +100,7 @@ def midd(x, y):
     Discrete mutual information estimator given a list of samples which can be any hashable object
     """
 
-    return -entropyd(zip(x, y))+entropyd(x)+entropyd(y)
+    return -entropyd(list(zip(x, y)))+entropyd(x)+entropyd(y)
 
 
 def cmidd(x, y, z):
@@ -108,7 +108,7 @@ def cmidd(x, y, z):
     Discrete mutual information estimator given a list of samples which can be any hashable object
     """
 
-    return entropyd(zip(y, z))+entropyd(zip(x, z))-entropyd(zip(x, y, z))-entropyd(z)
+    return entropyd(list(zip(y, z)))+entropyd(list(zip(x, z)))-entropyd(list(zip(x, y, z)))-entropyd(z)
 
 
 def hist(sx):
@@ -204,4 +204,4 @@ def avgdigamma(points, dvec):
 def zip2(*args):
     # zip2(x,y) takes the lists of vectors and makes it a list of vectors in a joint space
     # E.g. zip2([[1],[2],[3]],[[4],[5],[6]]) = [[1,4],[2,5],[3,6]]
-    return [sum(sublist, []) for sublist in zip(*args)]
+    return [sum(sublist, []) for sublist in list(zip(*args))]

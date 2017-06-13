@@ -1,8 +1,8 @@
 import numpy as np
 from skfeature.utility.mutual_information import su_calculation
+from skfeature.utility.util import reverse_argsort
 
-
-def fcbf(X, y, **kwargs):
+def fcbf(X, y, mode="rank", **kwargs):
     """
     This function implements Fast Correlation Based Filter algorithm
 
@@ -39,7 +39,7 @@ def fcbf(X, y, **kwargs):
         f = X[:, i]
         t1[i, 0] = i
         t1[i, 1] = su_calculation(f, y)
-    s_list = t1[t1[:, 1] > delta, :]
+    s_list = np.array(t1[t1[:, 1] > delta, :], dtype=int)
     # index of selected features, initialized to be empty
     F = []
     while len(s_list) != 0:
@@ -59,5 +59,9 @@ def fcbf(X, y, **kwargs):
                 # delete the feature by using the mask
                 s_list = s_list[idx]
                 length = len(s_list)/2
-                s_list = s_list.reshape((length, 2))
-    return np.array(F, dtype=int)
+                s_list = s_list.reshape((int(length), 2))
+    if mode=="index":
+        return np.array(F, dtype=int)
+    else:
+        # make sure that F is the same size??
+        return reverse_argsort(F, size=X.shape[1])
