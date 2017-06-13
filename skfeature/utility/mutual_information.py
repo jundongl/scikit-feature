@@ -1,4 +1,4 @@
-import entropy_estimators as ee
+import skfeature.utility.entropy_estimators as ee
 
 
 def information_gain(f1, f2):
