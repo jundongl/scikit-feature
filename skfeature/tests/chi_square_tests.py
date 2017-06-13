@@ -31,5 +31,6 @@ def test_chi2():
     kfold = KFold(n_splits=10, shuffle=True)
     
     results = cross_val_score(model, X, y, cv=kfold)
+    print("Accuracy: {}".format(results.mean()))
     assert_true(results.mean() > 0.95)
 
