@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cross_validation import KFold
+from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 
 
