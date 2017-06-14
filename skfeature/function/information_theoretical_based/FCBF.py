@@ -20,6 +20,8 @@ def fcbf(X, y, **kwargs):
     ------
     F: {numpy array}, shape (n_features,)
         index of selected features, F[0] is the most important feature
+    SU: {numpy array}, shape (n_features,)
+        symmetrical uncertainty of selected features
 
     Reference
     ---------
@@ -42,6 +44,8 @@ def fcbf(X, y, **kwargs):
     s_list = t1[t1[:, 1] > delta, :]
     # index of selected features, initialized to be empty
     F = []
+    # Symmetrical uncertainty of selected features
+    SU = []
     while len(s_list) != 0:
         # select the largest su inside s_list
         idx = np.argmax(s_list[:, 1])
@@ -49,6 +53,7 @@ def fcbf(X, y, **kwargs):
         fp = X[:, s_list[idx, 0]]
         np.delete(s_list, idx, 0)
         F.append(s_list[idx, 0])
+        SU.append(s_list[idx, 1])
         for i in s_list[:, 0]:
             fi = X[:, i]
             if su_calculation(fp, fi) >= t1[i, 1]:
@@ -60,4 +65,4 @@ def fcbf(X, y, **kwargs):
                 s_list = s_list[idx]
                 length = len(s_list)/2
                 s_list = s_list.reshape((length, 2))
-    return np.array(F, dtype=int)
+    return np.array(F, dtype=int), np.array(SU)

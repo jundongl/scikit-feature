@@ -20,6 +20,10 @@ def cmim(X, y, **kwargs):
     ------
     F: {numpy array}, shape (n_features,)
         index of selected features, F[0] is the most important feature
+    J_CMIM: {numpy array}, shape: (n_features,)
+        corresponding objective function value of selected features
+    MIfy: {numpy array}, shape: (n_features,)
+        corresponding mutual information between selected features and response
 
     Reference
     ---------
@@ -29,6 +33,10 @@ def cmim(X, y, **kwargs):
     n_samples, n_features = X.shape
     # index of selected features, initialized to be empty
     F = []
+    # Objective function value for selected features
+    J_CMIM = []
+    # Mutual information between feature and response
+    MIfy = []
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
 
@@ -54,12 +62,14 @@ def cmim(X, y, **kwargs):
             # select the feature whose mutual information is the largest
             idx = np.argmax(t1)
             F.append(idx)
+            J_CMIM.append(t1[idx])
+            MIfy.append(t1[idx])
             f_select = X[:, idx]
 
-        if is_n_selected_features_specified is True:
+        if is_n_selected_features_specified:
             if len(F) == n_selected_features:
                 break
-        if is_n_selected_features_specified is not True:
+        else:
             if j_cmim <= 0:
                 break
 
@@ -79,6 +89,8 @@ def cmim(X, y, **kwargs):
                     j_cmim = t
                     idx = i
         F.append(idx)
+        J_CMIM.append(j_cmim)
+        MIfy.append(t1[idx])
         f_select = X[:, idx]
 
-    return np.array(F)
+    return np.array(F), np.array(J_CMIM), np.array(MIfy)

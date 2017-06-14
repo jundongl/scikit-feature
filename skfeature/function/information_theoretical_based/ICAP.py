@@ -20,10 +20,18 @@ def icap(X, y, **kwargs):
     ------
     F: {numpy array}, shape (n_features,)
         index of selected features, F[0] is the most important feature
+    J_ICAP: {numpy array}, shape: (n_features,)
+        corresponding objective function value of selected features
+    MIfy: {numpy array}, shape: (n_features,)
+        corresponding mutual information between selected features and response
     """
     n_samples, n_features = X.shape
     # index of selected features, initialized to be empty
     F = []
+    # Objective function value for selected features
+    J_ICAP = []
+    # Mutual information between feature and response
+    MIfy = []
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
     if 'n_selected_features' in kwargs.keys():
@@ -46,6 +54,8 @@ def icap(X, y, **kwargs):
             # select the feature whose mutual information is the largest
             idx = np.argmax(t1)
             F.append(idx)
+            J_ICAP.append(t1[idx])
+            MIfy.append(t1[idx])
             f_select = X[:, idx]
 
         if is_n_selected_features_specified is True:
@@ -71,6 +81,8 @@ def icap(X, y, **kwargs):
                     j_icap = t
                     idx = i
         F.append(idx)
+        J_ICAP.append(j_icap)
+        MIfy.append(t1[idx])
         f_select = X[:, idx]
 
-    return np.array(F)
+    return np.array(F), np.array(J_ICAP), np.array(MIfy)

@@ -27,6 +27,10 @@ def lcsi(X, y, **kwargs):
     ------
     F: {numpy array}, shape: (n_features,)
         index of selected features, F[0] is the most important feature
+    J_CMI: {numpy array}, shape: (n_features,)
+        corresponding objective function value of selected features
+    MIfy: {numpy array}, shape: (n_features,)
+        corresponding mutual information between selected features and response
 
     Reference
     ---------
@@ -36,6 +40,10 @@ def lcsi(X, y, **kwargs):
     n_samples, n_features = X.shape
     # index of selected features, initialized to be empty
     F = []
+    # Objective function value for selected features
+    J_CMI = []
+    # Mutual information between feature and response
+    MIfy = []
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
     # initialize the parameters
@@ -50,7 +58,7 @@ def lcsi(X, y, **kwargs):
     # select the feature whose j_cmi is the largest
     # t1 stores I(f;y) for each feature f
     t1 = np.zeros(n_features)
-    # t2 sotres sum_j(I(fj;f)) for each feature f
+    # t2 stores sum_j(I(fj;f)) for each feature f
     t2 = np.zeros(n_features)
     # t3 stores sum_j(I(fj;f|y)) for each feature f
     t3 = np.zeros(n_features)
@@ -66,17 +74,19 @@ def lcsi(X, y, **kwargs):
             # select the feature whose mutual information is the largest
             idx = np.argmax(t1)
             F.append(idx)
+            J_CMI.append(t1[idx])
+            MIfy.append(t1[idx])
             f_select = X[:, idx]
 
-        if is_n_selected_features_specified is True:
+        if is_n_selected_features_specified:
             if len(F) == n_selected_features:
                 break
-        if is_n_selected_features_specified is not True:
+        else:
             if j_cmi < 0:
                 break
 
         # we assign an extreme small value to j_cmi to ensure it is smaller than all possible values of j_cmi
-        j_cmi = -1000000000000
+        j_cmi = -1E30
         if 'function_name' in kwargs.keys():
             if kwargs['function_name'] == 'MRMR':
                 beta = 1.0 / len(F)
@@ -95,9 +105,11 @@ def lcsi(X, y, **kwargs):
                     j_cmi = t
                     idx = i
         F.append(idx)
+        J_CMI.append(j_cmi)
+        MIfy.append(t1[idx])
         f_select = X[:, idx]
 
-    return np.array(F)
+    return np.array(F), np.array(J_CMI), np.array(MIfy)
 
 
 

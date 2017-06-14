@@ -19,6 +19,10 @@ def jmi(X, y, **kwargs):
     ------
     F: {numpy array}, shape (n_features,)
         index of selected features, F[0] is the most important feature
+    J_CMI: {numpy array}, shape: (n_features,)
+        corresponding objective function value of selected features
+    MIfy: {numpy array}, shape: (n_features,)
+        corresponding mutual information between selected features and response
 
     Reference
     ---------
@@ -26,7 +30,7 @@ def jmi(X, y, **kwargs):
     """
     if 'n_selected_features' in kwargs.keys():
         n_selected_features = kwargs['n_selected_features']
-        F = LCSI.lcsi(X, y, function_name='JMI', n_selected_features=n_selected_features)
+        F, J_CMI, MIfy = LCSI.lcsi(X, y, function_name='JMI', n_selected_features=n_selected_features)
     else:
-        F = LCSI.lcsi(X, y, function_name='JMI')
-    return F
+        F, J_CMI, MIfy = LCSI.lcsi(X, y, function_name='JMI')
+    return F, J_CMI, MIfy

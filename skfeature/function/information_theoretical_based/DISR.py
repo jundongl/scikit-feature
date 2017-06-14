@@ -22,6 +22,10 @@ def disr(X, y, **kwargs):
     ------
     F: {numpy array}, shape (n_features, )
         index of selected features, F[0] is the most important feature
+    J_DISR: {numpy array}, shape: (n_features,)
+        corresponding objective function value of selected features
+    MIfy: {numpy array}, shape: (n_features,)
+        corresponding mutual information between selected features and response
 
     Reference
     ---------
@@ -31,6 +35,10 @@ def disr(X, y, **kwargs):
     n_samples, n_features = X.shape
     # index of selected features, initialized to be empty
     F = []
+    # Objective function value for selected features
+    J_DISR = []
+    # Mutual information between feature and response
+    MIfy = []
     # indicate whether the user specifies the number of features
     is_n_selected_features_specified = False
 
@@ -54,6 +62,8 @@ def disr(X, y, **kwargs):
             # select the feature whose mutual information is the largest
             idx = np.argmax(t1)
             F.append(idx)
+            J_DISR.append(t1[idx])
+            MIfy.append(t1[idx])
             f_select = X[:, idx]
 
         if is_n_selected_features_specified is True:
@@ -64,19 +74,21 @@ def disr(X, y, **kwargs):
                 break
 
         # we assign an extreme small value to j_disr to ensure that it is smaller than all possible value of j_disr
-        j_disr = -1000000000000
+        j_disr = -1E30
         for i in range(n_features):
             if i not in F:
                 f = X[:, i]
-                t1 = midd(f_select, y) + cmidd(f, y, f_select)
-                t2 = entropyd(f) + conditional_entropy(f_select, f) + (conditional_entropy(y, f_select) - cmidd(y, f, f_select))
-                sum[i] += np.true_divide(t1, t2)
+                t2 = midd(f_select, y) + cmidd(f, y, f_select)
+                t3 = entropyd(f) + conditional_entropy(f_select, f) + (conditional_entropy(y, f_select) - cmidd(y, f, f_select))
+                sum[i] += np.true_divide(t2, t3)
                 # record the largest j_disr and the corresponding feature index
                 if sum[i] > j_disr:
                     j_disr = sum[i]
                     idx = i
         F.append(idx)
+        J_DISR.append(j_disr)
+        MIfy.append(t1[idx])
         f_select = X[:, idx]
 
-    return np.array(F)
+    return np.array(F), np.array(J_DISR), np.array(MIfy)
 
