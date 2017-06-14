@@ -8,7 +8,7 @@ It serves as a platform for facilitating feature selection application, research
 
 ## Installing scikit-feature
 ### Prerequisites:
-Python 2.7
+Python 2.7 *and Python 3*
 
 NumPy
 

@@ -57,7 +57,7 @@ def graph_fs(X, y, **kwargs):
     else:
         lambda2 = kwargs['lambda2']
     if 'edge_list' not in kwargs:
-        print 'Error using function, the network structure E is required'
+        print('Error using function, the network structure E is required')
         raise()
     else :
         edge_list = kwargs['edge_list']
@@ -106,7 +106,7 @@ def graph_fs(X, y, **kwargs):
     iter = 0
     obj = np.zeros((max_iter,1))
     while iter < max_iter:
-        print iter
+        print(iter)
         # update w
         b = np.dot(X.T, y) - mu - np.dot(T.T, v) + rho*np.dot(T.T,p) + rho*q
         w_hat = np.dot(Rtinv, b)
@@ -124,7 +124,7 @@ def graph_fs(X, y, **kwargs):
         # calculate objective function
         obj[iter] = calculate_obj(X, y, w, lambda1, lambda2, T)
         if verbose:
-            print 'obj at iter ' + str(iter) + ': ' + str(obj[iter])
+            print('obj at iter {0}: {1}'.format(iter, obj[iter]))
         iter += 1
     return w, obj, q
 
