@@ -36,7 +36,7 @@ def fcbf(X, y, **kwargs):
         delta = 0
 
     # t1[:,0] stores index of features, t1[:,1] stores symmetrical uncertainty of features
-    t1 = np.zeros((n_features, 2))
+    t1 = np.zeros((n_features, 2), dtypes='object')
     for i in range(n_features):
         f = X[:, i]
         t1[i, 0] = i
@@ -63,6 +63,6 @@ def fcbf(X, y, **kwargs):
                 idx = np.transpose(idx)
                 # delete the feature by using the mask
                 s_list = s_list[idx]
-                length = len(s_list)/2
+                length = len(s_list)//2
                 s_list = s_list.reshape((length, 2))
     return np.array(F, dtype=int), np.array(SU)
