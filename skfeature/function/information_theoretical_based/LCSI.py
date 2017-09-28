@@ -1,5 +1,13 @@
 from skfeature.utility.entropy_estimators import *
+from joblib import Parallel, delayed
+import multiprocessing
 
+def parallel_loop(i, f, t1, t2, t3, f_select, y, beta, gamma):
+    t2[i] += midd(f_select, f)
+    t3[i] += cmidd(f_select, f, y)
+    # calculate j_cmi for feature i (not in F)
+    t = t1[i] - beta * t2[i] + gamma * t3[i]
+    return i, t, t2[i], t3[i]
 
 def lcsi(X, y, **kwargs):
     """
@@ -54,6 +62,9 @@ def lcsi(X, y, **kwargs):
     if 'n_selected_features' in kwargs.keys():
         n_selected_features = kwargs['n_selected_features']
         is_n_selected_features_specified = True
+    n_jobs = -1
+    if "n_jobs" in kwargs.keys():
+        n_jobs = kwargs["n_jobs"]
 
     # select the feature whose j_cmi is the largest
     # t1 stores I(f;y) for each feature f
@@ -104,6 +115,13 @@ def lcsi(X, y, **kwargs):
                 if t > j_cmi:
                     j_cmi = t
                     idx = i
+        # r = Parallel(n_jobs=n_jobs)(delayed(parallel_loop)(i, X[:, i], t1, t2, t3, f_select, y, beta, gamma) for i in range(n_features) if i not in F)
+        # ind, t, t2p, t3p = zip(*r)
+        # t2[np.array(ind, dtype=np.int_)] = np.array(t2p)
+        # t3[np.array(ind, dtype=np.int_)] = np.array(t3p)
+        # idx = ind[np.argmax(t)]
+        # j_cmi = np.max(t)
+
         F.append(idx)
         J_CMI.append(j_cmi)
         MIfy.append(t1[idx])
