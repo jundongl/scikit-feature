@@ -1,13 +1,14 @@
 from skfeature.utility.entropy_estimators import *
-from joblib import Parallel, delayed
-import multiprocessing
+import concurrent.futures
+
 
 def parallel_loop(i, f, t1, t2, t3, f_select, y, beta, gamma):
     t2[i] += midd(f_select, f)
     t3[i] += cmidd(f_select, f, y)
     # calculate j_cmi for feature i (not in F)
     t = t1[i] - beta * t2[i] + gamma * t3[i]
-    return i, t, t2[i], t3[i]
+    return [int(i), t, t2, t3]
+
 
 def lcsi(X, y, **kwargs):
     """
@@ -62,7 +63,7 @@ def lcsi(X, y, **kwargs):
     if 'n_selected_features' in kwargs.keys():
         n_selected_features = kwargs['n_selected_features']
         is_n_selected_features_specified = True
-    n_jobs = -1
+    n_jobs = None
     if "n_jobs" in kwargs.keys():
         n_jobs = kwargs["n_jobs"]
 
@@ -89,6 +90,7 @@ def lcsi(X, y, **kwargs):
             MIfy.append(t1[idx])
             f_select = X[:, idx]
 
+        ## Exit conditions from the inifinite loop
         if is_n_selected_features_specified:
             if len(F) == n_selected_features:
                 break
@@ -104,32 +106,56 @@ def lcsi(X, y, **kwargs):
             elif kwargs['function_name'] == 'JMI':
                 beta = 1.0 / len(F)
                 gamma = 1.0 / len(F)
+
+        ## Assign job queue, with function and args packed, the results are stored in future_queue
+        job_queue = []
+        future_queue = []
         for i in range(n_features):
             if i not in F:
-                f = X[:, i]
-                t2[i] += midd(f_select, f)
-                t3[i] += cmidd(f_select, f, y)
-                # calculate j_cmi for feature i (not in F)
-                t = t1[i] - beta*t2[i] + gamma*t3[i]
-                # record the largest j_cmi and the corresponding feature index
-                if t > j_cmi:
-                    j_cmi = t
-                    idx = i
-        # r = Parallel(n_jobs=n_jobs)(delayed(parallel_loop)(i, X[:, i], t1, t2, t3, f_select, y, beta, gamma) for i in range(n_features) if i not in F)
-        # ind, t, t2p, t3p = zip(*r)
-        # t2[np.array(ind, dtype=np.int_)] = np.array(t2p)
-        # t3[np.array(ind, dtype=np.int_)] = np.array(t3p)
-        # idx = ind[np.argmax(t)]
-        # j_cmi = np.max(t)
-
+                job_queue.append( [parallel_loop, 
+                                   i, 
+                                   X[:, i], 
+                                   t1, 
+                                   t2, 
+                                   t3, 
+                                   f_select, 
+                                   y, 
+                                   beta, 
+                                   gamma] )
+    
+        ## Execute the job in parallel
+        with concurrent.futures.ProcessPoolExecutor(max_workers=n_jobs) as executor:
+            for job in job_queue:
+                future_queue.append( executor.submit( job[0], ## parallel_loop() function
+                                                      job[1], ## i
+                                                      job[2], ## y = X[:, i]
+                                                      job[3], ## t1
+                                                      job[4], ## t2
+                                                      job[5], ## t3
+                                                      job[6], ## f_select
+                                                      job[7], ## y
+                                                      job[8], ## beta
+                                                      job[9]  ## gamma
+                                                    ) ) 
+    
+        ## Unpack the results, adding back single threaded logic
+        for future in future_queue:
+            
+            i = future.result()[0]
+            t = future.result()[1]
+            t2 = future.result()[2]
+            t3 = future.result()[3]
+    
+            ## record the largest j_cmi and the corresponding feature index
+            if t > j_cmi:
+                j_cmi = t
+                idx = i
+    
         F.append(idx)
         J_CMI.append(j_cmi)
         MIfy.append(t1[idx])
         f_select = X[:, idx]
-
+        
     return np.array(F), np.array(J_CMI), np.array(MIfy)
-
-
-
 
 
