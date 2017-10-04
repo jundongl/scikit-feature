@@ -63,7 +63,7 @@ def lcsi(X, y, **kwargs):
     if 'n_selected_features' in kwargs.keys():
         n_selected_features = kwargs['n_selected_features']
         is_n_selected_features_specified = True
-    n_jobs = -1
+    n_jobs = None
     if "n_jobs" in kwargs.keys():
         n_jobs = kwargs["n_jobs"]
 
@@ -124,7 +124,7 @@ def lcsi(X, y, **kwargs):
                                    gamma] )
     
         ## Execute the job in parallel
-        with concurrent.futures.ProcessPoolExecutor() as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=n_jobs) as executor:
             for job in job_queue:
                 future_queue.append( executor.submit( job[0], ## parallel_loop() function
                                                       job[1], ## i
