@@ -24,7 +24,7 @@ def main():
     correct = 0
     for train, test in ss:
         # obtain the index of each feature on the training set
-        idx = ICAP.icap(X[train], y[train], n_selected_features=num_fea)
+        idx,_,_ = ICAP.icap(X[train], y[train], n_selected_features=num_fea)
 
         # obtain the dataset on the selected features
         features = X[:, idx[0:num_fea]]
