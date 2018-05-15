@@ -1,4 +1,5 @@
-import entropy_estimators as ee
+from __future__ import absolute_import
+from skfeature.utility import entropy_estimators as ee
 
 
 def information_gain(f1, f2):
