@@ -1,3 +1,6 @@
+from __future__ import print_function
+from __future__ import division
+
 import scipy.io
 from sklearn import cross_validation
 from sklearn.metrics import accuracy_score
@@ -17,6 +20,7 @@ def main():
 
     # split data into 10 folds
     ss = cross_validation.KFold(n_samples, n_folds=10, shuffle=True)
+    # ss = model_selection.KFold(10, shuffle=True, random_state=None)
 
     # perform evaluation on classification task
     clf = svm.LinearSVC()    # linear SVM
@@ -40,7 +44,7 @@ def main():
         correct = correct + acc
 
     # output the average classification accuracy over all 10 folds
-    print 'Accuracy:', float(correct)/10
+    print ('Accuracy:', float(correct)/10)
 
 if __name__ == '__main__':
     main()
