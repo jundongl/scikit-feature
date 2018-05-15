@@ -1,3 +1,6 @@
+from __future__ import print_function
+from __future__ import division
+
 import scipy.io
 from sklearn import svm
 from sklearn import cross_validation
@@ -38,9 +41,10 @@ def main():
         # obtain the classification accuracy on the test data
         acc = accuracy_score(y[test], y_predict)
         correct = correct + acc
+        print (correct)
 
     # output the average classification accuracy over all 10 folds
-    print 'Accuracy:', float(correct)/10
+    print ('Accuracy:', float(correct)/10)
 
 if __name__ == '__main__':
     main()
