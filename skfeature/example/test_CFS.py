@@ -41,7 +41,6 @@ def main():
         # obtain the classification accuracy on the test data
         acc = accuracy_score(y[test], y_predict)
         correct = correct + acc
-        print (correct)
 
     # output the average classification accuracy over all 10 folds
     print ('Accuracy:', float(correct)/10)
