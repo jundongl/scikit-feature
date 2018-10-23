@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import division
 import scipy.io
 from sklearn.cross_validation import KFold
 from skfeature.function.wrapper import decision_tree_backward
@@ -39,7 +41,7 @@ def main():
         correct = correct + acc
 
     # output the average classification accuracy over all 10 folds
-    print 'Accuracy:', float(correct)/10
+    print ('Accuracy:', float(correct)/10)
 
 if __name__ == '__main__':
     main()
