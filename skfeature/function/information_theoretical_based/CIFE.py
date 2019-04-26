@@ -29,5 +29,7 @@ def cife(X, y, **kwargs):
         n_selected_features = kwargs['n_selected_features']
         F = LCSI.lcsi(X, y, beta=1, gamma=1, n_selected_features=n_selected_features)
     else:
+        print("测试github上传代码")
+        print("测试git的使用")
         F = LCSI.lcsi(X, y, beta=1, gamma=1)
     return F
