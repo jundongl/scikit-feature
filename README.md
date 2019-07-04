@@ -32,16 +32,16 @@ Instructions of using this repository can be found in our project webpage at htt
 
 If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
-  @article{li2018feature,
-  title={Feature selection: A data perspective},
-  author={Li, Jundong and Cheng, Kewei and Wang, Suhang and Morstatter, Fred and Trevino, Robert P and Tang, Jiliang and Liu, Huan},
-  journal={ACM Computing Surveys (CSUR)},
-  volume={50},
-  number={6},
-  pages={94},
-  year={2018},
-  publisher={ACM}
-}
+    @article{li2018feature,
+    title={Feature selection: A data perspective},
+    author={Li, Jundong and Cheng, Kewei and Wang, Suhang and Morstatter, Fred and Trevino, Robert P and Tang, Jiliang and Liu, Huan},
+    journal={ACM Computing Surveys (CSUR)},
+    volume={50},
+    number={6},
+    pages={94},
+    year={2018},
+    publisher={ACM}
+    }
     
 ## Contact
 Jundong Li
