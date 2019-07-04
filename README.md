@@ -32,7 +32,7 @@ Instructions of using this repository can be found in our project webpage at htt
 
 If you find scikit-feature feature selection reposoitory useful in your research, please consider citing the following paper::
 
-    @article{li2018feature,
+  @article{li2018feature,
   title={Feature selection: A data perspective},
   author={Li, Jundong and Cheng, Kewei and Wang, Suhang and Morstatter, Fred and Trevino, Robert P and Tang, Jiliang and Liu, Huan},
   journal={ACM Computing Surveys (CSUR)},
