@@ -36,7 +36,7 @@ def fcbf(X, y, **kwargs):
         delta = 0
 
     # t1[:,0] stores index of features, t1[:,1] stores symmetrical uncertainty of features
-    t1 = np.zeros((n_features, 2), dtypes='object')
+    t1 = np.zeros((n_features, 2), dtype='object')
     for i in range(n_features):
         f = X[:, i]
         t1[i, 0] = i

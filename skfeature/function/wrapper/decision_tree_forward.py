@@ -25,7 +25,7 @@ def decision_tree_forward(X, y, n_selected_features):
 
     n_samples, n_features = X.shape
     # using 10 fold cross validation
-    cv = KFold(n_samples, n_folds=10, shuffle=True)
+    cv = KFold(n_splits=10, shuffle=True)
     # choose decision tree as the classifier
     clf = DecisionTreeClassifier()
 
@@ -39,7 +39,7 @@ def decision_tree_forward(X, y, n_selected_features):
                 F.append(i)
                 X_tmp = X[:, F]
                 acc = 0
-                for train, test in cv:
+                for train, test in cv.split(X_tmp):
                     clf.fit(X_tmp[train], y[train])
                     y_predict = clf.predict(X_tmp[test])
                     acc_tmp = accuracy_score(y[test], y_predict)
@@ -54,4 +54,3 @@ def decision_tree_forward(X, y, n_selected_features):
         F.append(idx)
         count += 1
     return np.array(F)
-
