@@ -46,11 +46,11 @@ def decision_tree_forward(X, y, n_selected_features):
                     acc += acc_tmp
                 acc = float(acc)/10
                 F.pop()
-                # record the feature which results in the largest accuracy
+                # record the feature adding which results in the largest accuracy
                 if acc > max_acc:
                     max_acc = acc
                     idx = i
-        # add the feature which results in the largest accuracy
+        # add the feature adding which results in the largest accuracy
         F.append(idx)
         count += 1
     return np.array(F)

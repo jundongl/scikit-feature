@@ -47,11 +47,11 @@ def decision_tree_backward(X, y, n_selected_features):
                     acc += acc_tmp
                 acc = float(acc)/10
                 F.append(i)
-                # record the feature which results in the largest accuracy
+                # record the feature removing which results in the largest accuracy
                 if acc > max_acc:
                     max_acc = acc
                     idx = i
-        # delete the feature which results in the largest accuracy
+        # delete the feature removing swhich results in the largest accuracy
         F.remove(idx)
         count -= 1
     return np.array(F)
