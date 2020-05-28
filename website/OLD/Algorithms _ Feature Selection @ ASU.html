@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://featureselection.asu.edu/old/software.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" async="" src="./Algorithms _ Feature Selection @ ASU_files/ga.js.download"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18315668-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<title>Algorithms | Feature Selection @ ASU</title>
+<link href="./Algorithms _ Feature Selection @ ASU_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="shortcut icon" href="http://featureselection.asu.edu/old/images/favicon.ico">
+	
+	<!--This is to make sure that the stars are all of uniform dimensions-->
+	<style type="text/css">
+		img.star{
+			width: 18px;
+			height: 20px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		/*
+		 Some important global variables
+		*/
+		var savedHTML = "";
+		var activeID = -1;
+		var stopDrawing = false;
+		
+		/*
+		 This function will toggle the visibility of the algorithm table.
+		*/
+		function showHideAlgoTable(tableName, fieldName){
+			
+			var onText = "- Show Table";
+			var offText = "+ Hide Table";
+			
+			var onProp = "block";
+			var offProp = "none";
+			
+			var showHideMe = document.getElementById(tableName);
+			var showHideLink = document.getElementById(fieldName);
+			
+			if(showHideMe.style.display == offProp){
+				showHideMe.style.display = onProp;
+				showHideLink.innerHTML = offText;
+			}
+			else{
+				showHideMe.style.display = offProp;
+				showHideLink.innerHTML = onText;
+			}
+		}
+		
+		function onRateEnter(idNumber){
+			
+			var url = "checkcanrate.php?id=" + idNumber;
+			
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", url, false);
+			xmlhttp.send(null);
+			
+			var canRate = xmlhttp.responseText == "yes";
+			var boxID = 'RateBox_' + String(idNumber);
+			
+			if(activeID != -1){
+				document.getElementById('RateBox_' + String(activeID)).innerHTML = savedHTML;
+				savedHTML = document.getElementById('RateBox_' + String(idNumber)).innerHTML;
+			}
+			
+			
+			
+			if(canRate){
+				
+				if(!stopDrawing){
+					document.getElementById(boxID).innerHTML = makeRateHTML(idNumber);
+				}
+				stopDrawing = true;
+				activeID = idNumber;
+			}
+		}
+		
+		function onRateLeave(){
+			stopDrawing = false;
+		}
+		
+		function makeRateHTML(idNumber){
+			var html = "<table cellpadding='0' cellspacing='0'><tr>";
+			
+			for(i = 0; i < 5; i++){
+				html += "<td id='ratingNumber_" + String(i) + "' onmouseup = 'rateAlgo(" + String(idNumber) + ", " + String(i) + ");' " +
+					"onmouseover = 'fillIn(" + String(i) + ");'>" +
+					"<img src = 'images/fullstaryellow.jpg' class='star' /> </td>";
+			}
+			html += "</tr></table>";
+			
+			return html;
+		}
+		
+		function fillIn(idNumber){
+			alertStr = "";
+			for(i = 0; i < 5; i++){
+				if(i <= idNumber){
+					alertStr += i + ", " + idNumber + " LESS THAN";
+					document.getElementById('ratingNumber_' + String(i)).innerHTML
+						= "<img src = 'images/fullstaryellow.jpg' class='star'>";
+				}
+				else{
+					alertStr += i + ", " + idNumber + " > THAN";
+					document.getElementById('ratingNumber_' + String(i)).innerHTML
+						= "<img src = 'images/emptystar.gif' class='star'>";
+				}
+			}
+			activeID = -1;
+		}
+		
+		function rateAlgo(idNumber, rating){
+			var url = "rate.php?algId=" + String(idNumber) + "&rating=" + String(rating+1);
+			
+			xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET", url, false);
+			xmlhttp.send(null);
+			
+			var answer = xmlhttp.responseText;
+			
+			if(answer == "yes"){
+				alert("Thank you for rating this algorithm.");
+			}
+		}
+	</script>
+</head>
+<body data-gr-c-s-loaded="true">
+
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://featureselection.asu.edu/old/software.php#">Feature Selection</a></h1>
+		<p>at <a href="http://asu.edu/">Arizona State University</a></p>
+		<br>
+		In conjunction with the <a href="http://dmml.asu.edu/">DMML</a>.
+	</div>
+</div><!-- end #header -->
+<div id="menu">
+	<ul>
+	<li><a href="http://featureselection.asu.edu/old/index.php">Home</a></li>
+	<li><a href="http://featureselection.asu.edu/old/research.php">Research</a></li>
+	<li><a href="http://featureselection.asu.edu/old/datasets.php">Datasets</a></li>
+	<li><a href="http://featureselection.asu.edu/old/software.php">Feature Selection Algorithms</a></li>
+	<li><a href="http://featureselection.asu.edu/old/donateds.php">Donate a Dataset</a></li>
+	<li><a href="http://featureselection.asu.edu/old/donateal.php">Donate an Algorithm</a></li>
+	<!--<li><a href="/forum/">Public Forum (beta)</a></li>-->
+</ul>	
+</div>
+<!-- end #menu -->
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h1 class="title"><a href="http://featureselection.asu.edu/old/software.php#">Feature Selection Algorithms</a></h1>
+			<div class="entry">
+Currently,				this package is available for MATLAB only, and is licensed under the GPL.
+				For information on each algorithm and usage instructions, please read the documentation.<br><br>
+				
+				<div style="font-size:125%;font-weight:bold;">
+								</div>
+				<br>
+				<br><br>
+				
+				<h2>Feature Selection Algorithms</h2>
+				<br>
+				<a onclick="showHideAlgoTable(&#39;showHideMe&#39;,&#39;showHideLink&#39;);" style="font-size: larger; padding-top: 25px; padding-bottom: 25px;" id="showHideLink">+ Hide Table</a>
+				
+				<div id="showHideMe" style="display: block; padding-top: 15px;">
+					<!-- Make the connection-->
+										<table>
+						<tbody><tr><th class="list">Algorithm</th>
+						<th class="list">Reference</th>
+						<th class="list">Implementation</th>
+						<th class="list">Benchmark</th>
+						<!--<th class="list">Tags</th>-->
+						<th class="list">Rating</th>
+													</tr><tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/blogreg.htm">BLogReg</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://bioinformatics.oxfordjournals.org/cgi/content/abstract/22/19/2348">
+										Gene selection in cancer classification using sparse logistic regression with Bayesian regularization									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_blogreg.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=blogreg">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_1" onmouseover="onRateEnter(1);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/cfs.htm">CFS</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.cs.waikato.ac.nz/~mhall/Flairs.ps">
+										Feature Selection for Machine Learning: Comparing a Correlation-based Filter Approach to the Wrapper									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_cfs.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=cfs">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_3" onmouseover="onRateEnter(3);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/chisquare.htm">Chi Square</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.computer.org/portal/web/csdl/doi/10.1109/TAI.1995.479783">
+										Chi2: Feature Selection and Discretization of Numeric Attributes									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_chisquare.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=chi2">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_5" onmouseover="onRateEnter(5);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/fcbf.htm">FCBF</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.cs.binghamton.edu/~lyu/publications/Yu-Liu03ICML.pdf">
+										Feature Selection for High-Dimensional Data: A Fast Correlation-Based Filter Solution									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_fcbf.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=fcbf">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_6" onmouseover="onRateEnter(6);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/fisher.htm">Fisher Score</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://portal.acm.org/citation.cfm?id=1325635">
+										R.O. Duda, P.E. Hart, and D.G. Stork, Pattern Classification									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_fisher_score.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=fisher">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_7" onmouseover="onRateEnter(7);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/gini.htm">Gini Index</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://en.wikipedia.org/wiki/Gini_coefficient">
+										Variabilita e Mutabilita									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_gini_index.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=gini">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_8" onmouseover="onRateEnter(8);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/infogain.htm">Information Gain</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.elementsofinformationtheory.com/">
+										Cover, T. M. &amp; Thomas, J. A. Elements of Information Theory Wiley, 1991									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_information_gain.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=infogain">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_9" onmouseover="onRateEnter(9);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/kruskalwallis.htm">Kruskal-Wallis</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.jstor.org/pss/2287603">
+										Asymptotic Conservativeness and Efficiency of Kruskal-Wallis Test for K Dependent Samples by L.J. Wei.									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_kruskalwallis.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=kruskalwallis">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_10" onmouseover="onRateEnter(10);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/MRMR.htm">mRMR</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://penglab.janelia.org/proj/mRMR/BIBM07_mRMR_071103_handout.pdf">
+										Minimum Redundancy and Maximum Relevance Feature Selection and Its Applications									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_mrmr.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=mrmr">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_11" onmouseover="onRateEnter(11);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/relieff.htm">Relief-F</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://books.google.com/books?id=N1ViHNWZeQ0C&amp;dq=Computational+Methods+of+Feature+Selection+by+Huan+Liu+and+Hiroshi+Motoda.&amp;printsec=frontcover&amp;source=bl&amp;ots=pGY9xytdyM&amp;sig=gOQUHuORwYTu5Ze8JzLfnVaYuWE&amp;hl=en&amp;ei=soRBS5vrCsT_nAeto_n5CA&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=1&amp;ved=0CA0Q6AEwAA#v=onepage&amp;q=&amp;f=false">
+										Computational Methods of Feature Selection									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_relieff.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=relieff">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_12" onmouseover="onRateEnter(12);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/SBMLR.htm">SBMLR</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://books.nips.cc/papers/files/nips19/NIPS2006_0216.pdf">
+										Gavin C. Cawley, Nicola L. C. Talbot, Mark Girolami: Sparse Multinomial Logistic Regression via Bayesian L1 Regularisation.									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_sbmlr.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=sbmlr">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_13" onmouseover="onRateEnter(13);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/ttest.htm">T-test</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://en.wikipedia.org/wiki/Student&#39;s_t-test">
+										Student's T-test Wiki									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_sup_ttest.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=ttest">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_14" onmouseover="onRateEnter(14);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/halfstar.jpg" class="star">								</td>
+						</tr>
+													<tr class="list">	
+								<td class="list" width="15%">
+									<a href="http://featureselection.asu.edu/old/documentation/spectrum.htm">SPEC</a>
+								</td>
+								<td class="list" width="50%">
+									<a href="http://www.machinelearning.org/proceedings/icml2007/papers/444.pdf">
+										Spectral Feature Selection for Supervised and Unsupervised Learning -- Zheng Zhao &amp; Huan Liu									</a>
+								</td>
+								<td class="list" width="10%" align="center">
+									<a href="http://featureselection.asu.edu/old/algorithms/fs_uns_spec.zip">download</a>
+								</td>
+								<td class="list" width="10%" align="center">
+																		<a href="http://featureselection.asu.edu/old/downloadxlsx.php?filename=spectrum">download</a>
+																	</td>
+								<!--<td class="list">tag</td>-->
+								<td class="list" width="12%" id="RateBox_15" onmouseover="onRateEnter(15);" onmouseout="onRateLeave();">
+									<img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/fullstar.jpg" class="star"><img src="./Algorithms _ Feature Selection @ ASU_files/emptystar.gif" class="star">								</td>
+						</tr>
+											</tbody></table>
+				</div>
+				
+				<h2 style="padding-top: 15px;">Software Package</h2>
+				The most up-to-date version of the software package can be downloaded from here:<br>
+				<h4>
+					<a href="http://featureselection.asu.edu/old/downloadpackage.php">Download Link</a>
+				</h4>
+				<h2>Help Files</h2>
+				The help files are available to view through your browser either hosted on this server,
+				or downloaded and run from your desktop.
+				<h4>
+					<a href="http://featureselection.asu.edu/old/documentation/navpane.htm">Online Documentation</a><br>
+					<a href="http://featureselection.asu.edu/old/fs-doc.zip">Download Documentation (.zip file)</a>
+				</h4>
+		  </div>
+		</div>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+	<p>© 2020 DMML @ ASU. All rights reserved. <a href="http://featureselection.asu.edu/old/license.php">License</a>
+</p></div>
+<!-- end #footer -->
+
+
+</body></html>

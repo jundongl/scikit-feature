@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://featureselection.asu.edu/old/donateds.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<title>Dataset Donation | Feature Selection @ ASU</title>
+<link href="./Dataset Donation _ Feature Selection @ ASU_files/style.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="shortcut icon" href="http://featureselection.asu.edu/old/images/favicon.ico">
+	
+	<script type="text/javascript" async="" src="./Dataset Donation _ Feature Selection @ ASU_files/ga.js.download"></script><script type="text/javascript">
+		function checkCompletion(){
+			var isError = false;
+			var errorFields = new Array();
+			
+			//Check fields
+			var fields = ['dsName','numInst', 'numFeatures', 'numClasses','desc','keywords', 'donorFile'];
+			var quals = ['Dataset Name', 'Number of Instances', 'Number of Features', 'Number of Classes',
+				     'Description', 'Keywords', 'Upload File'];
+			for(i = 0; i < fields.length; i++){
+				if(document.getElementsByName(fields[i])[0].value == ''){
+					isError = true;
+					errorFields.push(quals[i]);
+				}
+			}
+			
+			//finally decide whether to push it.
+			if(isError){
+				var outputmsg = "You must complete the following fields:\n";
+				for(i = 0; i < errorFields.length; i++){
+					outputmsg += errorFields[i] + "\n";
+				}
+				alert(outputmsg);
+				
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+	</script>
+	
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18315668-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body data-gr-c-s-loaded="true">
+
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://featureselection.asu.edu/old/donateds.php#">Feature Selection</a></h1>
+		<p>at <a href="http://asu.edu/">Arizona State University</a></p>
+		<br>
+		In conjunction with the <a href="http://dmml.asu.edu/">DMML</a>.
+	</div>
+</div><!-- end #header -->
+<div id="menu">
+	<ul>
+	<li><a href="http://featureselection.asu.edu/old/index.php">Home</a></li>
+	<li><a href="http://featureselection.asu.edu/old/research.php">Research</a></li>
+	<li><a href="http://featureselection.asu.edu/old/datasets.php">Datasets</a></li>
+	<li><a href="http://featureselection.asu.edu/old/software.php">Feature Selection Algorithms</a></li>
+	<li><a href="http://featureselection.asu.edu/old/donateds.php">Donate a Dataset</a></li>
+	<li><a href="http://featureselection.asu.edu/old/donateal.php">Donate an Algorithm</a></li>
+	<!--<li><a href="/forum/">Public Forum (beta)</a></li>-->
+</ul>	
+</div>
+<!-- end #menu -->
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h1 class="title"><a href="http://featureselection.asu.edu/old/donateds.php#">Donate A Data Set </a></h1>
+			<div class="entry">
+				We always need more data sets to verify our algorithms; to
+				test their flexibility and validity. If you would like to submit a data set,
+				please just fill out the following form:<br>
+				<form name="donation" method="post" action="http://featureselection.asu.edu/old/upload.php?type=dataset" enctype="multipart/form-data" onsubmit="return checkCompletion();">
+					<table>
+						<tbody><tr>
+							<td>
+								Your Name (optional):
+							</td>
+							<td>
+								<input type="text" name="donorName">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Email (optional):
+							</td>
+							<td>
+								<input type="text" name="donorEmail">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Institution (optional):
+							</td>
+							<td>
+								<input type="text" name="donorCo">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Dataset Name
+							</td>
+							<td>
+								<input type="text" name="dsName">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Number of Instances:
+							</td>
+							<td>
+								<input type="text" name="numInst">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Number of Features:
+							</td>
+							<td>
+								<input type="text" name="numFeatures">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Number of Classes:
+							</td>
+							<td>
+								<input type="text" name="numClasses">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Description:
+							</td>
+							<td>
+								<!--<input type="text" name="desc"/>-->
+								<textarea rows="3" cols="43" name="desc"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Tags:
+							</td>
+							<td>
+								<input type="text" name="keywords">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								File:
+							</td>
+							<td>
+								<input type="file" name="donorFile">
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="submit" value="Submit">
+							</td>
+						</tr>
+					</tbody></table>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+	<p>© 2020 DMML @ ASU. All rights reserved. <a href="http://featureselection.asu.edu/old/license.php">License</a>
+</p></div>
+<!-- end #footer -->
+
+
+</body></html>
