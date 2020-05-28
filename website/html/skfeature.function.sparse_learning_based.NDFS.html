@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.sparse_learning_based.NDFS</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.sparse_learning_based.html"><font color="#ffffff">sparse_learning_based</font></a>.NDFS</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="sklearn.html">sklearn</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-calculate_obj"><strong>calculate_obj</strong></a>(X, W, F, L, alpha, beta)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;objective&nbsp;function&nbsp;of&nbsp;NDFS</tt></dd></dl>
+ <dl><dt><a name="-kmeans_initialization"><strong>kmeans_initialization</strong></a>(X, n_clusters)</dt><dd><tt>This&nbsp;function&nbsp;uses&nbsp;kmeans&nbsp;to&nbsp;initialize&nbsp;the&nbsp;pseudo&nbsp;label<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+n_clusters:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;clusters<br>
+&nbsp;<br>
+Output<br>
+------<br>
+Y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_clusters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pseudo&nbsp;label&nbsp;matrix</tt></dd></dl>
+ <dl><dt><a name="-ndfs"><strong>ndfs</strong></a>(X, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implement&nbsp;unsupervised&nbsp;feature&nbsp;selection&nbsp;using&nbsp;nonnegative&nbsp;spectral&nbsp;analysis,&nbsp;i.e.,<br>
+min_{F,W}&nbsp;Tr(F^T&nbsp;L&nbsp;F)&nbsp;+&nbsp;alpha*(||XW-F||_F^2&nbsp;+&nbsp;beta*||W||_{2,1})&nbsp;+&nbsp;gamma/2&nbsp;*&nbsp;||F^T&nbsp;F&nbsp;-&nbsp;I||_F^2<br>
+s.t.&nbsp;F&nbsp;&gt;=&nbsp;0<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;{sparse&nbsp;matrix},&nbsp;shape&nbsp;{n_samples,&nbsp;n_samples}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;affinity&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alpha:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameter&nbsp;alpha&nbsp;in&nbsp;objective&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;beta:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameter&nbsp;beta&nbsp;in&nbsp;objective&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamma:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;very&nbsp;large&nbsp;number&nbsp;used&nbsp;to&nbsp;force&nbsp;F^T&nbsp;F&nbsp;=&nbsp;I<br>
+&nbsp;&nbsp;&nbsp;&nbsp;F0:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_clusters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initialization&nbsp;of&nbsp;the&nbsp;pseudo&nbsp;label&nbsp;matirx&nbsp;F,&nbsp;if&nbsp;not&nbsp;provided<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n_clusters:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;clusters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;verbose:&nbsp;{boolean}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;user&nbsp;want&nbsp;to&nbsp;print&nbsp;out&nbsp;the&nbsp;objective&nbsp;function&nbsp;value&nbsp;in&nbsp;each&nbsp;iteration,&nbsp;false&nbsp;if&nbsp;not<br>
+&nbsp;<br>
+Output<br>
+------<br>
+W:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_features,&nbsp;n_clusters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;feature&nbsp;weight&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Reference:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Li,&nbsp;Zechao,&nbsp;et&nbsp;al.&nbsp;"Unsupervised&nbsp;Feature&nbsp;Selection&nbsp;Using&nbsp;Nonnegative&nbsp;Spectral&nbsp;Analysis."&nbsp;AAAI.&nbsp;2012.</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.utility.entropy_estimators</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.utility.html"><font color="#ffffff">utility</font></a>.entropy_estimators</strong></big></big></font></td
+></tr></table>
+    <p><tt>#&nbsp;Written&nbsp;by&nbsp;Greg&nbsp;Ver&nbsp;Steeg&nbsp;(<a href="http://www.isi.edu/~gregv/npeet.html">http://www.isi.edu/~gregv/npeet.html</a>)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="numpy.random.html">numpy.random</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="scipy.spatial.html">scipy.spatial</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-avgdigamma"><strong>avgdigamma</strong></a>(points, dvec)</dt><dd><tt>#&nbsp;Internal&nbsp;functions</tt></dd></dl>
+ <dl><dt><a name="-cmi"><strong>cmi</strong></a>(x, y, z, k<font color="#909090">=3</font>, base<font color="#909090">=2</font>)</dt><dd><tt>Mutual&nbsp;information&nbsp;of&nbsp;x&nbsp;and&nbsp;y,&nbsp;conditioned&nbsp;on&nbsp;z;&nbsp;x,&nbsp;y,&nbsp;z&nbsp;should&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;vectors,&nbsp;e.g.&nbsp;x&nbsp;=&nbsp;[[1.3],[3.7],[5.1],[2.4]]<br>
+if&nbsp;x&nbsp;is&nbsp;a&nbsp;one-dimensional&nbsp;scalar&nbsp;and&nbsp;we&nbsp;have&nbsp;four&nbsp;samples</tt></dd></dl>
+ <dl><dt><a name="-cmidd"><strong>cmidd</strong></a>(x, y, z)</dt><dd><tt>Discrete&nbsp;mutual&nbsp;information&nbsp;estimator&nbsp;given&nbsp;a&nbsp;list&nbsp;of&nbsp;samples&nbsp;which&nbsp;can&nbsp;be&nbsp;any&nbsp;hashable&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-elog"><strong>elog</strong></a>(x)</dt></dl>
+ <dl><dt><a name="-entropy"><strong>entropy</strong></a>(x, k<font color="#909090">=3</font>, base<font color="#909090">=2</font>)</dt><dd><tt>The&nbsp;classic&nbsp;K-L&nbsp;k-nearest&nbsp;neighbor&nbsp;continuous&nbsp;entropy&nbsp;estimator&nbsp;x&nbsp;should&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;vectors,<br>
+e.g.&nbsp;x&nbsp;=&nbsp;[[1.3],[3.7],[5.1],[2.4]]&nbsp;if&nbsp;x&nbsp;is&nbsp;a&nbsp;one-dimensional&nbsp;scalar&nbsp;and&nbsp;we&nbsp;have&nbsp;four&nbsp;samples</tt></dd></dl>
+ <dl><dt><a name="-entropyd"><strong>entropyd</strong></a>(sx, base<font color="#909090">=2</font>)</dt><dd><tt>Discrete&nbsp;entropy&nbsp;estimator&nbsp;given&nbsp;a&nbsp;list&nbsp;of&nbsp;samples&nbsp;which&nbsp;can&nbsp;be&nbsp;any&nbsp;hashable&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-entropyfromprobs"><strong>entropyfromprobs</strong></a>(probs, base<font color="#909090">=2</font>)</dt></dl>
+ <dl><dt><a name="-hist"><strong>hist</strong></a>(sx)</dt></dl>
+ <dl><dt><a name="-kldiv"><strong>kldiv</strong></a>(x, xp, k<font color="#909090">=3</font>, base<font color="#909090">=2</font>)</dt><dd><tt>KL&nbsp;Divergence&nbsp;between&nbsp;p&nbsp;and&nbsp;q&nbsp;for&nbsp;x~p(x),&nbsp;xp~q(x);&nbsp;x,&nbsp;xp&nbsp;should&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;vectors,&nbsp;e.g.&nbsp;x&nbsp;=&nbsp;[[1.3],[3.7],[5.1],[2.4]]<br>
+if&nbsp;x&nbsp;is&nbsp;a&nbsp;one-dimensional&nbsp;scalar&nbsp;and&nbsp;we&nbsp;have&nbsp;four&nbsp;samples</tt></dd></dl>
+ <dl><dt><a name="-log"><strong>log</strong></a>(...)</dt><dd><tt><a href="#-log">log</a>(x[,&nbsp;base])<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;logarithm&nbsp;of&nbsp;x&nbsp;to&nbsp;the&nbsp;given&nbsp;base.<br>
+If&nbsp;the&nbsp;base&nbsp;not&nbsp;specified,&nbsp;returns&nbsp;the&nbsp;natural&nbsp;logarithm&nbsp;(base&nbsp;e)&nbsp;of&nbsp;x.</tt></dd></dl>
+ <dl><dt><a name="-mi"><strong>mi</strong></a>(x, y, k<font color="#909090">=3</font>, base<font color="#909090">=2</font>)</dt><dd><tt>Mutual&nbsp;information&nbsp;of&nbsp;x&nbsp;and&nbsp;y;&nbsp;x,&nbsp;y&nbsp;should&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;vectors,&nbsp;e.g.&nbsp;x&nbsp;=&nbsp;[[1.3],[3.7],[5.1],[2.4]]<br>
+if&nbsp;x&nbsp;is&nbsp;a&nbsp;one-dimensional&nbsp;scalar&nbsp;and&nbsp;we&nbsp;have&nbsp;four&nbsp;samples</tt></dd></dl>
+ <dl><dt><a name="-micd"><strong>micd</strong></a>(x, y, k<font color="#909090">=3</font>, base<font color="#909090">=2</font>, warning<font color="#909090">=True</font>)</dt><dd><tt>If&nbsp;x&nbsp;is&nbsp;continuous&nbsp;and&nbsp;y&nbsp;is&nbsp;discrete,&nbsp;compute&nbsp;mutual&nbsp;information</tt></dd></dl>
+ <dl><dt><a name="-midd"><strong>midd</strong></a>(x, y)</dt><dd><tt>Discrete&nbsp;mutual&nbsp;information&nbsp;estimator&nbsp;given&nbsp;a&nbsp;list&nbsp;of&nbsp;samples&nbsp;which&nbsp;can&nbsp;be&nbsp;any&nbsp;hashable&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-shuffle_test"><strong>shuffle_test</strong></a>(measure, x, y, z<font color="#909090">=False</font>, ns<font color="#909090">=200</font>, ci<font color="#909090">=0.95</font>, **kwargs)</dt><dd><tt>Shuffle&nbsp;test<br>
+Repeatedly&nbsp;shuffle&nbsp;the&nbsp;x-values&nbsp;and&nbsp;then&nbsp;estimate&nbsp;measure(x,y,[z]).<br>
+Returns&nbsp;the&nbsp;mean&nbsp;and&nbsp;conf.&nbsp;interval&nbsp;('ci=0.95'&nbsp;default)&nbsp;over&nbsp;'ns'&nbsp;runs,&nbsp;'measure'&nbsp;could&nbsp;me&nbsp;mi,cmi,<br>
+e.g.&nbsp;Keyword&nbsp;arguments&nbsp;can&nbsp;be&nbsp;passed.&nbsp;Mutual&nbsp;information&nbsp;and&nbsp;CMI&nbsp;should&nbsp;have&nbsp;a&nbsp;mean&nbsp;near&nbsp;zero.</tt></dd></dl>
+ <dl><dt><a name="-vectorize"><strong>vectorize</strong></a>(scalarlist)</dt><dd><tt>Turn&nbsp;a&nbsp;list&nbsp;of&nbsp;scalars&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;one-d&nbsp;vectors</tt></dd></dl>
+ <dl><dt><a name="-zip2"><strong>zip2</strong></a>(*args)</dt></dl>
+</td></tr></table><p>
+
+</body></html>

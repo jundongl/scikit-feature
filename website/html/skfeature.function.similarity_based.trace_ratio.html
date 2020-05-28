@@ -1,0 +1,58 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.similarity_based.trace_ratio</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.similarity_based.html"><font color="#ffffff">similarity_based</font></a>.trace_ratio</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-trace_ratio"><strong>trace_ratio</strong></a>(X, y, n_selected_features, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implements&nbsp;the&nbsp;trace&nbsp;ratio&nbsp;criterion&nbsp;for&nbsp;feature&nbsp;selection<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;class&nbsp;labels<br>
+n_selected_features:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;features&nbsp;to&nbsp;select<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;{string}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;==&nbsp;'fisher',&nbsp;build&nbsp;between-class&nbsp;matrix&nbsp;and&nbsp;within-class&nbsp;affinity&nbsp;matrix&nbsp;in&nbsp;a&nbsp;fisher&nbsp;score&nbsp;way<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;==&nbsp;'laplacian',&nbsp;build&nbsp;between-class&nbsp;matrix&nbsp;and&nbsp;within-class&nbsp;affinity&nbsp;matrix&nbsp;in&nbsp;a&nbsp;laplacian&nbsp;score&nbsp;way<br>
+&nbsp;&nbsp;&nbsp;&nbsp;verbose:&nbsp;{boolean}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;user&nbsp;want&nbsp;to&nbsp;print&nbsp;out&nbsp;the&nbsp;objective&nbsp;function&nbsp;value&nbsp;in&nbsp;each&nbsp;iteration,&nbsp;False&nbsp;if&nbsp;not<br>
+&nbsp;<br>
+Output<br>
+------<br>
+feature_idx:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;ranked&nbsp;(descending&nbsp;order)&nbsp;feature&nbsp;index&nbsp;based&nbsp;on&nbsp;subset-level&nbsp;score<br>
+feature_score:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;feature-level&nbsp;score<br>
+subset_score:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;subset-level&nbsp;score<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+Feiping&nbsp;Nie&nbsp;et&nbsp;al.&nbsp;"Trace&nbsp;Ratio&nbsp;Criterion&nbsp;for&nbsp;Feature&nbsp;Selection."&nbsp;AAAI&nbsp;2008.</tt></dd></dl>
+</td></tr></table>
+</body></html>

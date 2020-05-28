@@ -1,0 +1,69 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.similarity_based.SPEC</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.similarity_based.html"><font color="#ffffff">similarity_based</font></a>.SPEC</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+<a href="scipy.sparse.base.html">scipy.sparse.base</a><br>
+<a href="scipy.sparse.bsr.html">scipy.sparse.bsr</a><br>
+<a href="scipy.sparse.compressed.html">scipy.sparse.compressed</a><br>
+<a href="scipy.sparse.construct.html">scipy.sparse.construct</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.coo.html">scipy.sparse.coo</a><br>
+<a href="scipy.sparse.csc.html">scipy.sparse.csc</a><br>
+<a href="scipy.sparse.csgraph.html">scipy.sparse.csgraph</a><br>
+<a href="scipy.sparse.csr.html">scipy.sparse.csr</a><br>
+<a href="scipy.sparse.data.html">scipy.sparse.data</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.dia.html">scipy.sparse.dia</a><br>
+<a href="scipy.sparse.dok.html">scipy.sparse.dok</a><br>
+<a href="scipy.sparse.extract.html">scipy.sparse.extract</a><br>
+<a href="scipy.sparse.lil.html">scipy.sparse.lil</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="scipy.sparse.sputils.html">scipy.sparse.sputils</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-feature_ranking"><strong>feature_ranking</strong></a>(score, **kwargs)</dt></dl>
+ <dl><dt><a name="-spec"><strong>spec</strong></a>(X, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implements&nbsp;the&nbsp;SPEC&nbsp;feature&nbsp;selection<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;==&nbsp;-1,&nbsp;the&nbsp;first&nbsp;feature&nbsp;ranking&nbsp;function,&nbsp;use&nbsp;all&nbsp;eigenvalues<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;==&nbsp;0,&nbsp;the&nbsp;second&nbsp;feature&nbsp;ranking&nbsp;function,&nbsp;use&nbsp;all&nbsp;except&nbsp;the&nbsp;1st&nbsp;eigenvalue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;&gt;=&nbsp;2,&nbsp;the&nbsp;third&nbsp;feature&nbsp;ranking&nbsp;function,&nbsp;use&nbsp;the&nbsp;first&nbsp;k&nbsp;except&nbsp;1st&nbsp;eigenvalue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;{sparse&nbsp;matrix},&nbsp;shape&nbsp;(n_samples,&nbsp;n_samples}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;affinity&nbsp;matrix<br>
+&nbsp;<br>
+Output<br>
+------<br>
+w_fea:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SPEC&nbsp;feature&nbsp;score&nbsp;for&nbsp;each&nbsp;feature<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+Zhao,&nbsp;Zheng&nbsp;and&nbsp;Liu,&nbsp;Huan.&nbsp;"Spectral&nbsp;Feature&nbsp;Selection&nbsp;for&nbsp;Supervised&nbsp;and&nbsp;Unsupervised&nbsp;Learning."&nbsp;ICML&nbsp;2007.</tt></dd></dl>
+</td></tr></table><p>
+
+</body></html>

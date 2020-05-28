@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.sparse_learning_based.RFS</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.sparse_learning_based.html"><font color="#ffffff">sparse_learning_based</font></a>.RFS</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-calculate_obj"><strong>calculate_obj</strong></a>(X, Y, W, gamma)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;objective&nbsp;function&nbsp;of&nbsp;rfs</tt></dd></dl>
+ <dl><dt><a name="-rfs"><strong>rfs</strong></a>(X, Y, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implementS&nbsp;efficient&nbsp;and&nbsp;robust&nbsp;feature&nbsp;selection&nbsp;via&nbsp;joint&nbsp;l21-norms&nbsp;minimization<br>
+min_W||X^T&nbsp;W&nbsp;-&nbsp;Y||_2,1&nbsp;+&nbsp;gamma||W||_2,1<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+Y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_classes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;class&nbsp;label&nbsp;matrix,&nbsp;each&nbsp;row&nbsp;is&nbsp;a&nbsp;one-hot-coding&nbsp;class&nbsp;label<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamma:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;in&nbsp;RFS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;verbose:&nbsp;boolean<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;want&nbsp;to&nbsp;display&nbsp;the&nbsp;objective&nbsp;function&nbsp;value,&nbsp;false&nbsp;if&nbsp;not<br>
+&nbsp;<br>
+Output<br>
+------<br>
+W:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;feature&nbsp;weight&nbsp;matrix<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+Nie,&nbsp;Feiping&nbsp;et&nbsp;al.&nbsp;"Efficient&nbsp;and&nbsp;Robust&nbsp;Feature&nbsp;Selection&nbsp;via&nbsp;Joint&nbsp;l2,1-Norms&nbsp;Minimization"&nbsp;NIPS&nbsp;2010.</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.statistical_based.CFS</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.statistical_based.html"><font color="#ffffff">statistical_based</font></a>.CFS</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-cfs"><strong>cfs</strong></a>(X, y)</dt><dd><tt>This&nbsp;function&nbsp;uses&nbsp;a&nbsp;correlation&nbsp;based&nbsp;heuristic&nbsp;to&nbsp;evaluate&nbsp;the&nbsp;worth&nbsp;of&nbsp;features&nbsp;which&nbsp;is&nbsp;called&nbsp;CFS<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;class&nbsp;labels<br>
+&nbsp;<br>
+Output<br>
+------<br>
+F:&nbsp;{numpy&nbsp;array}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;selected&nbsp;features<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+Zhao,&nbsp;Zheng&nbsp;et&nbsp;al.&nbsp;"Advancing&nbsp;Feature&nbsp;Selection&nbsp;Research&nbsp;-&nbsp;ASU&nbsp;Feature&nbsp;Selection&nbsp;Repository"&nbsp;2010.</tt></dd></dl>
+ <dl><dt><a name="-merit_calculation"><strong>merit_calculation</strong></a>(X, y)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;merit&nbsp;of&nbsp;X&nbsp;given&nbsp;class&nbsp;labels&nbsp;y,&nbsp;where<br>
+merits&nbsp;=&nbsp;(k&nbsp;*&nbsp;rcf)/sqrt(k+k*(k-1)*rff)<br>
+rcf&nbsp;=&nbsp;(1/k)*sum(su(fi,y))&nbsp;for&nbsp;all&nbsp;fi&nbsp;in&nbsp;X<br>
+rff&nbsp;=&nbsp;(1/(k*(k-1)))*sum(su(fi,fj))&nbsp;for&nbsp;all&nbsp;fi&nbsp;and&nbsp;fj&nbsp;in&nbsp;X<br>
+&nbsp;<br>
+Input<br>
+----------<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;class&nbsp;labels<br>
+&nbsp;<br>
+Output<br>
+----------<br>
+merits:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;merit&nbsp;of&nbsp;a&nbsp;feature&nbsp;subset&nbsp;X</tt></dd></dl>
+</td></tr></table>
+</body></html>

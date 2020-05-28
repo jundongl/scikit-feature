@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.utility.sparse_learning</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.utility.html"><font color="#ffffff">utility</font></a>.sparse_learning</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-calculate_l21_norm"><strong>calculate_l21_norm</strong></a>(X)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;l21&nbsp;norm&nbsp;of&nbsp;a&nbsp;matrix&nbsp;X,&nbsp;i.e.,&nbsp;\sum&nbsp;||X[i,:]||_2<br>
+&nbsp;<br>
+Input:<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;<br>
+Output:<br>
+------<br>
+l21_norm:&nbsp;{float}</tt></dd></dl>
+ <dl><dt><a name="-construct_label_matrix"><strong>construct_label_matrix</strong></a>(label)</dt><dd><tt>This&nbsp;function&nbsp;converts&nbsp;a&nbsp;1d&nbsp;numpy&nbsp;array&nbsp;to&nbsp;a&nbsp;2d&nbsp;array,&nbsp;for&nbsp;each&nbsp;instance,&nbsp;the&nbsp;class&nbsp;label&nbsp;is&nbsp;1&nbsp;or&nbsp;0<br>
+&nbsp;<br>
+Input:<br>
+-----<br>
+label:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_samples,)<br>
+&nbsp;<br>
+Output:<br>
+------<br>
+label_matrix:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_samples,&nbsp;n_classes)</tt></dd></dl>
+ <dl><dt><a name="-construct_label_matrix_pan"><strong>construct_label_matrix_pan</strong></a>(label)</dt><dd><tt>This&nbsp;function&nbsp;converts&nbsp;a&nbsp;1d&nbsp;numpy&nbsp;array&nbsp;to&nbsp;a&nbsp;2d&nbsp;array,&nbsp;for&nbsp;each&nbsp;instance,&nbsp;the&nbsp;class&nbsp;label&nbsp;is&nbsp;1&nbsp;or&nbsp;-1<br>
+&nbsp;<br>
+Input:<br>
+-----<br>
+label:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_samples,)<br>
+&nbsp;<br>
+Output:<br>
+------<br>
+label_matrix:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_samples,&nbsp;n_classes)</tt></dd></dl>
+ <dl><dt><a name="-euclidean_projection"><strong>euclidean_projection</strong></a>(V, n_features, n_classes, z, gamma)</dt><dd><tt>L2&nbsp;Norm&nbsp;regularized&nbsp;euclidean&nbsp;projection&nbsp;min_W&nbsp;&nbsp;1/2&nbsp;||W-&nbsp;V||_2^2&nbsp;+&nbsp;z&nbsp;*&nbsp;||W||_2</tt></dd></dl>
+ <dl><dt><a name="-feature_ranking"><strong>feature_ranking</strong></a>(W)</dt><dd><tt>This&nbsp;function&nbsp;ranks&nbsp;features&nbsp;according&nbsp;to&nbsp;the&nbsp;feature&nbsp;weights&nbsp;matrix&nbsp;W<br>
+&nbsp;<br>
+Input:<br>
+-----<br>
+W:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,&nbsp;n_classes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;feature&nbsp;weights&nbsp;matrix<br>
+&nbsp;<br>
+Output:<br>
+------<br>
+idx:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;{n_features,}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;feature&nbsp;index&nbsp;ranked&nbsp;in&nbsp;descending&nbsp;order&nbsp;by&nbsp;feature&nbsp;importance</tt></dd></dl>
+ <dl><dt><a name="-generate_diagonal_matrix"><strong>generate_diagonal_matrix</strong></a>(U)</dt><dd><tt>This&nbsp;function&nbsp;generates&nbsp;a&nbsp;diagonal&nbsp;matrix&nbsp;D&nbsp;from&nbsp;an&nbsp;input&nbsp;matrix&nbsp;U&nbsp;as&nbsp;D_ii&nbsp;=&nbsp;0.5&nbsp;/&nbsp;||U[i,:]||<br>
+&nbsp;<br>
+Input:<br>
+-----<br>
+U:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;<br>
+Output:<br>
+------<br>
+D:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_samples)</tt></dd></dl>
+ <dl><dt><a name="-tree_lasso_projection"><strong>tree_lasso_projection</strong></a>(v, n_features, idx, n_nodes)</dt><dd><tt>This&nbsp;functions&nbsp;solves&nbsp;the&nbsp;following&nbsp;optimization&nbsp;problem&nbsp;min_w&nbsp;1/2&nbsp;||w-v||_2^2&nbsp;+&nbsp;\sum&nbsp;z_i||w_{G_{i}}||<br>
+where&nbsp;w&nbsp;and&nbsp;v&nbsp;are&nbsp;of&nbsp;dimensions&nbsp;of&nbsp;n_features;&nbsp;z_i&nbsp;&gt;=0,&nbsp;and&nbsp;G_{i}&nbsp;follows&nbsp;the&nbsp;tree&nbsp;structure</tt></dd></dl>
+ <dl><dt><a name="-tree_norm"><strong>tree_norm</strong></a>(w, n_features, idx, n_nodes)</dt><dd><tt>This&nbsp;function&nbsp;computes&nbsp;\sum&nbsp;z_i||w_{G_{i}}||</tt></dd></dl>
+</td></tr></table>
+</body></html>

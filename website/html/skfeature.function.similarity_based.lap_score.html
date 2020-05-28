@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.similarity_based.lap_score</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.similarity_based.html"><font color="#ffffff">similarity_based</font></a>.lap_score</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scipy.sparse.base.html">scipy.sparse.base</a><br>
+<a href="scipy.sparse.bsr.html">scipy.sparse.bsr</a><br>
+<a href="scipy.sparse.compressed.html">scipy.sparse.compressed</a><br>
+<a href="scipy.sparse.construct.html">scipy.sparse.construct</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.coo.html">scipy.sparse.coo</a><br>
+<a href="scipy.sparse.csc.html">scipy.sparse.csc</a><br>
+<a href="scipy.sparse.csgraph.html">scipy.sparse.csgraph</a><br>
+<a href="scipy.sparse.csr.html">scipy.sparse.csr</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.data.html">scipy.sparse.data</a><br>
+<a href="scipy.sparse.dia.html">scipy.sparse.dia</a><br>
+<a href="scipy.sparse.dok.html">scipy.sparse.dok</a><br>
+<a href="scipy.sparse.extract.html">scipy.sparse.extract</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.lil.html">scipy.sparse.lil</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="scipy.sparse.sputils.html">scipy.sparse.sputils</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-feature_ranking"><strong>feature_ranking</strong></a>(score)</dt><dd><tt>Rank&nbsp;features&nbsp;in&nbsp;ascending&nbsp;order&nbsp;according&nbsp;to&nbsp;their&nbsp;laplacian&nbsp;scores,&nbsp;the&nbsp;smaller&nbsp;the&nbsp;laplacian&nbsp;score&nbsp;is,&nbsp;the&nbsp;more<br>
+important&nbsp;the&nbsp;feature&nbsp;is</tt></dd></dl>
+ <dl><dt><a name="-lap_score"><strong>lap_score</strong></a>(X, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implements&nbsp;the&nbsp;laplacian&nbsp;score&nbsp;feature&nbsp;selection,&nbsp;steps&nbsp;are&nbsp;as&nbsp;follows:<br>
+1.&nbsp;Construct&nbsp;the&nbsp;affinity&nbsp;matrix&nbsp;W&nbsp;if&nbsp;it&nbsp;is&nbsp;not&nbsp;specified<br>
+2.&nbsp;For&nbsp;the&nbsp;r-th&nbsp;feature,&nbsp;we&nbsp;define&nbsp;fr&nbsp;=&nbsp;X(:,r),&nbsp;D&nbsp;=&nbsp;diag(W*ones),&nbsp;ones&nbsp;=&nbsp;[1,...,1]',&nbsp;L&nbsp;=&nbsp;D&nbsp;-&nbsp;W<br>
+3.&nbsp;Let&nbsp;fr_hat&nbsp;=&nbsp;fr&nbsp;-&nbsp;(fr'*D*ones)*ones/(ones'*D*ones)<br>
+4.&nbsp;Laplacian&nbsp;score&nbsp;for&nbsp;the&nbsp;r-th&nbsp;feature&nbsp;is&nbsp;score&nbsp;=&nbsp;(fr_hat'*L*fr_hat)/(fr_hat'*D*fr_hat)<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;W:&nbsp;{sparse&nbsp;matrix},&nbsp;shape&nbsp;(n_samples,&nbsp;n_samples)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;affinity&nbsp;matrix<br>
+&nbsp;<br>
+Output<br>
+------<br>
+score:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;laplacian&nbsp;score&nbsp;for&nbsp;each&nbsp;feature<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+He,&nbsp;Xiaofei&nbsp;et&nbsp;al.&nbsp;"Laplacian&nbsp;Score&nbsp;for&nbsp;Feature&nbsp;Selection."&nbsp;NIPS&nbsp;2005.</tt></dd></dl>
+</td></tr></table><p>
+
+</body></html>

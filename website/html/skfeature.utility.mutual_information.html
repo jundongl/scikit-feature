@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.utility.mutual_information</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.utility.html"><font color="#ffffff">utility</font></a>.mutual_information</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="skfeature.utility.entropy_estimators.html">skfeature.utility.entropy_estimators</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-conditional_entropy"><strong>conditional_entropy</strong></a>(f1, f2)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;conditional&nbsp;entropy,&nbsp;where&nbsp;ce&nbsp;=&nbsp;H(f1)&nbsp;-&nbsp;I(f1;f2)<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+f1:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+f2:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;<br>
+Output<br>
+------<br>
+ce:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ce&nbsp;is&nbsp;conditional&nbsp;entropy&nbsp;of&nbsp;f1&nbsp;and&nbsp;f2</tt></dd></dl>
+ <dl><dt><a name="-information_gain"><strong>information_gain</strong></a>(f1, f2)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;information&nbsp;gain,&nbsp;where&nbsp;ig(f1,f2)&nbsp;=&nbsp;H(f1)&nbsp;-&nbsp;H(f1|f2)<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+f1:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+f2:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;<br>
+Output<br>
+------<br>
+ig:&nbsp;{float}</tt></dd></dl>
+ <dl><dt><a name="-su_calculation"><strong>su_calculation</strong></a>(f1, f2)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;symmetrical&nbsp;uncertainty,&nbsp;where&nbsp;su(f1,f2)&nbsp;=&nbsp;2*IG(f1,f2)/(H(f1)+H(f2))<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+f1:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+f2:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,)<br>
+&nbsp;<br>
+Output<br>
+------<br>
+su:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;su&nbsp;is&nbsp;the&nbsp;symmetrical&nbsp;uncertainty&nbsp;of&nbsp;f1&nbsp;and&nbsp;f2</tt></dd></dl>
+</td></tr></table>
+</body></html>

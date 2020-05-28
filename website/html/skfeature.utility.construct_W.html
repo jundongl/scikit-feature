@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.utility.construct_W</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.utility.html"><font color="#ffffff">utility</font></a>.construct_W</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scipy.sparse.base.html">scipy.sparse.base</a><br>
+<a href="scipy.sparse.bsr.html">scipy.sparse.bsr</a><br>
+<a href="scipy.sparse.compressed.html">scipy.sparse.compressed</a><br>
+<a href="scipy.sparse.construct.html">scipy.sparse.construct</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.coo.html">scipy.sparse.coo</a><br>
+<a href="scipy.sparse.csc.html">scipy.sparse.csc</a><br>
+<a href="scipy.sparse.csgraph.html">scipy.sparse.csgraph</a><br>
+<a href="scipy.sparse.csr.html">scipy.sparse.csr</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.data.html">scipy.sparse.data</a><br>
+<a href="scipy.sparse.dia.html">scipy.sparse.dia</a><br>
+<a href="scipy.sparse.dok.html">scipy.sparse.dok</a><br>
+<a href="scipy.sparse.extract.html">scipy.sparse.extract</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.lil.html">scipy.sparse.lil</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="scipy.sparse.sputils.html">scipy.sparse.sputils</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-construct_W"><strong>construct_W</strong></a>(X, **kwargs)</dt><dd><tt>Construct&nbsp;the&nbsp;affinity&nbsp;matrix&nbsp;W&nbsp;through&nbsp;different&nbsp;ways<br>
+&nbsp;<br>
+Notes<br>
+-----<br>
+if&nbsp;kwargs&nbsp;is&nbsp;null,&nbsp;use&nbsp;the&nbsp;default&nbsp;parameter&nbsp;settings;<br>
+if&nbsp;kwargs&nbsp;is&nbsp;not&nbsp;null,&nbsp;construct&nbsp;the&nbsp;affinity&nbsp;matrix&nbsp;according&nbsp;to&nbsp;parameters&nbsp;in&nbsp;kwargs<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parameters&nbsp;to&nbsp;construct&nbsp;different&nbsp;affinity&nbsp;matrix&nbsp;W:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;true&nbsp;label&nbsp;information&nbsp;needed&nbsp;under&nbsp;the&nbsp;'supervised'&nbsp;neighbor&nbsp;mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;metric:&nbsp;{string}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choices&nbsp;for&nbsp;different&nbsp;distance&nbsp;measures<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'euclidean'&nbsp;-&nbsp;use&nbsp;euclidean&nbsp;distance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cosine'&nbsp;-&nbsp;use&nbsp;cosine&nbsp;distance&nbsp;(default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;neighbor_mode:&nbsp;{string}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates&nbsp;how&nbsp;to&nbsp;construct&nbsp;the&nbsp;graph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'knn'&nbsp;-&nbsp;put&nbsp;an&nbsp;edge&nbsp;between&nbsp;two&nbsp;nodes&nbsp;if&nbsp;and&nbsp;only&nbsp;if&nbsp;they&nbsp;are&nbsp;among&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;nearest&nbsp;neighbors&nbsp;of&nbsp;each&nbsp;other&nbsp;(default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'supervised'&nbsp;-&nbsp;put&nbsp;an&nbsp;edge&nbsp;between&nbsp;two&nbsp;nodes&nbsp;if&nbsp;they&nbsp;belong&nbsp;to&nbsp;same&nbsp;class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;they&nbsp;are&nbsp;among&nbsp;the&nbsp;k&nbsp;nearest&nbsp;neighbors&nbsp;of&nbsp;each&nbsp;other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;weight_mode:&nbsp;{string}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates&nbsp;how&nbsp;to&nbsp;assign&nbsp;weights&nbsp;for&nbsp;each&nbsp;edge&nbsp;in&nbsp;the&nbsp;graph<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'binary'&nbsp;-&nbsp;0-1&nbsp;weighting,&nbsp;every&nbsp;edge&nbsp;receives&nbsp;weight&nbsp;of&nbsp;1&nbsp;(default)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'heat_kernel'&nbsp;-&nbsp;if&nbsp;nodes&nbsp;i&nbsp;and&nbsp;j&nbsp;are&nbsp;connected,&nbsp;put&nbsp;weight&nbsp;W_ij&nbsp;=&nbsp;exp(-norm(x_i&nbsp;-&nbsp;x_j)/2t^2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;weight&nbsp;mode&nbsp;can&nbsp;only&nbsp;be&nbsp;used&nbsp;under&nbsp;'euclidean'&nbsp;metric&nbsp;and&nbsp;you&nbsp;are&nbsp;required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;provide&nbsp;the&nbsp;parameter&nbsp;t<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'cosine'&nbsp;-&nbsp;if&nbsp;nodes&nbsp;i&nbsp;and&nbsp;j&nbsp;are&nbsp;connected,&nbsp;put&nbsp;weight&nbsp;cosine(x_i,x_j).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;weight&nbsp;mode&nbsp;can&nbsp;only&nbsp;be&nbsp;used&nbsp;under&nbsp;'cosine'&nbsp;metric<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choices&nbsp;for&nbsp;the&nbsp;number&nbsp;of&nbsp;neighbors&nbsp;(default&nbsp;k&nbsp;=&nbsp;5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;for&nbsp;the&nbsp;'heat_kernel'&nbsp;weight_mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fisher_score:&nbsp;{boolean}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates&nbsp;whether&nbsp;to&nbsp;build&nbsp;the&nbsp;affinity&nbsp;matrix&nbsp;in&nbsp;a&nbsp;fisher&nbsp;score&nbsp;way,&nbsp;in&nbsp;which&nbsp;W_ij&nbsp;=&nbsp;1/n_l&nbsp;if&nbsp;yi&nbsp;=&nbsp;yj&nbsp;=&nbsp;l;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise&nbsp;W_ij&nbsp;=&nbsp;0&nbsp;(default&nbsp;fisher_score&nbsp;=&nbsp;false)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reliefF:&nbsp;{boolean}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indicates&nbsp;whether&nbsp;to&nbsp;build&nbsp;the&nbsp;affinity&nbsp;matrix&nbsp;in&nbsp;a&nbsp;reliefF&nbsp;way,&nbsp;NH(x)&nbsp;and&nbsp;NM(x,y)&nbsp;denotes&nbsp;a&nbsp;set&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;nearest&nbsp;points&nbsp;to&nbsp;x&nbsp;with&nbsp;the&nbsp;same&nbsp;class&nbsp;as&nbsp;x,&nbsp;and&nbsp;a&nbsp;different&nbsp;class&nbsp;(the&nbsp;class&nbsp;y),&nbsp;respectively.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W_ij&nbsp;=&nbsp;1&nbsp;if&nbsp;i&nbsp;=&nbsp;j;&nbsp;W_ij&nbsp;=&nbsp;1/k&nbsp;if&nbsp;x_j&nbsp;\in&nbsp;NH(x_i);&nbsp;W_ij&nbsp;=&nbsp;-1/(c-1)k&nbsp;if&nbsp;x_j&nbsp;\in&nbsp;NM(x_i,&nbsp;y)&nbsp;(default&nbsp;reliefF&nbsp;=&nbsp;false)<br>
+&nbsp;<br>
+Output<br>
+------<br>
+W:&nbsp;{sparse&nbsp;matrix},&nbsp;shape&nbsp;(n_samples,&nbsp;n_samples)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;affinity&nbsp;matrix&nbsp;W</tt></dd></dl>
+</td></tr></table><p>
+</body></html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.function.sparse_learning_based.UDFS</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.function.html"><font color="#ffffff">function</font></a>.<a href="skfeature.function.sparse_learning_based.html"><font color="#ffffff">sparse_learning_based</font></a>.UDFS</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="scipy.html">scipy</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-calculate_obj"><strong>calculate_obj</strong></a>(X, W, M, gamma)</dt><dd><tt>This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;objective&nbsp;function&nbsp;of&nbsp;ls_l21&nbsp;described&nbsp;in&nbsp;the&nbsp;paper</tt></dd></dl>
+ <dl><dt><a name="-construct_M"><strong>construct_M</strong></a>(X, k, gamma)</dt><dd><tt>This&nbsp;function&nbsp;constructs&nbsp;the&nbsp;M&nbsp;matrix&nbsp;described&nbsp;in&nbsp;the&nbsp;paper</tt></dd></dl>
+ <dl><dt><a name="-udfs"><strong>udfs</strong></a>(X, **kwargs)</dt><dd><tt>This&nbsp;function&nbsp;implements&nbsp;l2,1-norm&nbsp;regularized&nbsp;discriminative&nbsp;feature<br>
+selection&nbsp;for&nbsp;unsupervised&nbsp;learning,&nbsp;i.e.,&nbsp;min_W&nbsp;Tr(W^T&nbsp;M&nbsp;W)&nbsp;+&nbsp;gamma&nbsp;||W||_{2,1},&nbsp;s.t.&nbsp;W^T&nbsp;W&nbsp;=&nbsp;I<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data<br>
+kwargs:&nbsp;{dictionary}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gamma:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter&nbsp;in&nbsp;the&nbsp;objective&nbsp;function&nbsp;of&nbsp;UDFS&nbsp;(default&nbsp;is&nbsp;1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n_clusters:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;clusters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;nearest&nbsp;neighbor<br>
+&nbsp;&nbsp;&nbsp;&nbsp;verbose:&nbsp;{boolean}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;want&nbsp;to&nbsp;display&nbsp;the&nbsp;objective&nbsp;function&nbsp;value,&nbsp;false&nbsp;if&nbsp;not<br>
+&nbsp;<br>
+Output<br>
+------<br>
+W:&nbsp;{numpy&nbsp;array},&nbsp;shape(n_features,&nbsp;n_clusters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;feature&nbsp;weight&nbsp;matrix<br>
+&nbsp;<br>
+Reference<br>
+Yang,&nbsp;Yi&nbsp;et&nbsp;al.&nbsp;"l2,1-Norm&nbsp;Regularized&nbsp;Discriminative&nbsp;Feature&nbsp;Selection&nbsp;for&nbsp;Unsupervised&nbsp;Learning."&nbsp;AAAI&nbsp;2012.</tt></dd></dl>
+</td></tr></table>
+</body></html>

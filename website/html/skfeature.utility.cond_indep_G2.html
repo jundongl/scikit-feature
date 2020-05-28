@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module skfeature.utility.cond_indep_G2</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="skfeature.html"><font color="#ffffff">skfeature</font></a>.<a href="skfeature.utility.html"><font color="#ffffff">utility</font></a>.cond_indep_G2</strong></big></big></font></td
+></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="scipy.special.html">scipy.special</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-chi_squared_prob"><strong>chi_squared_prob</strong></a>(x2, v)</dt><dd><tt>This&nbsp;function&nbsp;computes&nbsp;the&nbsp;chi-squared&nbsp;probability.<br>
+It&nbsp;returns&nbsp;P(X2|v),&nbsp;the&nbsp;probability&nbsp;of&nbsp;observing&nbsp;a&nbsp;chi-squared&nbsp;value&nbsp;&lt;=&nbsp;X2&nbsp;with&nbsp;v&nbsp;degrees&nbsp;of&nbsp;freedom</tt></dd></dl>
+ <dl><dt><a name="-cond_indep_G2"><strong>cond_indep_G2</strong></a>(X, a, b, s)</dt><dd><tt>This&nbsp;function&nbsp;test&nbsp;if&nbsp;a&nbsp;is&nbsp;independent&nbsp;with&nbsp;b&nbsp;given&nbsp;s&nbsp;using&nbsp;likelihood&nbsp;ratio&nbsp;test&nbsp;G2<br>
+&nbsp;<br>
+Input<br>
+-----<br>
+X:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_samples,&nbsp;n_features)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;data,&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;a&nbsp;discrete&nbsp;data&nbsp;matrix&nbsp;whose&nbsp;element&nbsp;is&nbsp;non&nbsp;negative&nbsp;integer<br>
+a:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;variable&nbsp;a&nbsp;in&nbsp;the&nbsp;input&nbsp;X<br>
+b:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;variable&nbsp;y&nbsp;in&nbsp;the&nbsp;input&nbsp;X<br>
+s:&nbsp;{numpy&nbsp;array},&nbsp;shape&nbsp;(n_features,)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;of&nbsp;indexes&nbsp;of&nbsp;variables&nbsp;in&nbsp;the&nbsp;input&nbsp;X<br>
+&nbsp;<br>
+Output<br>
+------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ci:&nbsp;{int}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test&nbsp;result&nbsp;(1&nbsp;=&nbsp;conditional&nbsp;independent,&nbsp;0&nbsp;=&nbsp;no)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;G2:&nbsp;{float}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G2&nbsp;value(-1&nbsp;if&nbsp;not&nbsp;enough&nbsp;data&nbsp;to&nbsp;perform&nbsp;the&nbsp;test,&nbsp;i.e.,&nbsp;CI&nbsp;=&nbsp;0)<br>
+&nbsp;<br>
+Reference<br>
+---------<br>
+Leray,&nbsp;Philippe&nbsp;and&nbsp;Francois,&nbsp;Olivier.&nbsp;"BNT&nbsp;Structure&nbsp;Learning&nbsp;Package:&nbsp;Documentation&nbsp;and&nbsp;Experiments"&nbsp;2004</tt></dd></dl>
+</td></tr></table>
+</body></html>
