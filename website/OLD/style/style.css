@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background: url(images/img01tmp.jpg) repeat-x left top;
+	background: url(.././/img01tmp.jpg) repeat-x left top;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #787878;
@@ -157,7 +157,7 @@ tr.list{
 }
 
 .post {
-	background: url(images/img03.jpg) no-repeat left top;
+	background: url(.././/img03.jpg) no-repeat left top;
 	margin-left: auto;
 	margin-right: auto;
 }
