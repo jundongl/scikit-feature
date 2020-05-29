@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Relief-F</div>
+        <div class="label">Description</div>
+        <div class="description">
+            Relief-F is a feature selection strategy that chooses instances randomly,
+            and changed the weights of the feature relevance based on the nearest neighbor.
+            By its merits, Relief-F is one of the most successful strategies in feature selection.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] = fsReliefF(<b><i>X</i></b>, <b><i>Y</i></b>,
+                    <b><i>k</i></b>, <b><i>m</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp; &nbsp;<b><i>out: </i></b>
+            A struct containing the following fields:
+                <ul>
+                    <li>W - a list containing the information gain of each feature
+                    when matched with fList.</li>
+                    <li>fList - the list of features ranked by their ability to classify
+                    the data. fList(1) is the least important feature.</li>
+                    <li>prf - will always be 1. This means the greater the feature weight,
+                    the less relevant the feature.</li>
+                </ul>
+            <br/>Input:<br/>
+            &nbsp; &nbsp; <b><i>X: </i></b>
+                    The features on current trunk, each column is a feature vector on all
+                    instances, and each row is a part of the instance.<br/>
+            &nbsp; &nbsp; <b><i>Y: </i></b>
+                The label of instances, in single column form: 1 2 3 4 5 ...<br/>
+            &nbsp; &nbsp; <b><i>k: </i></b>
+                The size of the neighborhood you wish to evaluate.<br/>
+            &nbsp; &nbsp; <b><i>m: </i></b>
+                How many samples you want to try.
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsReliefF(X,Y,178,178);
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">relieff</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Computational Methods of Feature Selection by Huan Liu and Hiroshi Motoda.
+            <hr>
+            <div class="bibtex">
+                @book{liu2008,<br/>
+                &nbsp; &nbsp; title = {Computational Methods of Feature Selection},<br/>
+                &nbsp;&nbsp; editor = {Liu, H. and Motoda, H.},<br/>
+                &nbsp; &nbsp; publisher = {Chapman & Hall},
+                <br/>&nbsp;&nbsp; year = {2008}<br/>}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="../doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Clusters - K-means</div>
+        <div class="label">Description</div>
+        <div class="description">
+            KMEANS uses a two-phase iterative algorithm to minimize the sum of
+   point-to-centroid distances, summed over all K clusters.  The first
+   phase uses what the literature often describes as "batch" updates,
+   where each iteration consists of reassigning points to their nearest
+   cluster centroid, all at once, followed by recalculation of cluster
+   centroids. This phase may be thought of as providing a fast but
+   potentially only approximate solution as a starting point for the
+   second phase.  The second phase uses what the literature often
+   describes as "on-line" updates, where points are individually
+   reassigned if doing so will reduce the sum of distances, and cluster
+   centroids are recomputed after each reassignment.  Each iteration
+   during this second phase consists of one pass though all the points.
+   KMEANS can converge to a local optimum, which in this case is a
+   partition of points in which moving any single point to a different
+   cluster increases the total sum of distances.  This problem can only be
+   solved by a clever (or lucky, or exhaustive) choice of starting points.
+
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>idx</i></b>, <b><i>C</i></b>, <b><i>sumD</i></b>, <b><i>D</i></b>] =
+                KM(<b><i>X</i></b>, <b><i>k</i></b>, <b><i>varargin</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+                &nbsp; &nbsp; <b><i>idx: </i></b> The clustering data for each data point.<br/>
+                &nbsp; &nbsp; <b><i>C: </i></b> K-by-P matrix containing the  K cluster centroid locations.<br/>
+                &nbsp; &nbsp; <b><i>sumD: </i></b> 1-by-K vector containing within-cluster sums of point-to-centroid distances.<br/>
+                &nbsp; &nbsp; <b><i>D: </i></b> N-by-K matrix containing distances from each point to every centroid.
+            <br/>Input:<br/>
+            &nbsp; &nbsp; <b><i>X, k: </i></b> Partitions points in the N-by-P data matrix
+            X into k clusters.<br/>
+            &nbsp; &nbsp; <b><i>varargin: </i></b> KM(..., 'PARAM1',val1, 'PARAM2',val2, ...); This allows
+            you to specify optional parameters and their values. Accepted parameters are as follows:
+            <table>
+                <th>Name</th>
+                
+                <th>Description</th>
+                <th>Values</th>
+                <tr>
+                    <td>Distance</td>
+                    <td>Distance measure, in P-dimensional space, that KMEANS should minimize with respect to.</td>
+                    <td>
+                        <table>
+                            <th>Value</th>
+                            <th>Definition</th>
+                            <tr>
+                                <td>sqEuclidean</td>
+                                <td>Squared Euclidean distance</td>
+                            </tr>
+                            <tr>
+                                <td>cityblock</td>
+                                <td>Sum of absolute differences</td>
+                            </tr>
+                            <tr>
+                                <td>cosine</td>
+                                <td>One minus the cosine of the included angle between points (treated as vectors)</td>
+                            </tr>
+                            <tr>
+                                <td>correlation</td>
+                                <td>One minus the sample correlation between points (treated as sequences of values)</td>
+                            </tr>
+                            <tr>
+                                <td>Hamming</td>
+                                <td>Percentage of bits that differ (only suitable for binary data)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Start</td>
+                    <td>Method used to choose initial cluster centroid positions, sometimes known as "seeds".</td>
+                    <td>
+                        <table>
+                            <th>Value</th>
+                            <th>Definition</th>
+                            <tr>
+                                <td>sample</td>
+                                <td>Select K observations from X at random.</td>
+                            </tr>
+                            <tr>
+                                <td>uniform</td>
+                                <td>Select K points uniformly at random from the range of X.  Not valid for Hamming distance.</td>
+                            </tr>
+                            <tr>
+                                <td>cluster</td>
+                                <td>Perform preliminary clustering phase on random 10% subsample of X.  This preliminary phase is itself initialized using 'sample'.</td>
+                            </tr>
+                            <tr>
+                                <td>matrix</td>
+                                <td>A K-by-P matrix of starting locations.  In
+                                    this case, you can pass in [] for K, and
+                                    KMEANS infers K from the first dimension of
+                                    the matrix.  You can also supply a 3D array,
+                                    implying a value for 'Replicates'
+                                    from the array's third dimension.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Replicates</td>
+                    <td>Number of times to repeat the clustering, each with a new set of initial centroids</td>
+                    <td>[ positive integer | {1}]</td>
+                </tr>
+                <tr>
+                    <td>Maxiter</td>
+                    <td>The maximum number of iterations</td>
+                    <td> [ positive integer | {100}]</td>
+                </tr>
+                <tr>
+                    <td>EmptyAction</td>
+                    <td>Action to take if a cluster loses all of its member observations.</td>
+                    <td>
+                        <table>
+                            <th>Value</th>
+                            <th>Definition</th>
+                            <tr>
+                                <td>error</td>
+                                <td>Treat an empty cluster as an error</td>
+                            </tr>
+                            <tr>
+                                <td>drop</td>
+                                <td>Remove any clusters that become empty, and set corresponding values in C and D to NaN.</td>
+                            </tr>
+                            <tr>
+                                <td>singleton</td>
+                                <td>Create a new cluster consisting of the one observation furthest from its centroid.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Display</td>
+                    <td>Display level</td>
+                    <td>[ 'off' | {'notify'} | 'final' | 'iter' ]</td>
+                </tr>
+            </table>
+            
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            KM(X, 10);
+        </div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Seber, G.A.F., Multivariate Observations, Wiley, New York, 1984.<br/>
+            
+            Spath, H. (1985) Cluster Dissection and Analysis: Theory, FORTRAN
+            Programs, Examples, translated by J. Goldschmidt, Halsted Press, New York, 226 pp.
+
+            <hr>
+            <div class="bibtex">
+                @book{Seber84,<br/>&nbsp;&nbsp; 	author = {Seber, G.A.F.},<br/>&nbsp;&nbsp; 	title = {Multivariate Observations},<br/>&nbsp;&nbsp; 	year = {1984},<br/>&nbsp;&nbsp; 	address = {New York},<br/>&nbsp;&nbsp; 	publisher = {Wiley}<br/>}
+                <br/><br/>
+                @book{537092,<br/>&nbsp;&nbsp;  author = {Spath, Helmuth},<br/>&nbsp;&nbsp;  title = {The  Cluster Dissection and Analysis Theory FORTRAN Programs Examples},<br/>&nbsp;&nbsp;  year = {1985},<br/>&nbsp;&nbsp;  isbn = {0131379852},<br/>&nbsp;&nbsp;  publisher = {Prentice-Hall, Inc.},<br/>&nbsp;&nbsp;  address = {Upper Saddle River, NJ, USA}<br/>}
+            </div>
+        </div>
+    </body>
+</html>

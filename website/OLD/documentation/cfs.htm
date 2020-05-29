@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Correlation-based Feature Selection</div>
+        <div class="label">Description</div>
+        <div class="description">
+            Correlation-based feature selection uses the wrapper method to come up
+            with a better heuristic for finding the best feature subset.
+            
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] =  fsCFS(<b><i>X</i></b>,<b><i>Y</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp; &nbsp; <b><i>out: </i></b> A struct containing the list of
+            features that have been deemed useful. The struct contains two fields:
+            <ul>
+                <li>fList -  The list of features that have been selected.</li>
+                <li>prf - This means that the smaller the feature weight is, the
+                    more useful it will be to the user.</li>
+            </ul>
+            <br/>Input:<br/>
+            &nbsp; &nbsp; <b><i>X: </i></b>
+            The features on current trunk, each column is a feature vector on all instances,
+            and each row is a part of the instance.<br/>
+            &nbsp; &nbsp; <b><i>Y: </i></b> The label of instances, in single column form: 1 2 3 4 5 ...
+            
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsCFS(X,Y)
+        </div>
+        
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">cfs</div>
+		
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Feature Selection for Machine Learning: Comparing a Correlation-based Filter Approach to the Wrapper, by Mark Hall and Lloyd Smith of Waikato University
+            <hr>
+            <div class="bibtex">
+                @misc{author = {Mark A. Hall and Lloyd A. Smith},<br/>&nbsp;&nbsp; <br/>&nbsp;&nbsp; title = {Feature Selection for Machine Learning: Comparing a Correlation-based Filter Approach to the Wrapper},<br/>&nbsp;&nbsp; publisher = {AAAI},<br/>&nbsp;&nbsp; year = {1999},<br/>&nbsp;&nbsp; URL = {https://www.aaai.org/Library/FLAIRS/1999/flairs99-042.php},<br/>&nbsp;&nbsp; url = {https://www.aaai.org/Library/FLAIRS/1999/flairs99-042.php},<br/>&nbsp;&nbsp; bibsource = {http://www.interaction-design.org/references}<br/>}
+            </div>
+        </div>
+    </body>
+</html>

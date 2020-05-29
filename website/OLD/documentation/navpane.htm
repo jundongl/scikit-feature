@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="sdmenu/sdmenu.css" />
+        <script type="text/javascript" src="sdmenu/sdmenu.js">
+		/***********************************************
+		* Slashdot Menu script- By DimX
+		* Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+		* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+		***********************************************/
+	</script>
+	<script type="text/javascript">
+	// <![CDATA[
+	var myMenu;
+	window.onload = function() {
+		myMenu = new SDMenu("my_menu");
+		myMenu.init();
+	};
+	// ]]>
+	</script>
+    </head>
+    
+    <body>
+    <div style="float: left" id="my_menu" class="sdmenu">
+        <div>
+            <span>Algorithms</span>
+            <a href="blogreg.htm" target="tpane">BLogReg</a>
+            <a href="cfs.htm" target="tpane">Correlation-based Feature Selection (CFS)</a>
+            <a href="chisquare.htm" target="tpane">Chi Square</a>
+            <a href="fcbf.htm" target="tpane">Fast Correlation-Based Filter (FCBF)</a>
+            <a href="fisher.htm" target="tpane">Fisher Score</a>
+            <a href="gini.htm" target="tpane">Gini Index</a>
+            <a href="infogain.htm" target="tpane">Information Gain</a>
+            <a href="kruskalwallis.htm" target="tpane">Kruskal-Wallis</a>
+            <a href="MRMR.htm" target="tpane">Minimum-Redundancy-Maximum-Relevance selection (mRMR)</a>
+            <a href="relieff.htm" target="tpane">Relief-F</a>
+            <a href="SBMLR.htm" target="tpane">Sparse Multinomial Logistic Regression via Bayesian L1 Regularisation (SBMLR)</a>
+            <a href="ttest.htm" target="tpane">T-test</a>
+            <a href="spectrum.htm" target="tpane">Spectral Feature Selection</a>
+        </div>
+        <div class="collapsed">
+            <span>Classifiers</span>
+            <a href="classifiers/knn.htm" target="tpane"><i>k</i>-NN</a>
+            <a href="classifiers/naivebayes.htm" target="tpane">Naive Bayes</a>
+            <a href="classifiers/j48.htm" target="tpane">J48</a>
+            <a href="classifiers/svm.htm" target="tpane">Support Vector Machines (SVM)</a>
+        </div>
+        <div class="collapsed">
+            <span>Clusters</span>
+	    <a href="clusters/KM.htm" target="tpane">K-Means</a>
+        </div>
+    </div>
+    </body>
+</html>

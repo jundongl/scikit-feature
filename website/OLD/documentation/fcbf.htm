@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Fast Correlation-Based Filter</div>
+        <div class="label">Description</div>
+        <div class="description">
+            FCBF is a  fast correlation-based filter algorithm designed for
+            high-dimensional data and has been shown effective in removing
+            both irrelevant features and redundant features.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] =  fsFCBF(<b><i>X</i></b>,<b><i>Y</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+                &nbsp; &nbsp; <b><i>out: </i></b>A struct containing the field 'fList', the list of features relevant
+                for further processing.<br/>
+            <br/>Input:<br/>
+                &nbsp; &nbsp; <b><i>X: </i></b>
+                    The features on current trunk, each column is a feature vector on all
+                    instances, and each row is a part of the instance.<br/>
+                &nbsp; &nbsp; <b><i>Y: </i></b>
+                    The label of instances, in single column form: 1 2 3 4 5 ...
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsFCBF(X,Y)
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">fcbf</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Feature Selection for High-Dimensional Data: A Fast Correlation-Based Filter Solution by L. Yu and H. Liu.<br/><br/>
+            Discretization: An Enabling Technique H. Liu, F. Hussain, C.L. Tan, and M. Dash.
+            <hr>
+            <div class="bibtex">
+                @inproceedings{Yu-Liu2003,<br/>&nbsp;&nbsp; 	author = {Liu, H. and Yu, L.},<br/>&nbsp;&nbsp; 	title = {Feature Selection for High-Dimensional Data: A Fast Correlation-Based Filter Solution},<br/>&nbsp;&nbsp; 	booktitle = {Correlation-Based Filter Solution". In Proceedings of The Twentieth International Conference on Machine Leaning (ICML-03)},<br/>&nbsp;&nbsp; 	year = {2003},<br/>&nbsp;&nbsp; 	pages = {856--863},<br/>&nbsp;&nbsp; 	address = {Washington, D.C.},<br/>&nbsp;&nbsp; 	publisher = {ICM}<br/>}<br/><br/>
+                @inproceedings{	author = {Liu,<br/>&nbsp;&nbsp;  H., Hussain, F., Tan, C.L., and Dash, Manoranjan}	title = {Discretization: An Enabling Technique},<br/>&nbsp;&nbsp; 	booktitle = {Data Mining and Knowledge Discovery},<br/>&nbsp;&nbsp; 	year = {2002},<br/>&nbsp;&nbsp; 	pages = {393--423},<br/>&nbsp;&nbsp; 	address = {Netherlands}	publisher = {Springer Netherland}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

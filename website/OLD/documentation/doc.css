@@ -1,0 +1,47 @@
+div.description, div.paper, div.usage{
+    padding-left:50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-right:50px;
+    
+    padding-top:25px;
+    padding-bottom:25px;
+    
+    background-color: #B4CDDD;
+    font-family: serif;
+    margin-right:50px;
+    border: solid;
+    border-width: 1px 1px 1px 1px;
+}
+
+table{
+    border: none;
+}
+
+td{
+    border-style: solid;
+    border-width: thin;
+}
+
+hr{
+    color: #000;
+}
+
+div.title{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: x-large;
+}
+
+div.label{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: x-large;
+    font-family: sans-serif;
+}
+
+div.bibtex, div.code{
+    font-family: monospace;
+    font-size: medium;
+    
+}

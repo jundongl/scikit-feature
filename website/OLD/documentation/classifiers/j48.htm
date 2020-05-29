@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="../doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Classifiers - J48</div>
+        <div class="label">Description</div>
+        <div class="description">
+            The J48 classifier is Weka's implementation of the infamous C4.5 decision tree
+            classifier, which is a classification algorithm based on ID3 that classifies using information entropy.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>a</i></b>] = J48(<b><i>args</i></b>, <b><i>trainX</i></b>, <b><i>trainY</i></b>
+                , <b><i>testX</i></b>, <b><i>testY</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp;&nbsp; <b><i>a:</i></b>
+            The output will be the same struct you passed in for 'args', but with the
+            tree, the vital features, and accuracy appended as fields. They will  
+            be named 'classifier', 'features', and 'tree_accuracy', respectively.<br/>
+            <br/>Input:<br/>
+            &nbsp;&nbsp; <b><i>args:</i></b>
+            This is a struct of arguments you want J48 to use while classifying. A list of
+            the parameters and their default values is listed below. Note that if you want to use
+            the defaults, simply pass a non-struct variable in and the default struct will be used.
+            <ul>
+                <li>unpruned=0      -- set to 1 to use unpruned trees</li>
+                <li>confidence=0.25 -- confidence threshold for pruning</li>
+                <li>number=2        -- minimum number of instances per leaf</li>
+                <li>reduced_error=0 -- set to 1 to use reduced error pruning</li>
+                <li>folds=3         -- number of folds for reduced error pruning</li>
+                <li>binary=0        -- set to 1 to use binary split for nominal attributes</li>
+                <li>laplace=0       -- set to 1 if laplace smoothing technique is used for
+                predicted probabilities</li>
+                <li>raising=1       -- set to 0 if subtree raising should not be performed</li>
+                <li>cleanup=1       -- set to 0 if no cleaning up after the tree has been
+                built.</li>
+            </ul>
+            &nbsp;&nbsp;<b><i>trainX:</i></b> training data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>trainY:</i></b> training data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>testX:</i></b> testing data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>testY:</i></b> testing data, each column is a class. <br/>
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            % Using the default settings <br/>
+            j48(0,X,Y,X,Y)
+        </div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Ross Quinlan (1993). C4.5: Programs for Machine Learning. Morgan Kaufmann Publishers, San Mateo, CA.
+            <hr>
+            <div class="bibtex">
+                @book{Quinlan1993,<br/>&nbsp;&nbsp;     address = {San Mateo, CA},<br/>&nbsp;&nbsp;     author = {Ross Quinlan},<br/>&nbsp;&nbsp;     publisher = {Morgan Kaufmann Publishers},<br/>&nbsp;&nbsp;     title = {C4.5: Programs for Machine Learning},<br/>&nbsp;&nbsp;     year = {1993}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

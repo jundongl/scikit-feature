@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="../doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Classifiers - SVM</div>
+        <div class="label">Description</div>
+        <div class="description">
+            Support vector machines (SVMs) are a set of supervised learning methods that
+            build models that predict whether a new data point fit into one of two categories.
+            This is used for purposes of regression and classification of various features.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>acc</i></b>, <b><i>predict_label</i></b>] = svmPrediction
+                (<b><i>trainX</i></b>, <b><i>trainY</i></b>
+                , <b><i>testX</i></b>, <b><i>testY</i></b>, <b><i>ker</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp;&nbsp; <b><i>acc:</i></b> The accuracy of the classifier.<br/>
+            &nbsp;&nbsp; <b><i>predict_label:</i></b> The label of the column that will give the
+            most accurate predictions.<br/>
+            <br/>Input:<br/>
+            &nbsp;&nbsp;<b><i>trainX:</i></b> training data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>trainY:</i></b> training data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>testX:</i></b> testing data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>testY:</i></b> testing data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>ker:</i></b> A structure, with the following fields:
+            <ul>
+                <li>ker -- 1 for linear, 2 for Radial-Basis Function (RBF)</li>
+                <li>gamma - can only be used with RBF</li>
+                <li>C</li>
+            </ul>
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            param.ker = 2;<br/>
+            param.gamma = 0;<br/>
+            svmPrediction(X,Y,X,Y,param)
+        </div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Chih-Chung Chang and Chih-Jen Lin, LIBSVM : a library for support vector machines, 2001.
+            <hr>
+            <div class="bibtex">
+                @Manual{CC01a,<br/>&nbsp;&nbsp; author =	 {Chih-Chung Chang and Chih-Jen Lin},<br/>&nbsp;&nbsp; title =	 {{LIBSVM}: a library for support vector machines},<br/>&nbsp;&nbsp; year =	 {2001},<br/>&nbsp;&nbsp; note =	 {Software available at \url{http://www.csie.ntu.edu.tw/~cjlin/libsvm}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

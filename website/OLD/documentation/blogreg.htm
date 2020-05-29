@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+        
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms- BLogReg</div>
+        <div class="label">Description</div>
+        <div class="description">
+            This algorithm is an implementation of a Bayesian logistic regression method
+            based on Shevade & Keerthi's algorithm. blogreg.c is the MEX implementaiton written
+            by Dr. Gavin C. Cawley (paper below), and fsblogreg.m is the MATLAB wrapper for that
+            code.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] = fsblogreg(<b><i>X</i></b>, <b><i>Y</i></b>, <b><i>param</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp; &nbsp<b><i>out: </i></b> The selected features of the algorithm, represented
+            as an array of numbers.<br/>
+            <br/>Input:<br/>
+            &nbsp; &nbsp<b><i>X: </i></b> The list of data points, each row being an instance.<br/>
+            &nbsp; &nbsp<b><i>Y: </i></b> The list of data points, each column being a class.<br/>
+            &nbsp; &nbsp<b><i>param: </i></b> A struct with the field 'tol', that contains the value
+            you wish to use for the tolerance.
+            
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the BASEHOCK.m test data set that is <br/>
+            % included in the package.<br/>
+            param.tol = 1;<br/>
+            fsblogreg(X,Y,param)
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">blogreg</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Gene selection in cancer classification using sparse logistic regression with Bayesian regularisation
+            <hr>
+            <div class="bibtex">
+                @article{Cawley06,<br/>&nbsp;&nbsp; 	author = {Cawley, Gavin C. and Talbot, Nicola L. C.},<br/>&nbsp;&nbsp; 	title = {Gene selection in cancer classification using sparse logistic regression with Bayesian regularization},<br/>&nbsp;&nbsp; 	journal = {Bioinformatics},<br/>&nbsp;&nbsp; 	volume={22},<br/>&nbsp;&nbsp; 	number={19},<br/>&nbsp;&nbsp; 	year={2006},<br/>&nbsp;&nbsp; 	issn={1367-4803},<br/>&nbsp;&nbsp; 	pages={2348--2355}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

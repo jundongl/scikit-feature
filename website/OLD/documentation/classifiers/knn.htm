@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="../doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Classifiers - <i>k</i>-NN</div>
+        <div class="label">Description</div>
+        <div class="description">
+            <i>k</i>-nearest neighbor (<i>k</i>-NN) is a method of classification that classifies
+            an object based on the attributes and training samples already known. The object is
+            classified by a majority vote of its neighbors, given the attributes most common of
+            its <i>k</i> nearest neighbors.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">function [<b><i>acc</i></b>] = knnPrediction( <b><i>trainX</i></b>, <b><i>trainY</i></b>,
+                    <b><i>testX</i></b>, <b><i>testY</i></b>, <b><i>k</i></b>)</div>
+            <hr/>
+            Output:<br/>
+            &nbsp;&nbsp;<b><i>acc:</i></b> the accuracy of the classifier at 1 nearest neighbor. 
+            <br/><br/>
+            Input:<br/>
+            &nbsp;&nbsp;<b><i>trainX:</i></b> training data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>trainY:</i></b> training data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>testX:</i></b> testing data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>testY:</i></b> testing data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>k:</i></b> neighbor size. <br/>
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using wine.mat, a sample data set found in the same directory as <br/>
+            % knnPrediction.m.<br/>
+            knnPrediction(X,Y,X,Y,1)
+        </div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Output-Sensitive Algorithms for Computing Nearest-Neighbour Decision Boundaries
+            <hr>
+            <div class="bibtex">
+@article{1059748,<br/>
+ &nbsp; &nbsp; author = {Bremner, David and Demaine, Erik and Erickson, Jeff and Iacono, John and Langerman, Stefan and Morin, Pat and Toussaint, Godfried},<br/>
+ &nbsp; &nbsp;title = {Output-Sensitive Algorithms for Computing Nearest-Neighbour Decision Boundaries},<br/>
+ &nbsp; &nbsp;journal = {Discrete Comput. Geom.},<br/>
+ &nbsp; &nbsp;volume = {33},<br/>
+ &nbsp; &nbsp;number = {4},<br/>
+ &nbsp; &nbsp;year = {2005},<br/>
+ &nbsp; &nbsp;issn = {0179-5376},<br/>
+ &nbsp; &nbsp;pages = {593--604},<br/>
+ &nbsp; &nbsp;doi = {http://dx.doi.org/10.1007/s00454-004-1152-0},<br/>
+ &nbsp; &nbsp;publisher = {Springer-Verlag New York, Inc.},<br/>
+ &nbsp; &nbsp;address = {Secaucus, NJ, USA},<br/>
+ }
+            </div>
+        </div>
+    </body>
+</html>

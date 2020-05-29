@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Information Gain</div>
+        <div class="label">Description</div>
+        <div class="description">
+            This is a wrapper for the Weka class that computes the information gain
+            on a class.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] =  fsInfoGain(<b><i>X</i></b>,<b><i>Y</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp; &nbsp; <b><i>out: </i></b>
+            A struct containing the following fields:
+                <ul>
+                    <li>w - a list containing the information gain of each feature
+                    when matched with fList.</li>
+                    <li>fList - the list of features ranked by their ability to classify
+                    the data. fList(1) is the least important feature.</li>
+                    <li>prf - will always be -1. This means the greater the feature weight,
+                    the more relevant the feature.</li>
+                </ul>
+            <br/>Input:<br/>
+            &nbsp; &nbsp; <b><i>X: </i></b>
+                    The features on current trunk, each column is a feature vector on all
+                    instances, and each row is a part of the instance.<br/>
+                &nbsp; &nbsp; <b><i>Y: </i></b>
+                    The label of instances, in single column form: 1 2 3 4 5 ...
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsInfoGain(X,Y)
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">infogain</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Cover, T. M. & Thomas, J. A. Elements of Information Theory Wiley, 1991
+            <hr>
+            <div class="bibtex">
+                @BOOK{Cove-Thom91,<br/>&nbsp;&nbsp;   title = {Elements of Information Theory},<br/>&nbsp;&nbsp;   publisher = {Wiley},<br/>&nbsp;&nbsp;   year = {1991},<br/>&nbsp;&nbsp;   author = {Cover, T. M. and Thomas, J. A.}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

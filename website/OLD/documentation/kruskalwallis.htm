@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Kruskal-Wallis</div>
+        <div class="label">Description</div>
+        <div class="description">
+            Kruskal-Wallis is a test of variance using population variance among groups.
+            This function serves as a wrapper to the MATLAB function <i>kruskalwallis</i>.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] = fsKruskalWallis(<b><i>X</i></b>, <b><i>Y</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+                &nbsp; &nbsp; <b><i>out: </i></b> A struct containing the following fields
+                <ul>
+                    <li>W - The distribution at each data point.</li>
+                    <li>fList - The list of features that are deemed useful.</li>
+                    <li>prf -  This means that the smaller the feature weight is, the
+                    more useful it will be to the user.</li>
+                </ul>
+            <br/>Input:<br/>
+                &nbsp; &nbsp; <b><i>X: </i></b>
+                    The features on current trunk, each column is a feature vector on all
+                    instances, and each row is a part of the instance.<br/>
+                &nbsp; &nbsp; <b><i>Y: </i></b>
+                    The label of instances, in single column form: 1 2 3 4 5 ...
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsKruskalWallis(X,Y)
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">kruskalwallis</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Asymptotic Conservativeness and Efficiency of Kruskal-Wallis Test for K Dependent Samples by L.J. Wei.
+            <hr>
+            <div class="bibtex">
+                @article { wei81,<br/>&nbsp;&nbsp;   author = {Wei, L. J.},<br/>&nbsp;&nbsp;   title = {Asymptotic Conservativeness and Efficiency of Kruskal-Wallis Test for K Dependent Samples},<br/>&nbsp;&nbsp;   journal =     {Journal of the American Statistical Association},<br/>&nbsp;&nbsp;   volume =      {76},<br/>&nbsp;&nbsp;   number =      {376},<br/>&nbsp;&nbsp;   month =       {December},<br/>&nbsp;&nbsp;   pages =       {1006--1009},<br/>&nbsp;&nbsp;   year =        {1981}<br/>}
+            </div>
+        </div>
+    </body>
+</html>

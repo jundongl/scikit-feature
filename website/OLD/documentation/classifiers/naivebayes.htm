@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="../doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algoriths - Classifiers - Naive Bayes</div>
+        <div class="label">Description</div>
+        <div class="description">
+            The naive Bayes classifier is a probabilistic classifier based on Bayes' rule. The naive
+            Bayes classifier classifies each feature independently of the presence of others.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>a</i></b>] = bayes(<b><i>a</i></b>, <b><i>trainX</i></b>, <b><i>trainY</i></b>
+                , <b><i>testX</i></b>, <b><i>testY</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+            &nbsp;&nbsp; <b><i>a:</i></b>
+            This is the struct you passed in for a, with the tree and its accuracy added as fields.
+            These fields are named <i>classifier</i>, and <i>tree_accuracy</i> respectively.
+            <br/><br/>
+            Input:<br/>
+            &nbsp;&nbsp; <b><i>a:</i></b>
+            Is a struct that has field 'D', and/or 'K', with the field you would
+            like the classifier to use set to true. If you would like to use
+            neither, that is fine as well, but you may use a maximum of 1. It is ok
+            if both fields are present in your struct, so long as only one of them
+            is set to true.
+            D means that you wish to incorporate supervised discretion when
+            you are processing numeric attributes.
+            K means that you wish to use kernel estimation for modeling numeric
+            attributes rather than a single normal distribution.<br/>
+            &nbsp;&nbsp;<b><i>trainX:</i></b> training data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>trainY:</i></b> training data, each column is a class. <br/>
+            &nbsp;&nbsp;<b><i>testX:</i></b> testing data, each row is an instance. <br/>
+            &nbsp;&nbsp;<b><i>testY:</i></b> testing data, each column is a class. <br/>
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            a.D = true; <br/>
+            a.K = false;<br/>
+            bayes(a, X, Y, X, Y)
+        </div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            George H. John, Pat Langley: Estimating Continuous Distributions in
+            Bayesian Classifiers. In: Eleventh Conference on Uncertainty in
+            Artificial Intelligence, San Mateo, 338-345, 1995.
+            <hr>
+            <div class="bibtex">
+                @inproceedings{John1995,<br/>&nbsp;&nbsp;     address = {San Mateo},<br/>&nbsp;&nbsp;     author = {George H. John and Pat Langley},<br/>&nbsp;&nbsp;     booktitle = {Eleventh Conference on Uncertainty in Artificial Intelligence},<br/>&nbsp;&nbsp;     pages = {338-345},<br/>&nbsp;&nbsp;     publisher = {Morgan Kaufmann},<br/>&nbsp;&nbsp;     title = {Estimating Continuous Distributions in Bayesian Classifiers},<br/>&nbsp;&nbsp;     year = {1995}<br/>}
+            </div>
+        </div>
+    </body>
+</html>

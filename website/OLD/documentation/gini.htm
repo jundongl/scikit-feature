@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Gini Index</div>
+        <div class="label">Description</div>
+        <div class="description">
+            The Gini Index is a statistical measure of dispersion. It is based on
+            another statistical phenomenon called the Lorentz curve, and is commonly
+            used to quantify wealth distributions, although its applications are endless.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [<b><i>out</i></b>] = fsGini(<b><i>X</i></b>,<b><i>Y</i></b>)
+            </div>
+            <hr/>
+            Output:<br/>
+                &nbsp; &nbsp; <b><i>out: </i></b>
+                A struct containing the following fields:
+                <ul>
+                    <li>w - a list containing the information gain of each feature
+                    when matched with fList.</li>
+                    <li>fList - the list of features ranked by their ability to classify
+                    the data. fList(1) is the least important feature.</li>
+                    <li>prf - will always be -1. This means the greater the feature weight,
+                    the more relevant the feature.</li>
+                </ul>
+            <br/>Input:<br/>
+                &nbsp; &nbsp; <b><i>X: </i></b>
+                    The features on current trunk, each column is a feature vector on all
+                    instances, and each row is a part of the instance.<br/>
+                &nbsp; &nbsp; <b><i>Y: </i></b>
+                    The label of instances, in single column form: 1 2 3 4 5 ...
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            fsGini(X,Y)
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">gini</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Gini, C. "Variabilita e mutabilita." 1912. Reprinted in Memorie di metodologia statistica (Ed. E. Pizetti and T. Salvemini.) Rome: Libreria Eredi Virgilio Veschi, 1955.
+            <hr>
+            <div class="bibtex">
+                @article{gini-1912,<br/>&nbsp;&nbsp; 	author = {Gini, C.},<br/>&nbsp;&nbsp; 	title = {Variabilit‡ e mutabilita.},<br/>&nbsp;&nbsp; 	journal = {Memorie di metodologia statistica},<br/>&nbsp;&nbsp; 	publisher = {Libreria Eredi Virgilio Veschi, Rome},<br/>&nbsp;&nbsp; 	year = {1912}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>

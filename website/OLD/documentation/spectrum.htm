@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Feature Selection Package Documentation</title>
+        <link rel=stylesheet href="doc.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <div class="title">Feature Selection Package - Algorithms - Spectral Feature Selection</div>
+        <div class="label">Description</div>
+        <div class="description">
+            Spectral feature selection is a feature selection strategy that is largely based on
+            the work of spectral graph theory. This is the unification of supervised and
+            unsupervised feature selection.
+        </div>
+        
+        <div class="label">Usage</div>
+        <div class="usage">
+            Method Signature:
+            <hr/>
+            <div class="code">
+                [ <b><i>wFeat</i></b>, <b><i>SF</i></b> ] = fsSpectrum( <b><i>W</i></b>, <b><i>X</i></b>,
+                    <b><i>style</i></b>, <b><i>spec</i></b> )
+            </div>
+            <hr/>
+            Output:<br/>
+                &nbsp; &nbsp; <b><i>wFeat: </i></b> The weight of the features.<br/>
+                &nbsp; &nbsp; <b><i>SF: </i></b> The statistical relevance of the features.
+            <br/>Input:<br/>
+                &nbsp; &nbsp; <b><i>W: </i></b> The similarity matrix or a kernel matrix for the features.<br/>
+                &nbsp; &nbsp; <b><i>X: </i></b> The input data, each row is an instance.<br/>
+                &nbsp; &nbsp; <b><i>style: </i></b> Must be one of the following values:
+                    <b>-1</b>: use all, <b>0</b>: use all except the 1st, <b>k</b>: use first k except 1st.
+                <br/>
+                &nbsp; &nbsp; <b><i>spec: </i></b> The spectral function to modify the eigen values.
+        </div>
+        
+        <div class="label">Code Example</div>
+        <div class="code paper">
+            % Using the wine.dat data set, which can be found at <br/>
+            % [fspackage_location]/classifiers/knn/wine.mat <br/>
+            W = X*X';<br/>
+            fsSpectrum(W,X,-1);
+        </div>
+		
+		<div class="label">Keyword in Evaluator Framework</div>
+		<div class="code paper">spectrum</div>
+        
+        <div class="label">Paper</div>
+        <div class="paper">
+            BibTex entry for:<br/><br/>
+            Spectral Feature Selection for Supervised and Unsupervised Learning by Zheng Zhao and Huan Liu.
+            <hr>
+            <div class="bibtex">
+                @article{LiuZhao,<br/>	&nbsp;&nbsp;title = {Spectral Feature Selection for Supervised and Unsupervised Learning},<br/>&nbsp;&nbsp; author = {Liu, Huan and Zhao, Zheng},<br/>&nbsp;&nbsp; 	year = {2007},<br/>&nbsp;&nbsp; 	journal = {Proceedings of the 24th International Conference on Machine Learning}<br/>}
+
+            </div>
+        </div>
+    </body>
+</html>
