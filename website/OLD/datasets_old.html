@@ -1,384 +1,386 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!-- saved from url=(0048)http://featureselection.asu.edu/old/datasets.php -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<title>Datasets | Feature Selection @ ASU</title>
-<link href="./Datasets _ Feature Selection @ ASU_files/style.css" rel="stylesheet" type="text/css" media="screen">
-<link rel="shortcut icon" href="http://featureselection.asu.edu/old/images/favicon.ico">
-	
-	<script type="text/javascript" async="" src="./Datasets _ Feature Selection @ ASU_files/ga.js.download"></script><script type="text/javascript">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<title>Datasets | Feature Selection @ ASU</title>
+	<link href="./style/style.css" rel="stylesheet" type="text/css" media="screen">
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<script type="text/javascript" async="" src="./js/ga.js"></script>
+
+	<script type="text/javascript">
 		/*
 		 This function will toggle the visibility of the algorithm table.
 		*/
-		function showHideAlgoTable(tableName, fieldName){
-			
+		function showHideAlgoTable(tableName, fieldName) {
+
 			var onText = "- Show Table";
 			var offText = "+ Hide Table";
-			
+
 			var onProp = "block";
 			var offProp = "none";
-			
+
 			var showHideMe = document.getElementById(tableName);
 			var showHideLink = document.getElementById(fieldName);
-			
-			if(showHideMe.style.display == offProp){
+
+			if (showHideMe.style.display == offProp) {
 				showHideMe.style.display = onProp;
 				showHideLink.innerHTML = offText;
 			}
-			else{
+			else {
 				showHideMe.style.display = offProp;
 				showHideLink.innerHTML = onText;
 			}
 		}
 	</script>
-	
-	<script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-18315668-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 </head>
-<body data-gr-c-s-loaded="true">
 
-<div id="header">
-	<div id="logo">
-		<h1><a href="http://featureselection.asu.edu/old/datasets.php#">Feature Selection</a></h1>
-		<p>at <a href="http://asu.edu/">Arizona State University</a></p>
-		<br>
-		In conjunction with the <a href="http://dmml.asu.edu/">DMML</a>.
-	</div>
-</div><!-- end #header -->
-<div id="menu">
-	<ul>
-	<li><a href="http://featureselection.asu.edu/old/index.php">Home</a></li>
-	<li><a href="http://featureselection.asu.edu/old/research.php">Research</a></li>
-	<li><a href="http://featureselection.asu.edu/old/datasets.php">Datasets</a></li>
-	<li><a href="http://featureselection.asu.edu/old/software.php">Feature Selection Algorithms</a></li>
-	<li><a href="http://featureselection.asu.edu/old/donateds.php">Donate a Dataset</a></li>
-	<li><a href="http://featureselection.asu.edu/old/donateal.php">Donate an Algorithm</a></li>
-	<!--<li><a href="/forum/">Public Forum (beta)</a></li>-->
-</ul>	
-</div>
-<!-- end #menu -->
-<div id="page">
-	<div id="content">
-		<div class="post">
-			<h1 class="title"><a href="http://featureselection.asu.edu/old/datasets.php#">Feature Selection Datasets </a></h1>
-			<div class="entry"><br>
-				<a onclick="showHideAlgoTable(&#39;showHideDatasets&#39;,&#39;showHideDSLink&#39;);" style="font-size: larger;" id="showHideDSLink">+ Hide Table</a>
-				<div id="showHideDatasets" style="display: block; padding-top: 14px;">
-					<!-- Make the connection-->
-										<table align="center">
-						<tbody><tr><th width="158" align="center">Data Set</th>
-						<th width="95" align="center">#Instances</th>
-						<th width="95" align="center">#Features</th>
-						<th width="95" align="center">#Classes</th>
-						<th width="200" align="center">Keywords</th>
-						<th width="76" align="center">Source</th>
-						<th width="76" align="center">MAT</th>
-												</tr><tr class="list">
-							<td class="list">
-								20 Newsgroups							</td>
-							<td class="list" align="center">
-								18774							</td>							
-							<td class="list" align="center">
-								16201							</td>
-							<td class="list" align="center">
-								20							</td>
-							<td class="list" align="center">
-								TEXT							</td>							
-							<td class="list" align="center">
-								<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/20newsgroups.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								BASEHOCK							</td>
-							<td class="list" align="center">
-								1993							</td>							
-							<td class="list" align="center">
-								4862							</td>
-							<td class="list" align="center">
-								2							</td>
-							<td class="list" align="center">
-								TEXT							</td>							
-							<td class="list" align="center">
-								<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/BASEHOCK.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								RELATHE							</td>
-							<td class="list" align="center">
-								1427							</td>							
-							<td class="list" align="center">
-								4322							</td>
-							<td class="list" align="center">
-								2							</td>
-							<td class="list" align="center">
-								TEXT							</td>							
-							<td class="list" align="center">
-								<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/PCMAC.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								PCMAC							</td>
-							<td class="list" align="center">
-								1943							</td>							
-							<td class="list" align="center">
-								3289							</td>
-							<td class="list" align="center">
-								2							</td>
-							<td class="list" align="center">
-								TEXT							</td>							
-							<td class="list" align="center">
-								<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/PCMAC.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								Reuters							</td>
-							<td class="list" align="center">
-								8293							</td>							
-							<td class="list" align="center">
-								18933							</td>
-							<td class="list" align="center">
-								65							</td>
-							<td class="list" align="center">
-								TEXT							</td>							
-							<td class="list" align="center">
-								<a href="http://www.zjucadcg.cn/dengcai/Data/TextData.html">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/Reuters21578.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								GLI-85							</td>
-							<td class="list" align="center">
-								85							</td>							
-							<td class="list" align="center">
-								22283							</td>
-							<td class="list" align="center">
-								2							</td>
-							<td class="list" align="center">
-								Microarray, Bio							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE4412">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/GLI-85.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								GLA-BRA-180							</td>
-							<td class="list" align="center">
-								180							</td>							
-							<td class="list" align="center">
-								49151							</td>
-							<td class="list" align="center">
-								4							</td>
-							<td class="list" align="center">
-								Microarray, Bio							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS1962">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/GLA-BRA-180.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								CLL-SUB-111							</td>
-							<td class="list" align="center">
-								111							</td>							
-							<td class="list" align="center">
-								11340							</td>
-							<td class="list" align="center">
-								3							</td>
-							<td class="list" align="center">
-								Microarray, Bio							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE2466">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/CLL-SUB-111.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								TOX-171							</td>
-							<td class="list" align="center">
-								171							</td>							
-							<td class="list" align="center">
-								5748							</td>
-							<td class="list" align="center">
-								4							</td>
-							<td class="list" align="center">
-								Microarray, Bio							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ncbi.nlm.nih.gov/sites/GDSbrowser">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/TOX-171.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								SMK-CAN-187							</td>
-							<td class="list" align="center">
-								187							</td>							
-							<td class="list" align="center">
-								19993							</td>
-							<td class="list" align="center">
-								2							</td>
-							<td class="list" align="center">
-								Microarray, Bio							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE4115">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/SMK-CAN-187.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								AR10P							</td>
-							<td class="list" align="center">
-								130							</td>							
-							<td class="list" align="center">
-								2400							</td>
-							<td class="list" align="center">
-								10							</td>
-							<td class="list" align="center">
-								IMAGE, FACE							</td>							
-							<td class="list" align="center">
-								<a href="http://cobweb.ecn.purdue.edu/~aleix/aleix_face_DB.html">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/warpAR10P.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								PIX10P							</td>
-							<td class="list" align="center">
-								100							</td>							
-							<td class="list" align="center">
-								10000							</td>
-							<td class="list" align="center">
-								10							</td>
-							<td class="list" align="center">
-								IMAGE, FACE							</td>							
-							<td class="list" align="center">
-								<a href="http://peipa.essex.ac.uk/ipa/pix/faces/">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/pixraw10P.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								PIE10P							</td>
-							<td class="list" align="center">
-								210							</td>							
-							<td class="list" align="center">
-								2420							</td>
-							<td class="list" align="center">
-								10							</td>
-							<td class="list" align="center">
-								IMAGE, FACE							</td>							
-							<td class="list" align="center">
-								<a href="http://www.ri.cmu.edu/research_project_detail.html?project_id=418&amp;menu_id=261">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/warpPIE10P.mat">Download</a>
-							</td>
-						</tr>
-												<tr class="list">
-							<td class="list">
-								ORL10P							</td>
-							<td class="list" align="center">
-								100							</td>							
-							<td class="list" align="center">
-								10304							</td>
-							<td class="list" align="center">
-								10							</td>
-							<td class="list" align="center">
-								IMAGE, FACE							</td>							
-							<td class="list" align="center">
-								<a href="http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html">
-									link
-								</a>
-							</td>
-							<td class="list" align="center">
-								<a href="http://featureselection.asu.edu/old/datasets/orlraws10P.mat">Download</a>
-							</td>
-						</tr>
-											</tbody></table>
-				</div>
-		  </div>
+<body>
+
+	<div id="header">
+		<div id="logo">
+			<h1><a href="home_old.html">Feature Selection</a></h1>
+			<p>at <a href="http://asu.edu/">Arizona State University</a></p>
+			<br>
+			In conjunction with the <a href="http://dmml.asu.edu/">DMML</a>.
 		</div>
 	</div>
-	<!-- end #sidebar -->
-	<div style="clear: both;">&nbsp;</div>
-</div>
-<!-- end #page -->
-<div id="footer">
-	<p>© 2020 DMML @ ASU. All rights reserved. <a href="http://featureselection.asu.edu/old/license.php">License</a>
-</p></div>
-<!-- end #footer -->
+	<!-- end #header -->
+
+	<div id="menu">
+		<ul>
+			<li><a href="home_old.html">Home</a></li>
+			<li><a href="research_old.html">Research</a></li>
+			<li><a href="datasets_old.html">Datasets</a></li>
+			<li><a href="algorithms_old.html">Feature Selection Algorithms</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
 
 
-</body></html>
+
+	<div id="page">
+		<div id="content">
+			<div class="post">
+				<h1 class="title"><a href="datasets_old.html#">Feature Selection Datasets
+					</a></h1>
+				<div class="entry"><br>
+					<a onclick="showHideAlgoTable(&#39;showHideDatasets&#39;,&#39;showHideDSLink&#39;);"
+						style="font-size: larger;" id="showHideDSLink">+ Hide Table</a>
+					<div id="showHideDatasets" style="display: block; padding-top: 14px;">
+						<!-- Make the connection-->
+						<table align="center">
+							<tbody>
+								<tr>
+									<th width="158" align="center">Data Set</th>
+									<th width="95" align="center">#Instances</th>
+									<th width="95" align="center">#Features</th>
+									<th width="95" align="center">#Classes</th>
+									<th width="200" align="center">Keywords</th>
+									<th width="76" align="center">Source</th>
+									<th width="76" align="center">MAT</th>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										20 Newsgroups </td>
+									<td class="list" align="center">
+										18774 </td>
+									<td class="list" align="center">
+										16201 </td>
+									<td class="list" align="center">
+										20 </td>
+									<td class="list" align="center">
+										TEXT </td>
+									<td class="list" align="center">
+										<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/20newsgroups.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										BASEHOCK </td>
+									<td class="list" align="center">
+										1993 </td>
+									<td class="list" align="center">
+										4862 </td>
+									<td class="list" align="center">
+										2 </td>
+									<td class="list" align="center">
+										TEXT </td>
+									<td class="list" align="center">
+										<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/BASEHOCK.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										RELATHE </td>
+									<td class="list" align="center">
+										1427 </td>
+									<td class="list" align="center">
+										4322 </td>
+									<td class="list" align="center">
+										2 </td>
+									<td class="list" align="center">
+										TEXT </td>
+									<td class="list" align="center">
+										<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/PCMAC.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										PCMAC </td>
+									<td class="list" align="center">
+										1943 </td>
+									<td class="list" align="center">
+										3289 </td>
+									<td class="list" align="center">
+										2 </td>
+									<td class="list" align="center">
+										TEXT </td>
+									<td class="list" align="center">
+										<a href="http://people.csail.mit.edu/jrennie/20Newsgroups/">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/PCMAC.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										Reuters </td>
+									<td class="list" align="center">
+										8293 </td>
+									<td class="list" align="center">
+										18933 </td>
+									<td class="list" align="center">
+										65 </td>
+									<td class="list" align="center">
+										TEXT </td>
+									<td class="list" align="center">
+										<a href="http://www.zjucadcg.cn/dengcai/Data/TextData.html">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/Reuters21578.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										GLI-85 </td>
+									<td class="list" align="center">
+										85 </td>
+									<td class="list" align="center">
+										22283 </td>
+									<td class="list" align="center">
+										2 </td>
+									<td class="list" align="center">
+										Microarray, Bio </td>
+									<td class="list" align="center">
+										<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE4412">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/GLI-85.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										GLA-BRA-180 </td>
+									<td class="list" align="center">
+										180 </td>
+									<td class="list" align="center">
+										49151 </td>
+									<td class="list" align="center">
+										4 </td>
+									<td class="list" align="center">
+										Microarray, Bio </td>
+									<td class="list" align="center">
+										<a href="http://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS1962">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/GLA-BRA-180.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										CLL-SUB-111 </td>
+									<td class="list" align="center">
+										111 </td>
+									<td class="list" align="center">
+										11340 </td>
+									<td class="list" align="center">
+										3 </td>
+									<td class="list" align="center">
+										Microarray, Bio </td>
+									<td class="list" align="center">
+										<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE2466">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/CLL-SUB-111.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										TOX-171 </td>
+									<td class="list" align="center">
+										171 </td>
+									<td class="list" align="center">
+										5748 </td>
+									<td class="list" align="center">
+										4 </td>
+									<td class="list" align="center">
+										Microarray, Bio </td>
+									<td class="list" align="center">
+										<a href="http://www.ncbi.nlm.nih.gov/sites/GDSbrowser">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/TOX-171.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										SMK-CAN-187 </td>
+									<td class="list" align="center">
+										187 </td>
+									<td class="list" align="center">
+										19993 </td>
+									<td class="list" align="center">
+										2 </td>
+									<td class="list" align="center">
+										Microarray, Bio </td>
+									<td class="list" align="center">
+										<a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE4115">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/SMK-CAN-187.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										AR10P </td>
+									<td class="list" align="center">
+										130 </td>
+									<td class="list" align="center">
+										2400 </td>
+									<td class="list" align="center">
+										10 </td>
+									<td class="list" align="center">
+										IMAGE, FACE </td>
+									<td class="list" align="center">
+										<a href="http://cobweb.ecn.purdue.edu/~aleix/aleix_face_DB.html">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/warpAR10P.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										PIX10P </td>
+									<td class="list" align="center">
+										100 </td>
+									<td class="list" align="center">
+										10000 </td>
+									<td class="list" align="center">
+										10 </td>
+									<td class="list" align="center">
+										IMAGE, FACE </td>
+									<td class="list" align="center">
+										<a href="http://peipa.essex.ac.uk/ipa/pix/faces/">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/pixraw10P.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										PIE10P </td>
+									<td class="list" align="center">
+										210 </td>
+									<td class="list" align="center">
+										2420 </td>
+									<td class="list" align="center">
+										10 </td>
+									<td class="list" align="center">
+										IMAGE, FACE </td>
+									<td class="list" align="center">
+										<a
+											href="http://www.ri.cmu.edu/research_project_detail.html?project_id=418&amp;menu_id=261">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/warpPIE10P.mat">Download</a>
+									</td>
+								</tr>
+								<tr class="list">
+									<td class="list">
+										ORL10P </td>
+									<td class="list" align="center">
+										100 </td>
+									<td class="list" align="center">
+										10304 </td>
+									<td class="list" align="center">
+										10 </td>
+									<td class="list" align="center">
+										IMAGE, FACE </td>
+									<td class="list" align="center">
+										<a href="http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html">
+											link
+										</a>
+									</td>
+									<td class="list" align="center">
+										<a href="./datasets/orlraws10P.mat">Download</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>© 2020 DMML @ ASU. All rights reserved.</p>
+	</div>
+	<!-- end #footer -->
+
+
+</body>
+
+</html>
