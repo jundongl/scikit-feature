@@ -98,8 +98,8 @@ def reliefF(X, y, **kwargs):
             near_miss_term[label] = np.zeros(n_features)
             for ele in miss_list:
                 near_miss_term[label] = np.array(abs(self_fea-X[ele, :]))+np.array(near_miss_term[label])
-            score += near_miss_term[label]/(k*p_dict[label])
-        score -= near_hit_term/k
+            score = score+near_miss_term[label]/(k*p_dict[label])
+        score = score-near_hit_term/k
     return score
 
 
@@ -110,9 +110,3 @@ def feature_ranking(score):
     """
     idx = np.argsort(score, 0)
     return idx[::-1]
-
-
-
-
-
-
