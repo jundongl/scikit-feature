@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 
 def gini_index(X, y):
     """
@@ -62,6 +62,32 @@ def gini_index(X, y):
             if value < gini[i]:
                 gini[i] = value
     return gini
+
+def feature_selection_based_on_threshold(gini_values, t):
+    """
+    This function select the best features based on threshold t.
+    If all gini values are the same the function returns a random value for features length.
+
+    Input
+    ----------
+    gini_values: {numpy array}, shape (n_features, )
+        gini index value of each feature
+    t: threshold value
+
+    Output
+    ----------
+    gini_indexes_selected: {numpy array}, shape (n_features_selected, )
+        indexes for the features selected based on threshold
+    """
+    gini_indexes_selected = []
+
+    for index, gini_value in enumerate(gini_values):
+        if gini_value < t:
+            gini_indexes_selected.append(index)
+    if len(gini_indexes_selected) == 0:
+        gini_indexes_selected.append(random.randint(0, len(gini_values) - int(1)))
+
+    return gini_indexes_selected
 
 
 def feature_ranking(W):
