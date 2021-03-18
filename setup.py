@@ -22,6 +22,7 @@ setup(
     keywords = KEYWORDS,
     author = AUTHOR,
     author_email = AUTHOR_EMAIL,
+    license = 'GPL-2.0-or-later',
     url = URL,
     packages =['skfeature', 'skfeature.utility','skfeature.function','skfeature.function.information_theoretical_based','skfeature.function.similarity_based','skfeature.function.sparse_learning_based','skfeature.function.statistical_based','skfeature.function.streaming','skfeature.function.structure','skfeature.function.wrapper',] ,
 )
