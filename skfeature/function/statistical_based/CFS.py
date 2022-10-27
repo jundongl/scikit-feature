@@ -27,11 +27,15 @@ def merit_calculation(X, y):
     rcf = 0
     for i in range(n_features):
         fi = X[:, i]
-        rcf += su_calculation(fi, y)
+        if F[i] not in R:
+            R[F[i]] = su_calculation(fi, y)
+        rcf += R[F[i]] 
         for j in range(n_features):
             if j > i:
                 fj = X[:, j]
-                rff += su_calculation(fi, fj)
+                if (F[i], F[j]) not in R:
+                    R[(F[i], F[j])] = su_calculation(fi, fj)
+                rff += R[(F[i], F[j])]
     rff *= 2
     merits = rcf / np.sqrt(n_features + rff)
     return merits
@@ -62,6 +66,7 @@ def cfs(X, y):
     F = []
     # M stores the merit values
     M = []
+    R = {} # Save the calculated relevant values with dict R
     while True:
         merit = -100000000000
         idx = -1
@@ -69,7 +74,7 @@ def cfs(X, y):
             if i not in F:
                 F.append(i)
                 # calculate the merit of current selected features
-                t = merit_calculation(X[:, F], y)
+                t = merit_calculation(X[:, F], y, F, R)
                 if t > merit:
                     merit = t
                     idx = i
