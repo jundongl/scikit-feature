@@ -46,3 +46,9 @@ If you find scikit-feature feature selection reposoitory useful in your research
 ## Contact
 Jundong Li
 E-mail: jundong@virgnia.edu
+
+## Contribution
+Name: OKORO VALERIE CHIKANYIMA
+MATRIC NUMBER: ADUN\FS\SEN\22\058
+COURSE CODE: SEN 406
+ASSIGNMENT SUBMISSION
